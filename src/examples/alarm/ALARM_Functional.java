@@ -1531,7 +1531,7 @@ public class ALARM_Functional {
     static void ALARM_Functional_Init(B_ALARM_Functional_c_T localB,
                                       DW_ALARM_Functional_f_T localDW) {
         /* InitializeConditions for Chart: '<Root>/Alarm  Sub-System' */
-        /*localDW.is_active_CheckAlarm = 0;
+        localDW.is_active_CheckAlarm = 0;
         localDW.is_active_CancelAlarm = 0;
         localDW.is_CancelAlarm = ALARM_Functional_IN_NO_ACTIVE_CHILD;
         localDW.is_active_Level1 = 0;
@@ -1591,12 +1591,12 @@ public class ALARM_Functional {
         localDW.cancelAlarm = 0;
         localDW.Max_Alarm_Level = 0;
         localDW.idletimer = 0;
-        localDW.pausedtimer = 0;*/
-        /*localB.ALARM_OUT_Display_Audio_Disabled_Indicator = 0;
+        localDW.pausedtimer = 0;
+        localB.ALARM_OUT_Display_Audio_Disabled_Indicator = 0;
         localB.ALARM_OUT_Display_Notification_Command = 0;
         localB.ALARM_OUT_Audio_Notification_Command = 0;
         localB.ALARM_OUT_Highest_Level_Alarm = 0;
-        localB.ALARM_OUT_Log_Message_ID = 0;*/
+        localB.ALARM_OUT_Log_Message_ID = 0;
     }
 
     /* Output and update for referenced model: 'ALARM_Functional' */

@@ -1,4 +1,4 @@
-target=alarm.ALARM_FunctionalMain
+target=alarm.ALARM_Functional
 
 classpath=${jpf-symbc}/build/examples
 sourcepath=${jpf-symbc}/src/examples
@@ -21,3 +21,5 @@ listener = .symbc.SymbolicListener
 #symbolic.dp=coral
 #choco.time_bound=200000000
 symbolic.dp=z3
+benchmark=alarm
+testCaseFor=ALARM_FunctionalSymWrapper

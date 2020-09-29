@@ -76,10 +76,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author Mithun Acharya
@@ -117,6 +114,8 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
 
     String benchmark = null;
     String testCaseForMethod = null;
+
+    HashSet<String> dumpedTest = new HashSet<>();
 
     // this set will store all the method sequences.
     // will be printed at last.
@@ -318,20 +317,22 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
 
             Vector<String> testCase = getMethodSequence(cgs);
 
-            if (methodSequences.add(testCase))
+            if (methodSequences.add(testCase)) {
                 try {
                     fw = new FileWriter(("../testCase/testCases_" + benchmark + ".txt"), true);
                     bw = new BufferedWriter(fw);
                     out = new PrintWriter(bw);
                     for (String test : testCase)
-                        if (test.contains(testCaseForMethod))
+                        if (test.contains(testCaseForMethod) && (!dumpedTest.contains(test))) {
+                            dumpedTest.add(test);
                             out.println(test);
+                        }
                     out.close();
                 } catch (IOException e) {
                     assert false : "cannot create test cases.";
                     e.printStackTrace();
                 }
-
+            }
 
         }
         //	}

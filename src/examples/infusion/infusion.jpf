@@ -1,4 +1,4 @@
-target=infusion.INFUSION_MGR_FunctionalMain
+target=infusion.INFUSION_MGR_Functional
 
 classpath=${jpf-symbc}/build/examples
 sourcepath=${jpf-symbc}/src/examples
@@ -30,3 +30,5 @@ listener = .symbc.SymbolicListener
 #report.publisher=console
 #symbolic.dp=coral
 #choco.time_bound=200000000
+benchmark=infusion
+testCaseFor=INFUSION_MGR_FunctionalSymWrapper

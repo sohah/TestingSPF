@@ -1,7 +1,7 @@
-target=wbs.WBSMain
+target=wbs.WBS
 classpath=${jpf-symbc}/build/examples
 
-symbolic.method = wbs.WBS.launch(sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym),wbs.WBS.update(sym#sym#sym)
+symbolic.method = wbs.WBS.launch(sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym)
 
 
 #symbolic.minint=-500
@@ -9,7 +9,7 @@ symbolic.method = wbs.WBS.launch(sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym#sym
 #symbolic.minreal=-100.0
 #symbolic.maxreal=100.0
 #symbolic.undefined=0
-search.depth_limit=50
+#search.depth_limit=50
 #listener=edu.utexas.gsoc.symbc.listeners.MySymbolicListener
 
 #listener = .symbc.SymbolicListener
@@ -19,7 +19,7 @@ listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
 
 
 #report.publisher=console
-symbolic.dp=coral
+symbolic.dp=z3
 #choco.time_bound=200000000
 benchmark=wbs
-testCaseFor=update
+testCaseFor=launch
