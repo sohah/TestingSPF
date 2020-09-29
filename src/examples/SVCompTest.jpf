@@ -1,0 +1,26 @@
+target=SVCompTest
+classpath=${jpf-symbc}/build/examples
+sourcepath=${jpf-symbc}/src/examples
+#symbolic.method=SVCompTest.StringCompare02(sym#sym)
+#symbolic.method=SVCompTest.StaticCharMethods02(sym)
+symbolic.method=SVCompTest.RegexMatches02(sym)
+symbolic.debug=true
+
+
+#class
+target=SVCompTest
+#main method arguments
+classpath=${jpf-symbc}/build/examples
+sourcepath=${jpf-symbc}/src/examples
+
+#jpf listener
+listener =.symbc.SymbolicListener
+
+#to use symbolic string
+symbolic.strings=true
+#to use abc for string constraints solving
+symbolic.string_dp=ABC
+#defining string range and length
+symbolic.string_range=/[A-Z]{0,4}/
+
+symbolic.dp=z3

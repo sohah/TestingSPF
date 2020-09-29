@@ -3,14 +3,15 @@ classpath=${jpf-symbc}/build/examples
 sourcepath=${jpf-symbc}/src/examples
 
 symbolic.strings = true
-symbolic.dp=choco
-symbolic.string_dp=z3str2
+#symbolic.dp=choco
+symbolic.dp=z3
+symbolic.string_dp=automata
 symbolic.string_dp_timeout_ms=3000
 symbolic.debug=true
 
 symbolic.method= strings.StringSearch.search_1(conc#sym)
 search.depth_limit = 12
 search.multiple_errors=true
-#listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
-listener = sidechannel.TimingChannelListener
+listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
+#listener = sidechannel.TimingChannelListener
 vm.storage.class=nil
