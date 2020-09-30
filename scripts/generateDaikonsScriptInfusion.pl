@@ -49,7 +49,7 @@ while(<FH>){
 }
 close(FH);
 
-my $java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces/*.dtrace.gz --format java > daikonInv/daikon_invariants_${benchmark}.txt";
+my $java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_${benchmark}.txt";
 print DAIKONFH $java_command;
 
 close(DAIKONFH);

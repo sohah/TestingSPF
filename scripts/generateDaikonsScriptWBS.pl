@@ -25,7 +25,9 @@ my $trace_count=0;
 
 open(DAIKONFH, '>', $daikonScript_FileName) or die $!;
 
-print DAIKONFH "rm traces/*\n";
+print DAIKONFH '#!/bin/bash';
+
+print DAIKONFH "\nrm traces/*\n";
 
 print DAIKONFH "mkdir traces\n";
 
@@ -49,7 +51,7 @@ while(<FH>){
 }
 close(FH);
 
-my $java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces/*.dtrace.gz --format java > daikonInv/daikon_invariants_${benchmark}.txt";
+my $java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_${benchmark}.txt";
 print DAIKONFH $java_command;
 
 close(DAIKONFH);
