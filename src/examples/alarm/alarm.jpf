@@ -15,7 +15,10 @@ symbolic.method=alarm.ALARM_Functional.ALARM_FunctionalSymWrapper(sym#sym#sym#sy
 #search.depth_limit=100
 #listener=edu.utexas.gsoc.symbc.listeners.MySymbolicListener
 
-listener = .symbc.SymbolicListener
+#listener = .symbc.SymbolicListener
+
+listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
+
 
 #report.publisher=console
 #symbolic.dp=coral

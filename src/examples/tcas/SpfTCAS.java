@@ -288,10 +288,10 @@ public class SpfTCAS {
 
     }
 
-    public static void main(String[] argv) {
+    public static void main(String[] args) {
 
-			launch(601, false, false, -1, 0, 0, 0, 301, 400, 0, 0, 1,
-        601, false, false, -1, 0, 0, 0, 301, 400, 0, 0, 1);
+			launch(Integer.parseInt(args[0]), Boolean.parseBoolean(args[1]), Boolean.parseBoolean(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), Integer.parseInt(args[5]), Integer.parseInt(args[6]), Integer.parseInt(args[7]), Integer.parseInt(args[8]), Integer.parseInt(args[9]), Integer.parseInt(args[10]), Integer.parseInt(args[11]),
+                    Integer.parseInt(args[12]), Boolean.parseBoolean(args[13]), Boolean.parseBoolean(args[14]), Integer.parseInt(args[15]), Integer.parseInt(args[16]),Integer.parseInt(args[17]), Integer.parseInt(args[18]), Integer.parseInt(args[19]), Integer.parseInt(args[20]), Integer.parseInt(args[21]), Integer.parseInt(args[22]), Integer.parseInt(args[23]));
 
     }
 
