@@ -582,21 +582,21 @@ public class SymbolicListener extends PropertyListenerAdapter implements Publish
 
         PrintWriter pw = publisher.getOut();
 
-        publisher.publishTopicStart("Method Summaries");
-        Iterator it = allSummaries.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry me = (Map.Entry) it.next();
-            MethodSummary methodSummary = (MethodSummary) me.getValue();
-            printMethodSummary(pw, methodSummary);
-        }
+//        publisher.publishTopicStart("Method Summaries");
+//        Iterator it = allSummaries.entrySet().iterator();
+//        while (it.hasNext()) {
+//            Map.Entry me = (Map.Entry) it.next();
+//            MethodSummary methodSummary = (MethodSummary) me.getValue();
+//            printMethodSummary(pw, methodSummary);
+//        }
 
         publisher.publishTopicStart("Method Summaries (HTML)");
-        it = allSummaries.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry me = (Map.Entry) it.next();
-            MethodSummary methodSummary = (MethodSummary) me.getValue();
-            printMethodSummaryHTML(pw, methodSummary);
-        }
+//        it = allSummaries.entrySet().iterator();
+//        while (it.hasNext()) {
+//            Map.Entry me = (Map.Entry) it.next();
+//            MethodSummary methodSummary = (MethodSummary) me.getValue();
+//            printMethodSummaryHTML(pw, methodSummary);
+//        }
     }
 
     protected class MethodSummary {

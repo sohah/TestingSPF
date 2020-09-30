@@ -27,9 +27,9 @@ open(DAIKONFH, '>', $daikonScript_FileName) or die $!;
 
 print DAIKONFH '#!/bin/bash';
 
-print DAIKONFH "\nrm traces/*\n";
+print DAIKONFH "\nrm ../traces/*\n";
 
-print DAIKONFH "mkdir traces\n";
+print DAIKONFH "mkdir ../traces\n";
 
 #we first filter the test cases so that it calls the main with arguments seperated by spaces
 open(FH, '<', $TC_FileName) or die $!;
