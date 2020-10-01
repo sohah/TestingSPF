@@ -1,0 +1,84 @@
+Daikon version 5.8.4, released July 22, 2020; http://plse.cs.washington.edu/daikon.
+Reading declaration files Processing trace data; reading 1 dtrace file:
+
+===========================================================================
+wbs.WBS:::OBJECT
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.Alt_Pressure
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.Sys_Mode
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == this.Nor_Pressure
+this != null
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == 0
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == 0 || this.WBS_Node_WBS_BSCU_rlt_PRE1 == 1
+this.WBS_Node_WBS_rlt_PRE2 == 1 || this.WBS_Node_WBS_rlt_PRE2 == 100
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE <= this.WBS_Node_WBS_BSCU_rlt_PRE1
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE < this.WBS_Node_WBS_rlt_PRE2
+this.WBS_Node_WBS_BSCU_rlt_PRE1 <= this.WBS_Node_WBS_rlt_PRE2
+===========================================================================
+wbs.WBS.WBS():::EXIT
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.WBS_Node_WBS_BSCU_rlt_PRE1
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.Nor_Pressure
+this.WBS_Node_WBS_rlt_PRE2 == 100
+===========================================================================
+wbs.WBS.launch(int, boolean, boolean, int, boolean, boolean, int, boolean, boolean, int, boolean, boolean, int, boolean, boolean):::ENTER
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.WBS_Node_WBS_BSCU_rlt_PRE1
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == this.Nor_Pressure
+pedal1 == pedal2
+pedal1 == pedal3
+pedal1 == pedal4
+pedal1 == pedal5
+auto1 == skid1
+auto1 == auto2
+auto1 == skid2
+auto1 == auto3
+auto1 == skid3
+auto1 == auto4
+auto1 == skid4
+auto1 == auto5
+auto1 == skid5
+this.WBS_Node_WBS_rlt_PRE2 == 100
+pedal1 == 1
+auto1 == false
+===========================================================================
+wbs.WBS.launch(int, boolean, boolean, int, boolean, boolean, int, boolean, boolean, int, boolean, boolean, int, boolean, boolean):::EXIT
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.WBS_Node_WBS_BSCU_rlt_PRE1)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.Nor_Pressure)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.Alt_Pressure)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.Sys_Mode)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == this.WBS_Node_WBS_rlt_PRE2
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(pedal1)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(pedal2)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(pedal3)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(pedal4)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(pedal5)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == 1
+===========================================================================
+wbs.WBS.main(java.lang.String[]):::ENTER
+args != null
+args.getClass().getName() == java.lang.String[].class.getName()
+("oneOf.java.jpp: SEQUENCE unimplemented" != null)
+daikon.Quant.eltsNotEqual(args, null)
+daikon.Quant.pairwiseEqual(daikon.Quant.collectObject(args, "toString()"), new String[] { "/home/soha/git/jpf-symbc/testCase/testCases_wbs.txt" })
+daikon.Quant.eltsEqual(daikon.Quant.collectObject(args, "toString()"), "/home/soha/git/jpf-symbc/testCase/testCases_wbs.txt")
+daikon.Quant.size(args) == 1
+===========================================================================
+wbs.WBS.main(java.lang.String[]):::EXIT
+daikon.Quant.pairwiseEqual(args, \old(args))
+("oneOf.java.jpp: SEQUENCE unimplemented" != null)
+daikon.Quant.eltsNotEqual(args, null)
+daikon.Quant.pairwiseEqual(daikon.Quant.collectObject(args, "toString()"), new String[] { "/home/soha/git/jpf-symbc/testCase/testCases_wbs.txt" })
+daikon.Quant.eltsEqual(daikon.Quant.collectObject(args, "toString()"), "/home/soha/git/jpf-symbc/testCase/testCases_wbs.txt")
+===========================================================================
+wbs.WBS.update(int, boolean, boolean):::ENTER
+AutoBrake == Skid
+PedalPos == 1
+AutoBrake == false
+===========================================================================
+wbs.WBS.update(int, boolean, boolean):::EXIT
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.Alt_Pressure)
+this.WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE == \old(this.Sys_Mode)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == this.WBS_Node_WBS_rlt_PRE2
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == \old(PedalPos)
+this.WBS_Node_WBS_BSCU_rlt_PRE1 == 1
+Exiting Daikon.
