@@ -226,7 +226,76 @@ public class Infusion_Daikon {
                         Integer.parseInt(param[170]),
                         Boolean.parseBoolean(param[171]),
                         Integer.parseInt(param[172]),
-                        Integer.parseInt(param[173]));
+                        Integer.parseInt(param[173]),
+
+
+                        //4th step
+                        //
+                        Boolean.parseBoolean(param[174]),
+                        Boolean.parseBoolean(param[175]),
+                        Integer.parseInt(param[176]),
+
+                        Boolean.parseBoolean(param[177]),
+                        Boolean.parseBoolean(param[178]),
+                        Boolean.parseBoolean(param[179]),
+                        Boolean.parseBoolean(param[180]),
+                        Boolean.parseBoolean(param[181]),
+                        Boolean.parseBoolean(param[182]),
+                        Boolean.parseBoolean(param[183]),
+                        Boolean.parseBoolean(param[184]),
+                        Boolean.parseBoolean(param[185]),
+                        Boolean.parseBoolean(param[186]),
+                        Integer.parseInt(param[187]),
+                        Boolean.parseBoolean(param[188]),
+                        Integer.parseInt(param[189]),
+                        Boolean.parseBoolean(param[190]),
+                        Boolean.parseBoolean(param[191]),
+                        Integer.parseInt(param[192]),
+                        Integer.parseInt(param[193]),
+                        Integer.parseInt(param[194]),
+                        Integer.parseInt(param[195]),
+                        Integer.parseInt(param[196]),
+                        Integer.parseInt(param[197]),
+                        Integer.parseInt(param[198]),
+                        Integer.parseInt(param[199]),
+                        Integer.parseInt(param[200]),
+                        Integer.parseInt(param[201]),
+                        Integer.parseInt(param[202]),
+                        Integer.parseInt(param[203]),
+                        Integer.parseInt(param[204]),
+                        Integer.parseInt(param[205]),
+                        Integer.parseInt(param[206]),
+                        Integer.parseInt(param[207]),
+                        Integer.parseInt(param[208]),
+                        Integer.parseInt(param[209]),
+                        Boolean.parseBoolean(param[210]),
+                        Boolean.parseBoolean(param[211]),
+                        Boolean.parseBoolean(param[212]),
+                        Boolean.parseBoolean(param[213]),
+                        Integer.parseInt(param[214]),
+                        Integer.parseInt(param[215]),
+                        Integer.parseInt(param[216]),
+
+
+                        Integer.parseInt(param[217]),
+                        Integer.parseInt(param[218]),
+                        Integer.parseInt(param[219]),
+                        Integer.parseInt(param[220]),
+                        Integer.parseInt(param[221]),
+
+
+                        Boolean.parseBoolean(param[222]),
+                        Integer.parseInt(param[223]),
+                        Integer.parseInt(param[224]),
+                        Integer.parseInt(param[225]),
+                        Boolean.parseBoolean(param[226]),
+
+                        Integer.parseInt(param[227]),
+                        Integer.parseInt(param[228]),
+                        Boolean.parseBoolean(param[229]),
+                        Integer.parseInt(param[230]),
+                        Integer.parseInt(param[231])
+                );
             }
         } catch (IOException e) {
             System.out.println("problem while reading the test case file. Failing.");
