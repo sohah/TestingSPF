@@ -1791,9 +1791,9 @@ public class ALARM_Functional {
     }
 
 
-    public  void main(String[] args) {
+    public static void main(String[] args) {
 
-        ALARM_FunctionalSymWrapper(1, 1, false, 1, 1, false, false, 1, false, 1,
+        (new ALARM_Functional()).ALARM_FunctionalSymWrapper(1, 1, false, 1, 1, false, false, 1, false, 1,
                 false, false, false, false, false, false, false, false, false, false,
                 false, 1, false, 1, false, false, 1, 1, 1, 1,
                 1, 1, 1, 1, 1, 1, 1, false, false, false,

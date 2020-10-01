@@ -236,7 +236,7 @@ public class WBS {
         update(pedal1, auto1, skid1);
         update(pedal2, auto2, skid2);
         update(pedal3, auto3, skid3);
-//        update(pedal4, auto4, skid4);
+        update(pedal4, auto4, skid4);
 //        update(pedal5, auto5, skid5);
     }
 

@@ -1826,7 +1826,7 @@ public class INFUSION_MGR_Functional {
         }
     }
 
-    public  void main(String[] args) {
+    public static void main(String[] args) {
         (new INFUSION_MGR_Functional()).INFUSION_MGR_FunctionalSymWrapper(Boolean.parseBoolean(args[0]),
                 Boolean.parseBoolean(args[1]),
                 Integer.parseInt(args[2]),

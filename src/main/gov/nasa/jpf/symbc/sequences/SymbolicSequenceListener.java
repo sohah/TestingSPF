@@ -469,7 +469,7 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
                         else
                             solution = solution + "true";
                     } else
-                        solution = solution + ((IntegerExpression) e).solution();
+                        solution = solution + (int)((IntegerExpression) e).solution();
                 } else if (e instanceof RealExpression)
                     solution = solution + ((RealExpression) e).solution();
                 else
