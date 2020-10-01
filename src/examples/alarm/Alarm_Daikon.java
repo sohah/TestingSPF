@@ -19,7 +19,7 @@ public class Alarm_Daikon {
                 String[] param = line.split(",");
 
 
-                assert param.length == 15 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
+                assert param.length == 107 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
 
                 ((new ALARM_Functional())).ALARM_FunctionalSymWrapper(Integer.parseInt(param[0]),
                         Integer.parseInt(param[1]),

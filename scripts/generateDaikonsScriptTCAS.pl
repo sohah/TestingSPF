@@ -10,9 +10,8 @@ use autodie;
 # we need to do chmod a+x to generate_invairant${benchmark}.sh. then when we execute it the output will be in file , daikon_invariants_${benchmark}
 
 my $TC_FileName="/home/soha/git/jpf-symbc/testCase/testCases_tcas.txt";
-my $symbolicMethodName="launch";
 my $benchmark="tcas";
-my $mainClassName="tcas.SpfTCAS";
+my $mainClassName="tcas.TCAS_Daikon";
 
 #### input configuration ends here#####
 

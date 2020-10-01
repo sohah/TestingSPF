@@ -23,7 +23,7 @@ public class TCAS_Daikon {
                 String[] param = line.split(",");
 
 
-                assert param.length == 15 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
+                assert param.length == 23 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
 
                 ((new SpfTCAS())).launch(Integer.parseInt(param[0]), Boolean.parseBoolean(param[1]), Boolean.parseBoolean(param[2]), Integer.parseInt(param[3]), Integer.parseInt(param[4]), Integer.parseInt(param[5]), Integer.parseInt(param[6]), Integer.parseInt(param[7]), Integer.parseInt(param[8]), Integer.parseInt(param[9]), Integer.parseInt(param[10]), Integer.parseInt(param[11]),
                         Integer.parseInt(param[12]), Boolean.parseBoolean(param[13]), Boolean.parseBoolean(param[14]), Integer.parseInt(param[15]), Integer.parseInt(param[16]),Integer.parseInt(param[17]), Integer.parseInt(param[18]), Integer.parseInt(param[19]), Integer.parseInt(param[20]), Integer.parseInt(param[21]), Integer.parseInt(param[22]), Integer.parseInt(param[23]));
