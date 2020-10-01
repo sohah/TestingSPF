@@ -114,6 +114,8 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
 
     String benchmark = null;
     String testCaseForMethod = null;
+    int testCasesCount=0;
+    int numberOfThreads = 0;
 
     HashSet<String> dumpedTest = new HashSet<>();
 
@@ -276,8 +278,73 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
 
     }
 
+    public void threadTerminated(VM vm, ThreadInfo terminatedThread) {
+
+        ++numberOfThreads;
+        Config conf = vm.getConfig();
+
+        Instruction insn = vm.getChoiceGenerator().getInsn();
+        SystemState ss = vm.getSystemState();
+        //ThreadInfo ti = vm.getChoiceGenerator().getThreadInfo();
+        MethodInfo mi = insn.getMethodInfo();
+        String methodName = mi.getFullName();
+
+        int numberOfArgs = mi.getNumberOfArguments();//mi.getArgumentsSize()- 1;// corina: problem here? - 1;
+
+        //	if (BytecodeUtils.isMethodSymbolic(conf, methodName, numberOfArgs, null)){
+
+        ChoiceGenerator<?> cg = vm.getChoiceGenerator();
+
+        if (!(cg instanceof PCChoiceGenerator)) {
+            ChoiceGenerator<?> prev_cg = cg.getPreviousChoiceGenerator();
+            while (!((prev_cg == null) || (prev_cg instanceof PCChoiceGenerator))) {
+                prev_cg = prev_cg.getPreviousChoiceGenerator();
+            }
+            cg = prev_cg;
+        }
+
+        if ((cg instanceof PCChoiceGenerator) &&
+                ((PCChoiceGenerator) cg).getCurrentPC() != null) {
+
+            PathCondition pc = ((PCChoiceGenerator) cg).getCurrentPC();
+            //solve the path condition
+            if (SymbolicInstructionFactory.concolicMode) { //TODO: cleaner
+                SymbolicConstraintsGeneral solver = new SymbolicConstraintsGeneral();
+                PCAnalyzer pa = new PCAnalyzer();
+                pa.solve(pc, solver);
+            } else
+                pc.solve();
+            // get the chain of choice generators.
+            ChoiceGenerator<?>[] cgs = ss.getChoiceGenerators();
+
+            Vector<String> testCase = getMethodSequence(cgs);
+
+            if (methodSequences.add(testCase)) {
+                try {
+                    fw = new FileWriter(("../testCase/testCases_" + benchmark + ".txt"), true);
+                    bw = new BufferedWriter(fw);
+                    out = new PrintWriter(bw);
+                    for (String test : testCase)
+                        if (test.contains(testCaseForMethod) && (!dumpedTest.contains(test))) {
+                            dumpedTest.add(test);
+                            ++testCasesCount;
+                            assert testCasesCount<=numberOfThreads:"unexpected number of test cases. Failing";
+                            out.println(test);
+                        }
+                    out.close();
+                } catch (IOException e) {
+                    assert false : "cannot create test cases.";
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        //	}
+    }
+
 
     public void stateBacktracked(Search search) {
+/*
         VM vm = search.getVM();
         Config conf = vm.getConfig();
 
@@ -325,6 +392,7 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
                     for (String test : testCase)
                         if (test.contains(testCaseForMethod) && (!dumpedTest.contains(test))) {
                             dumpedTest.add(test);
+                            ++testCasesCount;
                             out.println(test);
                         }
                     out.close();
@@ -336,6 +404,7 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
 
         }
         //	}
+*/
     }
 
 

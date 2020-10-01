@@ -242,10 +242,10 @@ public class WBS {
 
     public static void main(String[] args) {
 
-        ((new WBS())).launch(1, false, false,
-                1, false, false,
-                1, false, false,
-                1, false, false,
-                1, false, false);
+        ((new WBS())).launch(Integer.parseInt(args[0]), Boolean.parseBoolean(args[1]), Boolean.parseBoolean(args[2]),
+                Integer.parseInt(args[3]), Boolean.parseBoolean(args[4]), Boolean.parseBoolean(args[5]),
+                Integer.parseInt(args[6]), Boolean.parseBoolean(args[7]), Boolean.parseBoolean(args[8]),
+                Integer.parseInt(args[9]), Boolean.parseBoolean(args[10]), Boolean.parseBoolean(args[11]),
+                Integer.parseInt(args[12]), Boolean.parseBoolean(args[13]), Boolean.parseBoolean(args[14]));
     }
 }
