@@ -237,7 +237,7 @@ public class WBS {
         update(pedal2, auto2, skid2);
         update(pedal3, auto3, skid3);
         update(pedal4, auto4, skid4);
-//        update(pedal5, auto5, skid5);
+        update(pedal5, auto5, skid5);
     }
 
     public static void main(String[] args) {
