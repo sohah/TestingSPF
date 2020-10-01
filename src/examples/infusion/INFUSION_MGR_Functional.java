@@ -3,34 +3,34 @@ package infusion;
 // contains JR refinement over "INFUSION_MGR_FunctionalRecovered.java", without making the state symbolic yet.
 
 public class INFUSION_MGR_Functional {
-    static final int INFUSION_MGR_Functional_IN_ACTIVE = 1;
-    static final int INFUSION_MGR_Functional_IN_Basal = 1;
-    static final int INFUSION_MGR_Functional_IN_IDLE = 1;
-    static final int INFUSION_MGR_Functional_IN_Infusion_Manager = 1;
-    static final int INFUSION_MGR_Functional_IN_Intermittent_Bolus = 2;
-    static final int INFUSION_MGR_Functional_IN_LOCKOUT = 1;
-    static final int INFUSION_MGR_Functional_IN_Manual_Paused_KVO = 1;
-    static final int INFUSION_MGR_Functional_IN_NOT_ON = 2;
-    static final int INFUSION_MGR_Functional_IN_NO_ACTIVE_CHILD = 0;
-    static final int INFUSION_MGR_Functional_IN_OFF = 1;
-    static final int INFUSION_MGR_Functional_IN_OFF_b = 2;
-    static final int INFUSION_MGR_Functional_IN_ON = 2;
-    static final int INFUSION_MGR_Functional_IN_ON_b = 3;
-    static final int INFUSION_MGR_Functional_IN_PAUSED = 2;
-    static final int INFUSION_MGR_Functional_IN_Patient_Bolus = 3;
-    static final int INFUSION_MGR_Functional_IN_Paused_KVO = 2;
-    static final int INFUSION_MGR_Functional_IN_Paused_NoKVO = 3;
-    static final int INFUSION_MGR_Functional_IN_THERAPY = 2;
+     final int INFUSION_MGR_Functional_IN_ACTIVE = 1;
+     final int INFUSION_MGR_Functional_IN_Basal = 1;
+     final int INFUSION_MGR_Functional_IN_IDLE = 1;
+     final int INFUSION_MGR_Functional_IN_Infusion_Manager = 1;
+     final int INFUSION_MGR_Functional_IN_Intermittent_Bolus = 2;
+     final int INFUSION_MGR_Functional_IN_LOCKOUT = 1;
+     final int INFUSION_MGR_Functional_IN_Manual_Paused_KVO = 1;
+     final int INFUSION_MGR_Functional_IN_NOT_ON = 2;
+     final int INFUSION_MGR_Functional_IN_NO_ACTIVE_CHILD = 0;
+     final int INFUSION_MGR_Functional_IN_OFF = 1;
+     final int INFUSION_MGR_Functional_IN_OFF_b = 2;
+     final int INFUSION_MGR_Functional_IN_ON = 2;
+     final int INFUSION_MGR_Functional_IN_ON_b = 3;
+     final int INFUSION_MGR_Functional_IN_PAUSED = 2;
+     final int INFUSION_MGR_Functional_IN_Patient_Bolus = 3;
+     final int INFUSION_MGR_Functional_IN_Paused_KVO = 2;
+     final int INFUSION_MGR_Functional_IN_Paused_NoKVO = 3;
+     final int INFUSION_MGR_Functional_IN_THERAPY = 2;
 
 
-    static int INFUSION_MGR_Functional_Step_Scaling_Factor(int inputVal) {
+     int INFUSION_MGR_Functional_Step_Scaling_Factor(int inputVal) {
         /* Graphical Function 'Step_Scaling_Factor': '<S1>:4016' */
         /* Transition: '<S1>:4013' */
         return inputVal;
     }
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_writeLog(int logEvent,
+     void INFUSION_MGR_Functional_writeLog(int logEvent,
                                                  B_INFUSION_MGR_Functional_c_T localB) {
         /* Graphical Function 'writeLog': '<S1>:3724' */
         /* Transition: '<S1>:3726' */
@@ -39,7 +39,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_resetForNewInfusion
+     void INFUSION_MGR_Functional_resetForNewInfusion
     (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T
             localDW) {
         /* Graphical Function 'resetForNewInfusion': '<S1>:3956' */
@@ -55,7 +55,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_exit_internal_ACTIVE
+     void INFUSION_MGR_Functional_exit_internal_ACTIVE
     (DW_INFUSION_MGR_Functional_f_T localDW) {
         /* Exit Internal 'ACTIVE': '<S1>:3905' */
         /* Exit Internal 'Arbiter': '<S1>:3913' */
@@ -92,7 +92,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_exit_internal_PAUSED
+     void INFUSION_MGR_Functional_exit_internal_PAUSED
     (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T
             localDW) {
         /* Exit Internal 'PAUSED': '<S1>:3876' */
@@ -129,7 +129,7 @@ public class INFUSION_MGR_Functional {
     }
 
 
-    static void INFUSION_MGR_Functional_TherapyExitOperations
+     void INFUSION_MGR_Functional_TherapyExitOperations
             (B_INFUSION_MGR_Functional_c_T localB) {
         /* Graphical Function 'TherapyExitOperations': '<S1>:3953' */
         /* Transition: '<S1>:3955' */
@@ -137,7 +137,7 @@ public class INFUSION_MGR_Functional {
         localB.IM_OUT_New_Infusion = false;
     }
 
-    static int INFUSION_MGR_Functional_sbolus_trigger
+     int INFUSION_MGR_Functional_sbolus_trigger
             (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T localDW) {
         int sb;
 
@@ -163,7 +163,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_enter_internal_ACTIVE
+     void INFUSION_MGR_Functional_enter_internal_ACTIVE
     (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T
             localDW) {
         /* Entry Internal 'ACTIVE': '<S1>:3905' */
@@ -234,7 +234,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_enter_internal_PAUSED
+     void INFUSION_MGR_Functional_enter_internal_PAUSED
     (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T
             localDW) {
         /* Entry Internal 'PAUSED': '<S1>:3876' */
@@ -292,7 +292,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Function for Chart: '<Root>/Infusion Manager Sub-System' */
-    static void INFUSION_MGR_Functional_resetAllInfusionDetails
+     void INFUSION_MGR_Functional_resetAllInfusionDetails
     (B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T
             localDW) {
         /* Graphical Function 'resetAllInfusionDetails': '<S1>:3959' */
@@ -303,7 +303,7 @@ public class INFUSION_MGR_Functional {
         localDW.number_pbolus = 0;
     }
 
-    static void INFUSION_MGR_Functional_THERAPY(B_INFUSION_MGR_Functional_c_T
+     void INFUSION_MGR_Functional_THERAPY(B_INFUSION_MGR_Functional_c_T
                                                         localB, DW_INFUSION_MGR_Functional_f_T localDW) {
         //DB_prinTF("1: %2x %2x ",localB.Infusion_Initiate,localB.Reservoir_Empty);
 
@@ -770,7 +770,7 @@ public class INFUSION_MGR_Functional {
 
 
     /* Initial conditions for referenced model: 'INFUSION_MGR_Functional' */
-    static void INFUSION_MGR_Functional_Init(B_INFUSION_MGR_Functional_c_T localB,
+     void INFUSION_MGR_Functional_Init(B_INFUSION_MGR_Functional_c_T localB,
                                              DW_INFUSION_MGR_Functional_f_T localDW) {
         /* InitializeConditions for Chart: '<Root>/Infusion Manager Sub-System' */
         localDW.is_Infusion_Manager = INFUSION_MGR_Functional_IN_NO_ACTIVE_CHILD;
@@ -807,7 +807,7 @@ public class INFUSION_MGR_Functional {
     }
 
     /* Output and update for referenced model: 'INFUSION_MGR_Functional' */
-    static void INFUSION_MGR_Functional(Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
+     void INFUSION_MGR_Functional(Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
                                         Operator_Commands rtu_OP_CMD_IN, Patient_Inputs rtu_PATIENT_IN,
                                         Config_Outputs rtu_CONFIG_IN, Alarm_Outputs rtu_ALARM_IN,
                                         System_Status_Outputs rtu_SYS_STAT_IN, Infusion_Manager_Outputs rty_IM_OUT,
@@ -1015,7 +1015,7 @@ public class INFUSION_MGR_Functional {
         //  assert (rty_IM_OUT.Commanded_Flow_Rate == 0);
     }
 
-    static void INFUSION_MGR_FunctionalSymWrapper(
+     void INFUSION_MGR_FunctionalSymWrapper(
             //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
             boolean System_On,
             boolean Request_Confirm_Stop,
@@ -1826,7 +1826,7 @@ public class INFUSION_MGR_Functional {
         }
     }
 
-    public static void main(String[] args) {
+    public  void main(String[] args) {
         (new INFUSION_MGR_Functional()).INFUSION_MGR_FunctionalSymWrapper(Boolean.parseBoolean(args[0]),
                 Boolean.parseBoolean(args[1]),
                 Integer.parseInt(args[2]),

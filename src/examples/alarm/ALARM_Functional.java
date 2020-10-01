@@ -6,31 +6,31 @@ import static alarm.Div_s32.div_s32;
 // contains JR refinement over "INFUSION_MGR_FunctionalRecovered.java", without making the state symbolic yet.
 
 public class ALARM_Functional {
-    static final int ALARM_Functional_IN_AlarmDisplay = 1;
-    static final int ALARM_Functional_IN_Alarms = 1;
-    static final int ALARM_Functional_IN_Check = 1;
-    static final int ALARM_Functional_IN_Disabled = 1;
-    static final int ALARM_Functional_IN_Monitor = 2;
-    static final int ALARM_Functional_IN_NOT_ON = 2;
-    static final int ALARM_Functional_IN_NO_ACTIVE_CHILD = 0;
-    static final int ALARM_Functional_IN_No = 1;
-    static final int ALARM_Functional_IN_OFF = 2;
-    static final int ALARM_Functional_IN_OFF_i = 1;
-    static final int ALARM_Functional_IN_ON = 3;
-    static final int ALARM_Functional_IN_ON_a = 2;
-    static final int ALARM_Functional_IN_Silenced = 4;
-    static final int ALARM_Functional_IN_Yes = 2;
-    static final int ALARM_Functional_IN_Yes_o = 3;
-    static final int ALARM_Functional_IN_counting = 3;
+     final int ALARM_Functional_IN_AlarmDisplay = 1;
+     final int ALARM_Functional_IN_Alarms = 1;
+     final int ALARM_Functional_IN_Check = 1;
+     final int ALARM_Functional_IN_Disabled = 1;
+     final int ALARM_Functional_IN_Monitor = 2;
+     final int ALARM_Functional_IN_NOT_ON = 2;
+     final int ALARM_Functional_IN_NO_ACTIVE_CHILD = 0;
+     final int ALARM_Functional_IN_No = 1;
+     final int ALARM_Functional_IN_OFF = 2;
+     final int ALARM_Functional_IN_OFF_i = 1;
+     final int ALARM_Functional_IN_ON = 3;
+     final int ALARM_Functional_IN_ON_a = 2;
+     final int ALARM_Functional_IN_Silenced = 4;
+     final int ALARM_Functional_IN_Yes = 2;
+     final int ALARM_Functional_IN_Yes_o = 3;
+     final int ALARM_Functional_IN_counting = 3;
 
 
-    static void ALARM_Functional_writeLog(int logEvent, B_ALARM_Functional_c_T localB) {
+     void ALARM_Functional_writeLog(int logEvent, B_ALARM_Functional_c_T localB) {
         /* Graphical Function 'writeLog': '<S1>:1478' */
         /* Transition: '<S1>:1480' */
         localB.ALARM_OUT_Log_Message_ID = logEvent;
     }
 
-    static int ALARM_Functional_checkOverInfusionFlowRate(B_ALARM_Functional_c_T localB) {
+     int ALARM_Functional_checkOverInfusionFlowRate(B_ALARM_Functional_c_T localB) {
         int ov;
 
         /* Graphical Function 'checkOverInfusionFlowRate': '<S1>:4055' */
@@ -63,14 +63,14 @@ public class ALARM_Functional {
     }
 
 
-    static int ALARM_Functional_Step_Scaling_Factor(int inputVal) {
+     int ALARM_Functional_Step_Scaling_Factor(int inputVal) {
         /* Graphical Function 'Step_Scaling_Factor': '<S1>:4730' */
         /* Transition: '<S1>:4732' */
         return inputVal;
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static int ALARM_Functional_checkUnderInfusion(B_ALARM_Functional_c_T localB) {
+     int ALARM_Functional_checkUnderInfusion(B_ALARM_Functional_c_T localB) {
         int c;
 
         /* Graphical Function 'checkUnderInfusion': '<S1>:4130' */
@@ -101,7 +101,7 @@ public class ALARM_Functional {
     }
 
 
-    static void ALARM_Functional_Level1(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
+     void ALARM_Functional_Level1(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
         int underInfusion;
 
         /* During 'Level1': '<S1>:4113' */
@@ -373,7 +373,7 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static int ALARM_Functional_setCurrentAlarm(DW_ALARM_Functional_f_T localDW) {
+     int ALARM_Functional_setCurrentAlarm(DW_ALARM_Functional_f_T localDW) {
         int s;
 
         /* Graphical Function 'setCurrentAlarm': '<S1>:3955' */
@@ -537,7 +537,7 @@ public class ALARM_Functional {
 
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static int ALARM_Functional_setHighestAlarm(DW_ALARM_Functional_f_T localDW) {
+     int ALARM_Functional_setHighestAlarm(DW_ALARM_Functional_f_T localDW) {
         /* Graphical Function 'setHighestAlarm': '<S1>:4098' */
         /* Transition: '<S1>:4104' */
         return localDW.Max_Alarm_Level;
@@ -545,7 +545,7 @@ public class ALARM_Functional {
 
 
     /* Funcztion for Chart: '<Root>/Alarm  Sub-System' */
-    static void ALARM_Functional_CheckAlarm(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
+     void ALARM_Functional_CheckAlarm(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
         int overInfusion;
 
         /* During 'CheckAlarm': '<S1>:3953' */
@@ -794,7 +794,7 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static void ALARM_Functional_Alarms(B_ALARM_Functional_c_T localB,
+     void ALARM_Functional_Alarms(B_ALARM_Functional_c_T localB,
                                         DW_ALARM_Functional_f_T localDW) {
         /* During 'Alarms': '<S1>:3907' */
         if (!localB.System_On) {
@@ -1156,7 +1156,7 @@ public class ALARM_Functional {
 
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static void ALARM_Functional_enter_internal_CheckAlarm(B_ALARM_Functional_c_T
+     void ALARM_Functional_enter_internal_CheckAlarm(B_ALARM_Functional_c_T
                                                                    localB, DW_ALARM_Functional_f_T localDW) {
         int overInfusion;
 
@@ -1466,7 +1466,7 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-    static void ALARM_Functional_enter_internal_Alarms(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T
+     void ALARM_Functional_enter_internal_Alarms(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T
             localDW) {
         /* Entry Internal 'Alarms': '<S1>:3907' */
         localDW.is_active_CheckAlarm = 1;
@@ -1528,7 +1528,7 @@ public class ALARM_Functional {
 
 
     /* Initial conditions for referenced model: 'ALARM_Functional' */
-    static void ALARM_Functional_Init(B_ALARM_Functional_c_T localB,
+     void ALARM_Functional_Init(B_ALARM_Functional_c_T localB,
                                       DW_ALARM_Functional_f_T localDW) {
         /* InitializeConditions for Chart: '<Root>/Alarm  Sub-System' */
         localDW.is_active_CheckAlarm = 0;
@@ -1600,7 +1600,7 @@ public class ALARM_Functional {
     }
 
     /* Output and update for referenced model: 'ALARM_Functional' */
-    static void ALARM_Functional(Infusion_Manager_Outputs rtu_IM_IN,
+     void ALARM_Functional(Infusion_Manager_Outputs rtu_IM_IN,
                                  Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
                                  System_Monitor_Output rtu_SYS_MON_IN,
                                  Log_Output rtu_LOGGING_IN, Operator_Commands rtu_OP_CMD_IN,
@@ -1791,7 +1791,7 @@ public class ALARM_Functional {
     }
 
 
-    public static void main(String[] args) {
+    public  void main(String[] args) {
 
         ALARM_FunctionalSymWrapper(1, 1, false, 1, 1, false, false, 1, false, 1,
                 false, false, false, false, false, false, false, false, false, false,
@@ -1803,9 +1803,10 @@ public class ALARM_Functional {
                 1, 1, false, 1, 1, 1, false, 1, 1, 1,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                 1, 1, 1, 1, 1, false, false, false, false, 1,
-                1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1
+//                ,
 
-
+/*
                 1, 1, false, 1, 1, false, false, 1, false, 1,
                 false, false, false, false, false, false, false, false, false, false,
                 false, 1, false, 1, false, false, 1, 1, 1, 1,
@@ -1816,10 +1817,10 @@ public class ALARM_Functional {
                 1, 1, false, 1, 1, 1, false, 1, 1, 1,
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                 1, 1, 1, 1, 1, false, false, false, false, 1,
-                1, 1, 1, 1, 1, 1, 1);
+                1, 1, 1, 1, 1, 1, 1*/);
     }
 
-    static void ALARM_FunctionalSymWrapper(//Symbolic input of Infusion_Manager_Outputs
+     void ALARM_FunctionalSymWrapper(//Symbolic input of Infusion_Manager_Outputs
                                                    int Commanded_Flow_Rate,
                                                    int Current_System_Mode, boolean New_Infusion,
                                                    int Log_Message_ID_1,
@@ -1947,10 +1948,11 @@ public class ALARM_Functional {
                                                    int Notification_Message,
                                                    int Audio_Notification_Command,
                                                    int Highest_Level_Alarm,
-                                                   int Log_Message_ID5,
+                                                   int Log_Message_ID5
+//             ,
 
 
-
+/*
                                            //Symbolic input of Infusion_Manager_Outputs
                                            int Commanded_Flow_Rate_2,
                                            int Current_System_Mode_2, boolean New_Infusion_2,
@@ -2079,7 +2081,7 @@ public class ALARM_Functional {
                                            int Notification_Message_2,
                                            int Audio_Notification_Command_2,
                                            int Highest_Level_Alarm_2,
-                                           int Log_Message_ID5_2)
+                                           int Log_Message_ID5_2*/)
 
     //,B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW)
     {
@@ -2092,13 +2094,13 @@ public class ALARM_Functional {
         rtu_IM_IN.Actual_Infusion_Duration = Actual_Infusion_Duration;
 
 
-        Infusion_Manager_Outputs rtu_IM_IN_2 = new Infusion_Manager_Outputs();
+        /*Infusion_Manager_Outputs rtu_IM_IN_2 = new Infusion_Manager_Outputs();
         rtu_IM_IN_2.Commanded_Flow_Rate = Commanded_Flow_Rate_2;
         rtu_IM_IN_2.Current_System_Mode = Current_System_Mode_2;
         rtu_IM_IN_2.New_Infusion = New_Infusion_2;
         rtu_IM_IN_2.Log_Message_ID = Log_Message_ID_1_2;
         rtu_IM_IN_2.Actual_Infusion_Duration = Actual_Infusion_Duration_2;
-
+*/
 
         Top_Level_Mode_Outputs rtu_tlm_mode_in = new Top_Level_Mode_Outputs();
         rtu_tlm_mode_in.System_On = System_On;
@@ -2106,27 +2108,27 @@ public class ALARM_Functional {
         rtu_tlm_mode_in.Log_Message_ID = Log_Message_ID_2;
 
 
-        Top_Level_Mode_Outputs rtu_tlm_mode_in_2 = new Top_Level_Mode_Outputs();
+        /*Top_Level_Mode_Outputs rtu_tlm_mode_in_2 = new Top_Level_Mode_Outputs();
         rtu_tlm_mode_in_2.System_On = System_On_2;
         rtu_tlm_mode_in_2.Request_Confirm_Stop = Request_Confirm_Stop_2;
         rtu_tlm_mode_in_2.Log_Message_ID = Log_Message_ID_2_2;
-
+*/
 
         System_Monitor_Output rtu_sys_mon_in = new System_Monitor_Output();
         rtu_sys_mon_in.System_Monitor_Failed = System_Monitor_Failed;
 
-        System_Monitor_Output rtu_sys_mon_in_2 = new System_Monitor_Output();
+  /*      System_Monitor_Output rtu_sys_mon_in_2 = new System_Monitor_Output();
         rtu_sys_mon_in_2.System_Monitor_Failed = System_Monitor_Failed_2;
-
+*/
 
         Log_Output rtu_logging_in = new Log_Output();
         rtu_logging_in.Log = Log;
         rtu_logging_in.Logging_Failed = Logging_Failed;
 
-        Log_Output rtu_logging_in_2 = new Log_Output();
+  /*      Log_Output rtu_logging_in_2 = new Log_Output();
         rtu_logging_in_2.Log = Log_2;
         rtu_logging_in_2.Logging_Failed = Logging_Failed_2;
-
+*/
 
         Operator_Commands rtu_op_cmd_in = new Operator_Commands();
         rtu_op_cmd_in.System_Start = System_Start;
@@ -2145,7 +2147,7 @@ public class ALARM_Functional {
         rtu_op_cmd_in.Confirm_Stop = Confirm_Stop;
 
 
-        Operator_Commands rtu_op_cmd_in_2 = new Operator_Commands();
+  /*      Operator_Commands rtu_op_cmd_in_2 = new Operator_Commands();
         rtu_op_cmd_in_2.System_Start = System_Start_2;
         rtu_op_cmd_in_2.System_Stop = System_Stop_2;
         rtu_op_cmd_in_2.Infusion_Initiate = Infusion_Initiate_2;
@@ -2160,7 +2162,7 @@ public class ALARM_Functional {
         rtu_op_cmd_in_2.Notification_Cancel = Notification_Cancel_2;
         rtu_op_cmd_in_2.Configuration_Type = Configuration_Type_2;
         rtu_op_cmd_in_2.Confirm_Stop = Confirm_Stop_2;
-
+*/
         Drug_Database_Inputs rtu_db_in = new Drug_Database_Inputs();
 
         rtu_db_in.Known_Prescription = Known_Prescription;
@@ -2176,7 +2178,7 @@ public class ALARM_Functional {
         rtu_db_in.Flow_Rate_Low = Flow_Rate_Low;
 
 
-        Drug_Database_Inputs rtu_db_in_2 = new Drug_Database_Inputs();
+  /*      Drug_Database_Inputs rtu_db_in_2 = new Drug_Database_Inputs();
 
         rtu_db_in_2.Known_Prescription = Known_Prescription_2;
         rtu_db_in_2.Drug_Name = Drug_Name1_2;
@@ -2189,7 +2191,7 @@ public class ALARM_Functional {
         rtu_db_in_2.Flow_Rate_KVO = Flow_Rate_KVO1_2;
         rtu_db_in_2.Flow_Rate_High = Flow_Rate_High_2;
         rtu_db_in_2.Flow_Rate_Low = Flow_Rate_Low_2;
-
+*/
         Device_Sensor_Inputs rtu_sensor_in = new Device_Sensor_Inputs();
         rtu_sensor_in.Flow_Rate = Flow_Rate;
         rtu_sensor_in.Flow_Rate_Not_Stable = Flow_Rate_Not_Stable;
@@ -2213,7 +2215,7 @@ public class ALARM_Functional {
         rtu_sensor_in.Post_Successful = Post_Successful;
 
 
-        Device_Sensor_Inputs rtu_sensor_in_2 = new Device_Sensor_Inputs();
+  /*      Device_Sensor_Inputs rtu_sensor_in_2 = new Device_Sensor_Inputs();
         rtu_sensor_in_2.Flow_Rate = Flow_Rate_2;
         rtu_sensor_in_2.Flow_Rate_Not_Stable = Flow_Rate_Not_Stable_2;
         rtu_sensor_in_2.Air_In_Line = Air_In_Line_2;
@@ -2234,7 +2236,7 @@ public class ALARM_Functional {
         rtu_sensor_in_2.Pump_Overheated = Pump_Overheated_2;
         rtu_sensor_in_2.Pump_Primed = Pump_Primed_2;
         rtu_sensor_in_2.Post_Successful = Post_Successful_2;
-
+*/
 
         Device_Configuration_Inputs rtu_const_in = new Device_Configuration_Inputs();
 
@@ -2257,7 +2259,7 @@ public class ALARM_Functional {
 
 
 
-        Device_Configuration_Inputs rtu_const_in_2 = new Device_Configuration_Inputs();
+  /*      Device_Configuration_Inputs rtu_const_in_2 = new Device_Configuration_Inputs();
 
         rtu_const_in_2.Audio_Enable_Duration = Audio_Enable_Duration_2;
         rtu_const_in_2.Audio_Level = Audio_Level_2;
@@ -2275,7 +2277,7 @@ public class ALARM_Functional {
         rtu_const_in_2.System_Test_Interval = System_Test_Interval_2;
         rtu_const_in_2.Max_Display_Duration = Max_Display_Duration_2;
         rtu_const_in_2.Max_Confirm_Stop_Duration = Max_Confirm_Stop_Duration_2;
-
+*/
 
         System_Status_Outputs rtu_sys_stat_in = new System_Status_Outputs();
         rtu_sys_stat_in.Reservoir_Empty = Reservoir_Empty;
@@ -2285,13 +2287,13 @@ public class ALARM_Functional {
         rtu_sys_stat_in.In_Therapy = In_Therapy;
 
 
-        System_Status_Outputs rtu_sys_stat_in_2 = new System_Status_Outputs();
+  /*      System_Status_Outputs rtu_sys_stat_in_2 = new System_Status_Outputs();
         rtu_sys_stat_in_2.Reservoir_Empty = Reservoir_Empty_2;
         rtu_sys_stat_in_2.Reservoir_Volume = Reservoir_Volume1_2;
         rtu_sys_stat_in_2.Volume_Infused = Volume_Infused_2;
         rtu_sys_stat_in_2.Log_Message_ID = Log_Message_ID3_2;
         rtu_sys_stat_in_2.In_Therapy = In_Therapy_2;
-
+*/
 
 
         Config_Outputs rtu_config_in = new Config_Outputs();
@@ -2321,6 +2323,7 @@ public class ALARM_Functional {
         rtu_config_in.Config_Timer = Config_Timer;
         rtu_config_in.Config_Mode = Config_Mode;
 
+/*
 
         Config_Outputs rtu_config_in_2 = new Config_Outputs();
         rtu_config_in_2.Patient_ID = Patient_ID_2;
@@ -2349,6 +2352,7 @@ public class ALARM_Functional {
         rtu_config_in_2.Config_Timer = Config_Timer_2;
         rtu_config_in_2.Config_Mode = Config_Mode_2;
 
+*/
 
         Alarm_Outputs rty_alarm_out = new Alarm_Outputs();
         rty_alarm_out.Is_Audio_Disabled = Is_Audio_Disabled;
@@ -2359,12 +2363,14 @@ public class ALARM_Functional {
 
 
 
+/*
         Alarm_Outputs rty_alarm_out_2 = new Alarm_Outputs();
         rty_alarm_out_2.Is_Audio_Disabled = Is_Audio_Disabled_2;
         rty_alarm_out_2.Notification_Message = Notification_Message_2;
         rty_alarm_out_2.Audio_Notification_Command = Audio_Notification_Command_2;
         rty_alarm_out_2.Highest_Level_Alarm = Highest_Level_Alarm_2;
         rty_alarm_out_2.Log_Message_ID = Log_Message_ID5_2;
+*/
 
 
         B_ALARM_Functional_c_T localB = new B_ALARM_Functional_c_T();
@@ -2500,8 +2506,10 @@ public class ALARM_Functional {
                 (Notification_Message<= 255 ) &&
                 (Audio_Notification_Command<= 255 ) &&
                 (Highest_Level_Alarm<= 255 ) &&
-                (Log_Message_ID5 <=255) &&
+                (Log_Message_ID5 <=255)
+//                &&
 
+/*
 
                 //second step
 
@@ -2633,6 +2641,7 @@ public class ALARM_Functional {
                 (Audio_Notification_Command_2<= 255 ) &&
                 (Highest_Level_Alarm_2<= 255 ) &&
                 (Log_Message_ID5_2 <=255)
+*/
 
         ) {
 

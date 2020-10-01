@@ -21,7 +21,6 @@ my $classPath="/home/soha/git/jpf-symbc/build/examples";
 
 my $daikonScript_FileName="/home/soha/git/jpf-symbc/scripts/generate_invairant${benchmark}.sh";
 
-my $trace_count=0;
 
 open(DAIKONFH, '>', $daikonScript_FileName) or die $!;
 
@@ -29,27 +28,14 @@ print DAIKONFH "rm ../traces_${benchmark}/*\n";
 
 print DAIKONFH "mkdir ../traces_${benchmark}\n";
 
+
 #we first filter the test cases so that it calls the main with arguments seperated by spaces
-open(FH, '<', $TC_FileName) or die $!;
 
-while(<FH>){
-  my $java_command = "java -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_${benchmark}/${benchmark}-TC${trace_count}.dtrace.gz ${mainClassName}" ;
+my $java_command = "java -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_${benchmark}/${benchmark}.dtrace.gz ${mainClassName} ${TC_FileName}" ;
 
-  #my $java_command = "java -cp $1:/home/soha/git/iDiscovery/daikon/daikon.jar daikon.Chicory --dtrace-file=traces/" . $benchmark . "-iter dtrace.gz" . $mainClassName ;
+print DAIKONFH $java_command;
 
-  my $line = $_;
-  $line =~ s/launch//g;
-  $line =~ s/,/ /g;
-  $line =~ s/[()]/ /g;
-
-  $line = $java_command . $line;
-  $trace_count = $trace_count + 1;
-  print DAIKONFH $line;
-  #my $test = <>;
-}
-close(FH);
-
-my $java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces_${benchmark}/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_${benchmark}.txt";
+$java_command = "\njava -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../traces_${benchmark}/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_${benchmark}.txt";
 print DAIKONFH $java_command;
 
 close(DAIKONFH);
