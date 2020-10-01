@@ -229,14 +229,14 @@ public class SpfTCAS {
         return alt_sep;
     }
 
-    public  void mainProcess(int Cur_Vertical_Sep, boolean High_Confidence, boolean Two_of_Three_Reports_Valid,
+    public  void mainProcess(int Cur_Vertical_Sep, int High_Confidence, int Two_of_Three_Reports_Valid,
                                    int Own_Tracked_Alt, int Own_Tracked_Alt_Rate, int Other_Tracked_Alt,
                                    int Alt_Layer_Value, int Up_Separation, int Down_Separation, int Other_RAC, int Other_Capability, int Climb_Inhibit) {
         initialize();
         this.Cur_Vertical_Sep = Cur_Vertical_Sep;
-        this.High_Confidence = High_Confidence;
+        this.High_Confidence = (High_Confidence==1);
 
-        this.Two_of_Three_Reports_Valid = Two_of_Three_Reports_Valid;
+        this.Two_of_Three_Reports_Valid = (Two_of_Three_Reports_Valid==1);
         this.Own_Tracked_Alt = Own_Tracked_Alt;
         this.Own_Tracked_Alt_Rate = Own_Tracked_Alt_Rate;
         this.Other_Tracked_Alt = Other_Tracked_Alt;
@@ -279,8 +279,8 @@ public class SpfTCAS {
         //assert(alim_res > 399);
     }
 
-    public  void launch(int p1, boolean p2, boolean p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12,
-                              int p13, boolean p14, boolean p15, int p16, int p17, int p18, int p19, int p20, int p21, int p22, int p23, int p24) {
+    public  void launch(int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12,
+                              int p13, int p14, int p15, int p16, int p17, int p18, int p19, int p20, int p21, int p22, int p23, int p24) {
 
         mainProcess(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         mainProcess(p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24);
@@ -290,7 +290,7 @@ public class SpfTCAS {
 
     public static  void main(String[] args) {
 
-        (new SpfTCAS()).launch(601, false, false, -1, 0, 0, 0, 301, 400, 0, 0, 1,601, false, false, -1, 0, 0, 0, 301, 400, 0, 0, 1 );
+        (new SpfTCAS()).launch(601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1,601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1 );
 
     }
 
