@@ -2,9 +2,10 @@
 use strict;
 use warnings;
 use autodie;
-
-my $i=4; #step number
-my $argStart=174;
+###### configurations for running the script
+my $i=5; #step number
+my $argStart=232;
+#### configuration end #######
 
 my $j=$argStart;
 

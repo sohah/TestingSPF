@@ -8,4 +8,5 @@ shopt -s expand_aliases
 
 DISCOVERYDIR=/home/soha/git/jpf-symbc
 
-runDiscovery $DISCOVERYDIR/src/examples/alarm/alarm.jpf >& $DISCOVERYDIR/logs/alarm.log
+runDiscovery $DISCOVERYDIR/src/examples/alarm/alarm.jpf 
+#>& $DISCOVERYDIR/logs/alarm.log
