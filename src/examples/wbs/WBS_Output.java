@@ -1,12 +1,11 @@
 package wbs;
 
-public class WBS_Output {
+public class WBS_Out {
 
     //Outputs
     static int Nor_Pressure;
     static int Alt_Pressure;
     static int Sys_Mode;
-
 
     /*public static void launch(int pedal1, boolean auto1, boolean skid1, int pedal2, boolean auto2, boolean skid2
             , int pedal3, boolean auto3, boolean skid3
@@ -49,13 +48,10 @@ public class WBS_Output {
 
     public static void update(int pedal, boolean auto, boolean skid) {
 
-
-        WBS wbs = new WBS();
-
-        wbs.update(pedal, auto, skid);
-        Nor_Pressure = wbs.Nor_Pressure;
-        Alt_Pressure = wbs.Alt_Pressure;
-        Sys_Mode = wbs.Sys_Mode;
+        WBS.update(pedal, auto, skid);
+        Nor_Pressure = WBS.Nor_Pressure;
+        Alt_Pressure = WBS.Alt_Pressure;
+        Sys_Mode = WBS.Sys_Mode;
 
     }
 }

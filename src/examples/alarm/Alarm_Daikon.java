@@ -21,7 +21,7 @@ public class Alarm_Daikon {
 
                 assert param.length == 107 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
 
-                ((new ALARM_Functional())).ALARM_FunctionalSymWrapper(Integer.parseInt(param[0]),
+                ALARM_Functional.ALARM_FunctionalSymWrapper(Integer.parseInt(param[0]),
                         Integer.parseInt(param[1]),
                         Boolean.parseBoolean(param[2]),
                         Integer.parseInt(param[3]),

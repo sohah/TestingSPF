@@ -15,4 +15,4 @@ java -cp /home/soha/git/jpf-symbc/src/examples/wbs:/home/soha/daikon-5.8.4/daiko
 
 java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Chicory --dtrace-file=../traces_wbs/wbs.dtrace.gz wbs.WBS_Daikon /home/soha/git/jpf-symbc/testCase/testCases_wbs.txt
 
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Daikon --nohierarchy ../traces_wbs/*.dtrace.gz  ../src/examples/wbs/WBS.spinfo --format java > ../daikonInv/daikon_invariants_wbs_Wrapping.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Daikon ../traces_wbs/*.dtrace.gz  ../src/examples/wbs/WBS.spinfo --format java > ../daikonInv/daikon_invariants_wbs.txt

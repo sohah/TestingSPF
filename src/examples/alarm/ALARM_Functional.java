@@ -6,31 +6,38 @@ import static alarm.Div_s32.div_s32;
 // contains JR refinement over "INFUSION_MGR_FunctionalRecovered.java", without making the state symbolic yet.
 
 public class ALARM_Functional {
-     final int ALARM_Functional_IN_AlarmDisplay = 1;
-     final int ALARM_Functional_IN_Alarms = 1;
-     final int ALARM_Functional_IN_Check = 1;
-     final int ALARM_Functional_IN_Disabled = 1;
-     final int ALARM_Functional_IN_Monitor = 2;
-     final int ALARM_Functional_IN_NOT_ON = 2;
-     final int ALARM_Functional_IN_NO_ACTIVE_CHILD = 0;
-     final int ALARM_Functional_IN_No = 1;
-     final int ALARM_Functional_IN_OFF = 2;
-     final int ALARM_Functional_IN_OFF_i = 1;
-     final int ALARM_Functional_IN_ON = 3;
-     final int ALARM_Functional_IN_ON_a = 2;
-     final int ALARM_Functional_IN_Silenced = 4;
-     final int ALARM_Functional_IN_Yes = 2;
-     final int ALARM_Functional_IN_Yes_o = 3;
-     final int ALARM_Functional_IN_counting = 3;
+    public static final int ALARM_Functional_IN_AlarmDisplay = 1;
+    public static final int ALARM_Functional_IN_Alarms = 1;
+    public static final int ALARM_Functional_IN_Check = 1;
+    public static final int ALARM_Functional_IN_Disabled = 1;
+    public static final int ALARM_Functional_IN_Monitor = 2;
+    public static final int ALARM_Functional_IN_NOT_ON = 2;
+    public static final int ALARM_Functional_IN_NO_ACTIVE_CHILD = 0;
+    public static final int ALARM_Functional_IN_No = 1;
+    public static final int ALARM_Functional_IN_OFF = 2;
+    public static final int ALARM_Functional_IN_OFF_i = 1;
+    public static final int ALARM_Functional_IN_ON = 3;
+    public static final int ALARM_Functional_IN_ON_a = 2;
+    public static final int ALARM_Functional_IN_Silenced = 4;
+    public static final int ALARM_Functional_IN_Yes = 2;
+    public static final int ALARM_Functional_IN_Yes_o = 3;
+    public static final int ALARM_Functional_IN_counting = 3;
 
 
-     void ALARM_Functional_writeLog(int logEvent, B_ALARM_Functional_c_T localB) {
+    public static int Is_Audio_Disabled;
+    public static int Notification_Message;
+    public static int Audio_Notification_Command;
+    public static int Highest_Level_Alarm;
+    public static int Log_Message_ID;
+
+
+    public static void ALARM_Functional_writeLog(int logEvent, B_ALARM_Functional_c_T localB) {
         /* Graphical Function 'writeLog': '<S1>:1478' */
         /* Transition: '<S1>:1480' */
         localB.ALARM_OUT_Log_Message_ID = logEvent;
     }
 
-     int ALARM_Functional_checkOverInfusionFlowRate(B_ALARM_Functional_c_T localB) {
+    public static int ALARM_Functional_checkOverInfusionFlowRate(B_ALARM_Functional_c_T localB) {
         int ov;
 
         /* Graphical Function 'checkOverInfusionFlowRate': '<S1>:4055' */
@@ -63,14 +70,14 @@ public class ALARM_Functional {
     }
 
 
-     int ALARM_Functional_Step_Scaling_Factor(int inputVal) {
+    public static int ALARM_Functional_Step_Scaling_Factor(int inputVal) {
         /* Graphical Function 'Step_Scaling_Factor': '<S1>:4730' */
         /* Transition: '<S1>:4732' */
         return inputVal;
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     int ALARM_Functional_checkUnderInfusion(B_ALARM_Functional_c_T localB) {
+    public static int ALARM_Functional_checkUnderInfusion(B_ALARM_Functional_c_T localB) {
         int c;
 
         /* Graphical Function 'checkUnderInfusion': '<S1>:4130' */
@@ -101,7 +108,7 @@ public class ALARM_Functional {
     }
 
 
-     void ALARM_Functional_Level1(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional_Level1(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
         int underInfusion;
 
         /* During 'Level1': '<S1>:4113' */
@@ -373,7 +380,7 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     int ALARM_Functional_setCurrentAlarm(DW_ALARM_Functional_f_T localDW) {
+    public static int ALARM_Functional_setCurrentAlarm(DW_ALARM_Functional_f_T localDW) {
         int s;
 
         /* Graphical Function 'setCurrentAlarm': '<S1>:3955' */
@@ -537,7 +544,7 @@ public class ALARM_Functional {
 
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     int ALARM_Functional_setHighestAlarm(DW_ALARM_Functional_f_T localDW) {
+    public static int ALARM_Functional_setHighestAlarm(DW_ALARM_Functional_f_T localDW) {
         /* Graphical Function 'setHighestAlarm': '<S1>:4098' */
         /* Transition: '<S1>:4104' */
         return localDW.Max_Alarm_Level;
@@ -545,7 +552,7 @@ public class ALARM_Functional {
 
 
     /* Funcztion for Chart: '<Root>/Alarm  Sub-System' */
-     void ALARM_Functional_CheckAlarm(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional_CheckAlarm(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T localDW) {
         int overInfusion;
 
         /* During 'CheckAlarm': '<S1>:3953' */
@@ -794,8 +801,8 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     void ALARM_Functional_Alarms(B_ALARM_Functional_c_T localB,
-                                        DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional_Alarms(B_ALARM_Functional_c_T localB,
+                                               DW_ALARM_Functional_f_T localDW) {
         /* During 'Alarms': '<S1>:3907' */
         if (!localB.System_On) {
             /* Transition: '<S1>:3901' */
@@ -1156,8 +1163,8 @@ public class ALARM_Functional {
 
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     void ALARM_Functional_enter_internal_CheckAlarm(B_ALARM_Functional_c_T
-                                                                   localB, DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional_enter_internal_CheckAlarm(B_ALARM_Functional_c_T
+                                                                          localB, DW_ALARM_Functional_f_T localDW) {
         int overInfusion;
 
         /* Entry Internal 'CheckAlarm': '<S1>:3953' */
@@ -1466,7 +1473,7 @@ public class ALARM_Functional {
     }
 
     /* Function for Chart: '<Root>/Alarm  Sub-System' */
-     void ALARM_Functional_enter_internal_Alarms(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T
+    public static void ALARM_Functional_enter_internal_Alarms(B_ALARM_Functional_c_T localB, DW_ALARM_Functional_f_T
             localDW) {
         /* Entry Internal 'Alarms': '<S1>:3907' */
         localDW.is_active_CheckAlarm = 1;
@@ -1528,8 +1535,8 @@ public class ALARM_Functional {
 
 
     /* Initial conditions for referenced model: 'ALARM_Functional' */
-     void ALARM_Functional_Init(B_ALARM_Functional_c_T localB,
-                                      DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional_Init(B_ALARM_Functional_c_T localB,
+                                             DW_ALARM_Functional_f_T localDW) {
         /* InitializeConditions for Chart: '<Root>/Alarm  Sub-System' */
         localDW.is_active_CheckAlarm = 0;
         localDW.is_active_CancelAlarm = 0;
@@ -1600,17 +1607,17 @@ public class ALARM_Functional {
     }
 
     /* Output and update for referenced model: 'ALARM_Functional' */
-     void ALARM_Functional(Infusion_Manager_Outputs rtu_IM_IN,
-                                 Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
-                                 System_Monitor_Output rtu_SYS_MON_IN,
-                                 Log_Output rtu_LOGGING_IN, Operator_Commands rtu_OP_CMD_IN,
-                                 Drug_Database_Inputs rtu_DB_IN,
-                                 Device_Sensor_Inputs rtu_SENSOR_IN,
-                                 Device_Configuration_Inputs rtu_CONST_IN,
-                                 System_Status_Outputs rtu_SYS_STAT_IN,
-                                 Config_Outputs rtu_CONFIG_IN, Alarm_Outputs
-                                         rty_ALARM_OUT, B_ALARM_Functional_c_T localB,
-                                 DW_ALARM_Functional_f_T localDW) {
+    public static void ALARM_Functional(Infusion_Manager_Outputs rtu_IM_IN,
+                                        Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
+                                        System_Monitor_Output rtu_SYS_MON_IN,
+                                        Log_Output rtu_LOGGING_IN, Operator_Commands rtu_OP_CMD_IN,
+                                        Drug_Database_Inputs rtu_DB_IN,
+                                        Device_Sensor_Inputs rtu_SENSOR_IN,
+                                        Device_Configuration_Inputs rtu_CONST_IN,
+                                        System_Status_Outputs rtu_SYS_STAT_IN,
+                                        Config_Outputs rtu_CONFIG_IN, Alarm_Outputs
+                                                rty_ALARM_OUT, B_ALARM_Functional_c_T localB,
+                                        DW_ALARM_Functional_f_T localDW) {
         /* BusSelector: '<Root>/BusConversion_InsertedFor_IM_IN_at_outport_0' */
         localB.Commanded_Flow_Rate = rtu_IM_IN.Commanded_Flow_Rate;
         localB.Current_System_Mode = rtu_IM_IN.Current_System_Mode;
@@ -1715,6 +1722,13 @@ public class ALARM_Functional {
         rty_ALARM_OUT.Highest_Level_Alarm = localB.ALARM_OUT_Highest_Level_Alarm;
         rty_ALARM_OUT.Log_Message_ID = localB.ALARM_OUT_Log_Message_ID;
 
+        Is_Audio_Disabled = localB.ALARM_OUT_Display_Audio_Disabled_Indicator;
+        Notification_Message = localB.ALARM_OUT_Display_Notification_Command;
+        Audio_Notification_Command = localB.ALARM_OUT_Audio_Notification_Command;
+        Highest_Level_Alarm = localB.ALARM_OUT_Highest_Level_Alarm;
+        Log_Message_ID = localB.ALARM_OUT_Log_Message_ID;
+
+
         boolean checkCondition;
         boolean checkOutput;
 
@@ -1793,7 +1807,7 @@ public class ALARM_Functional {
 
     public static void main(String[] args) {
 
-        (new ALARM_Functional()).ALARM_FunctionalSymWrapper(1, 1, false, 1, 1, false, false, 1, false, 1,
+        ALARM_Functional.ALARM_FunctionalSymWrapper(1, 1, false, 1, 1, false, false, 1, false, 1,
                 false, false, false, false, false, false, false, false, false, false,
                 false, 1, false, 1, false, false, 1, 1, 1, 1,
                 1, 1, 1, 1, 1, 1, 1, false, false, false,
@@ -1820,135 +1834,135 @@ public class ALARM_Functional {
                 1, 1, 1, 1, 1, 1, 1*/);
     }
 
-     void ALARM_FunctionalSymWrapper(//Symbolic input of Infusion_Manager_Outputs
-                                                   int Commanded_Flow_Rate,
-                                                   int Current_System_Mode, boolean New_Infusion,
-                                                   int Log_Message_ID_1,
-                                                   int Actual_Infusion_Duration,
+    public static void ALARM_FunctionalSymWrapper(//Symbolic input of Infusion_Manager_Outputs
+                                                  int Commanded_Flow_Rate,
+                                                  int Current_System_Mode, boolean New_Infusion,
+                                                  int Log_Message_ID_1,
+                                                  int Actual_Infusion_Duration,
 
 
-                                                   //Symbolic input of Top_Level_Mode_Outputs
-                                                   boolean System_On,
-                                                   boolean Request_Confirm_Stop,
-                                                   int Log_Message_ID_2,
+                                                  //Symbolic input of Top_Level_Mode_Outputs
+                                                  boolean System_On,
+                                                  boolean Request_Confirm_Stop,
+                                                  int Log_Message_ID_2,
 
 
-                                                   //Symbolic input of System_Monitor_Output
-                                                   boolean System_Monitor_Failed,
+                                                  //Symbolic input of System_Monitor_Output
+                                                  boolean System_Monitor_Failed,
 
-                                                   //Symbolic input of System_Monitor_Output
-                                                   int Log,
-                                                   boolean Logging_Failed,
+                                                  //Symbolic input of System_Monitor_Output
+                                                  int Log,
+                                                  boolean Logging_Failed,
 
-                                                   //Symbolic input of Operator_Commands
-                                                   boolean System_Start,
-                                                   boolean System_Stop,
-                                                   boolean Infusion_Initiate,
-                                                   boolean Infusion_Inhibit,
-                                                   boolean Infusion_Cancel,
-                                                   boolean Data_Config,
-                                                   boolean Next,
-                                                   boolean Back,
-                                                   boolean Cancel,
-                                                   boolean Keyboard,
-                                                   int Disable_Audio,
-                                                   boolean Notification_Cancel,
-                                                   int Configuration_Type,
-                                                   boolean Confirm_Stop,
+                                                  //Symbolic input of Operator_Commands
+                                                  boolean System_Start,
+                                                  boolean System_Stop,
+                                                  boolean Infusion_Initiate,
+                                                  boolean Infusion_Inhibit,
+                                                  boolean Infusion_Cancel,
+                                                  boolean Data_Config,
+                                                  boolean Next,
+                                                  boolean Back,
+                                                  boolean Cancel,
+                                                  boolean Keyboard,
+                                                  int Disable_Audio,
+                                                  boolean Notification_Cancel,
+                                                  int Configuration_Type,
+                                                  boolean Confirm_Stop,
 
-                                                   //Symbolic input of Drug_Database_Inputs
-                                                   boolean Known_Prescription,
-                                                   int Drug_Name1,
-                                                   int Drug_Concentration_High,
-                                                   int Drug_Concentration_Low,
-                                                   int VTBI_High,
-                                                   int VTBI_Low,
-                                                   int Interval_Patient_Bolus,
-                                                   int Number_Max_Patient_Bolus,
-                                                   int Flow_Rate_KVO1,
-                                                   int Flow_Rate_High,
-                                                   int Flow_Rate_Low,
+                                                  //Symbolic input of Drug_Database_Inputs
+                                                  boolean Known_Prescription,
+                                                  int Drug_Name1,
+                                                  int Drug_Concentration_High,
+                                                  int Drug_Concentration_Low,
+                                                  int VTBI_High,
+                                                  int VTBI_Low,
+                                                  int Interval_Patient_Bolus,
+                                                  int Number_Max_Patient_Bolus,
+                                                  int Flow_Rate_KVO1,
+                                                  int Flow_Rate_High,
+                                                  int Flow_Rate_Low,
 
-                                                   //Symbolic input of Device_Sensor_Inputs
-                                                   int Flow_Rate,
-                                                   boolean Flow_Rate_Not_Stable,
-                                                   boolean Air_In_Line,
-                                                   boolean Occlusion,
-                                                   boolean Door_Open,
-                                                   boolean Temp,
-                                                   boolean Air_Pressure,
-                                                   boolean Humidity,
-                                                   boolean Battery_Depleted,
-                                                   boolean Battery_Low,
-                                                   boolean Battery_Unable_To_Charge,
-                                                   boolean Supply_Voltage,
-                                                   boolean CPU_In_Error,
-                                                   boolean RTC_In_Error,
-                                                   boolean Watchdog_Interrupted,
-                                                   boolean Memory_Corrupted,
-                                                   boolean Pump_Too_Hot,
-                                                   boolean Pump_Overheated,
-                                                   boolean Pump_Primed,
-                                                   boolean Post_Successful,
+                                                  //Symbolic input of Device_Sensor_Inputs
+                                                  int Flow_Rate,
+                                                  boolean Flow_Rate_Not_Stable,
+                                                  boolean Air_In_Line,
+                                                  boolean Occlusion,
+                                                  boolean Door_Open,
+                                                  boolean Temp,
+                                                  boolean Air_Pressure,
+                                                  boolean Humidity,
+                                                  boolean Battery_Depleted,
+                                                  boolean Battery_Low,
+                                                  boolean Battery_Unable_To_Charge,
+                                                  boolean Supply_Voltage,
+                                                  boolean CPU_In_Error,
+                                                  boolean RTC_In_Error,
+                                                  boolean Watchdog_Interrupted,
+                                                  boolean Memory_Corrupted,
+                                                  boolean Pump_Too_Hot,
+                                                  boolean Pump_Overheated,
+                                                  boolean Pump_Primed,
+                                                  boolean Post_Successful,
 
-                                                   //Symbolic input of Device_Configuration_Inputs
-                                                   int Audio_Enable_Duration,
-                                                   int Audio_Level,
-                                                   int Config_Warning_Duration,
-                                                   int Empty_Reservoir,
-                                                   int Low_Reservoir,
-                                                   int Max_Config_Duration,
-                                                   int Max_Duration_Over_Infusion,
-                                                   int Max_Duration_Under_Infusion,
-                                                   int Max_Paused_Duration,
-                                                   int Max_Idle_Duration,
-                                                   int Tolerance_Max,
-                                                   int Tolerance_Min,
-                                                   int Log_Interval,
-                                                   int System_Test_Interval,
-                                                   int Max_Display_Duration,
-                                                   int Max_Confirm_Stop_Duration,
+                                                  //Symbolic input of Device_Configuration_Inputs
+                                                  int Audio_Enable_Duration,
+                                                  int Audio_Level,
+                                                  int Config_Warning_Duration,
+                                                  int Empty_Reservoir,
+                                                  int Low_Reservoir,
+                                                  int Max_Config_Duration,
+                                                  int Max_Duration_Over_Infusion,
+                                                  int Max_Duration_Under_Infusion,
+                                                  int Max_Paused_Duration,
+                                                  int Max_Idle_Duration,
+                                                  int Tolerance_Max,
+                                                  int Tolerance_Min,
+                                                  int Log_Interval,
+                                                  int System_Test_Interval,
+                                                  int Max_Display_Duration,
+                                                  int Max_Confirm_Stop_Duration,
 
-                                                   //Symbolic input of System_Status_Outputs
-                                                   boolean Reservoir_Empty,
-                                                   int Reservoir_Volume1,
-                                                   int Volume_Infused,
-                                                   int Log_Message_ID3,
-                                                   boolean In_Therapy,
+                                                  //Symbolic input of System_Status_Outputs
+                                                  boolean Reservoir_Empty,
+                                                  int Reservoir_Volume1,
+                                                  int Volume_Infused,
+                                                  int Log_Message_ID3,
+                                                  boolean In_Therapy,
 
-                                                   //Symbolic input of Config_Outputs
-                                                   int Patient_ID,
-                                                   int Drug_Name2,
-                                                   int Drug_Concentration,
-                                                   int Infusion_Total_Duration,
-                                                   int VTBI_Total,
-                                                   int Flow_Rate_Basal,
-                                                   int Flow_Rate_Intermittent_Bolus,
-                                                   int Duration_Intermittent_Bolus,
-                                                   int Interval_Intermittent_Bolus,
-                                                   int Flow_Rate_Patient_Bolus,
-                                                   int Duration_Patient_Bolus,
-                                                   int Lockout_Period_Patient_Bolus,
-                                                   int Max_Number_of_Patient_Bolus,
-                                                   int Flow_Rate_KVO2,
-                                                   int Entered_Reservoir_Volume,
-                                                   int Reservoir_Volume2,
-                                                   int Configured,
-                                                   int Error_Message_ID,
-                                                   boolean Request_Config_Type,
-                                                   boolean Request_Confirm_Infusion_Initiate,
-                                                   boolean Request_Patient_Drug_Info,
-                                                   boolean Request_Infusion_Info,
-                                                   int Log_Message_ID4,
-                                                   int Config_Timer,
-                                                   int Config_Mode,
+                                                  //Symbolic input of Config_Outputs
+                                                  int Patient_ID,
+                                                  int Drug_Name2,
+                                                  int Drug_Concentration,
+                                                  int Infusion_Total_Duration,
+                                                  int VTBI_Total,
+                                                  int Flow_Rate_Basal,
+                                                  int Flow_Rate_Intermittent_Bolus,
+                                                  int Duration_Intermittent_Bolus,
+                                                  int Interval_Intermittent_Bolus,
+                                                  int Flow_Rate_Patient_Bolus,
+                                                  int Duration_Patient_Bolus,
+                                                  int Lockout_Period_Patient_Bolus,
+                                                  int Max_Number_of_Patient_Bolus,
+                                                  int Flow_Rate_KVO2,
+                                                  int Entered_Reservoir_Volume,
+                                                  int Reservoir_Volume2,
+                                                  int Configured,
+                                                  int Error_Message_ID,
+                                                  boolean Request_Config_Type,
+                                                  boolean Request_Confirm_Infusion_Initiate,
+                                                  boolean Request_Patient_Drug_Info,
+                                                  boolean Request_Infusion_Info,
+                                                  int Log_Message_ID4,
+                                                  int Config_Timer,
+                                                  int Config_Mode,
 
-                                                   //Symbolic input of Alarm_Outputs
-                                                   int Is_Audio_Disabled,
-                                                   int Notification_Message,
-                                                   int Audio_Notification_Command,
-                                                   int Highest_Level_Alarm,
-                                                   int Log_Message_ID5
+                                                  //Symbolic input of Alarm_Outputs
+                                                  int Is_Audio_Disabled,
+                                                  int Notification_Message,
+                                                  int Audio_Notification_Command,
+                                                  int Highest_Level_Alarm,
+                                                  int Log_Message_ID5
 //             ,
 
 
@@ -2158,7 +2172,7 @@ public class ALARM_Functional {
         rtu_op_cmd_in_2.Back = Back_2;
         rtu_op_cmd_in_2.Cancel = Cancel_2;
         rtu_op_cmd_in_2.Keyboard = Keyboard_2;
-        rtu_op_cmd_in_2.Disable_Audio = Disable_Audio_2;
+        rtu_op_cmd_in_2.Disable_Audio = Disable_Audio_2;ALARM_Functional
         rtu_op_cmd_in_2.Notification_Cancel = Notification_Cancel_2;
         rtu_op_cmd_in_2.Configuration_Type = Configuration_Type_2;
         rtu_op_cmd_in_2.Confirm_Stop = Confirm_Stop_2;
@@ -2379,134 +2393,134 @@ public class ALARM_Functional {
         ALARM_Functional_Init(localB, localDW);
 
 
-        if (( 0 <= Commanded_Flow_Rate) &&
-                ( 0 <= Current_System_Mode) &&
-                ( 0 <= Log_Message_ID_1) &&
-                ( 0 <= Actual_Infusion_Duration) &&
-                ( 0 <= Log_Message_ID_2) &&
-                ( 0 <= Log) &&
-                ( 0 <= Disable_Audio) &&
-                ( 0 <= Configuration_Type) &&
-                ( 0 <= Drug_Name1) &&
-                ( 0 <= Drug_Concentration_High) &&
-                ( 0 <= Drug_Concentration_Low) &&
-                ( 0 <= VTBI_High) &&
-                ( 0 <= VTBI_Low) &&
-                ( 0 <= Interval_Patient_Bolus) &&
-                ( 0 <= Number_Max_Patient_Bolus) &&
-                ( 0 <= Flow_Rate_KVO1) &&
-                ( 0 <= Flow_Rate_High) &&
-                ( 0 <= Flow_Rate_Low) &&
-                ( 0 <= Flow_Rate) &&
-                ( 0 <= Audio_Enable_Duration) &&
-                ( 0 <= Audio_Level) &&
-                ( 0 <= Config_Warning_Duration) &&
-                ( 0 <= Empty_Reservoir) &&
-                ( 0 <= Low_Reservoir) &&
-                ( 0 <= Max_Config_Duration) &&
-                ( 0 <= Max_Duration_Over_Infusion) &&
-                ( 0 <= Max_Duration_Under_Infusion) &&
-                ( 0 <= Max_Paused_Duration) &&
-                ( 0 <= Max_Idle_Duration) &&
-                ( 0 <= Tolerance_Max) &&
-                ( 0 <= Tolerance_Min) &&
-                ( 0 <= Log_Interval) &&
-                ( 0 <= System_Test_Interval) &&
-                ( 0 <= Max_Display_Duration) &&
-                ( 0 <= Max_Confirm_Stop_Duration) &&
-                ( 0 <= Reservoir_Volume1) &&
-                ( 0 <= Volume_Infused) &&
-                ( 0 <= Log_Message_ID3) &&
-                ( 0 <= Patient_ID) &&
-                ( 0 <= Drug_Name2) &&
-                ( 0 <= Drug_Concentration) &&
-                ( 0 <= Infusion_Total_Duration) &&
-                ( 0 <= VTBI_Total) &&
-                ( 0 <= Flow_Rate_Basal) &&
-                ( 0 <= Flow_Rate_Intermittent_Bolus) &&
-                ( 0 <= Duration_Intermittent_Bolus) &&
-                ( 0 <= Interval_Intermittent_Bolus) &&
-                ( 0 <= Flow_Rate_Patient_Bolus) &&
-                ( 0 <= Duration_Patient_Bolus) &&
-                ( 0 <= Lockout_Period_Patient_Bolus) &&
-                ( 0 <= Max_Number_of_Patient_Bolus) &&
-                ( 0 <= Flow_Rate_KVO2) &&
-                ( 0 <= Entered_Reservoir_Volume) &&
-                ( 0 <= Reservoir_Volume2) &&
-                ( 0 <= Configured) &&
-                ( 0 <= Error_Message_ID) &&
-                ( 0 <= Log_Message_ID4) &&
-                ( 0 <= Config_Timer) &&
-                ( 0 <= Config_Mode) &&
-                ( 0 <= Is_Audio_Disabled) &&
-                ( 0 <= Notification_Message) &&
-                ( 0 <= Audio_Notification_Command) &&
-                ( 0 <= Highest_Level_Alarm) &&
-                ( 0 <= Log_Message_ID5) &&
-                (Commanded_Flow_Rate<= 255 ) &&
-                (Current_System_Mode<= 255 ) &&
-                (Log_Message_ID_1<= 255 ) &&
-                (Actual_Infusion_Duration<= 255 ) &&
-                (Log_Message_ID_2<= 255 ) &&
-                (Log<= 255 ) &&
-                (Disable_Audio<= 255 ) &&
-                (Configuration_Type<= 255 ) &&
-                (Drug_Name1<= 255 ) &&
-                (Drug_Concentration_High<= 255 ) &&
-                (Drug_Concentration_Low<= 255 ) &&
-                (VTBI_High<= 255 ) &&
-                (VTBI_Low<= 255 ) &&
-                (Interval_Patient_Bolus<= 255 ) &&
-                (Number_Max_Patient_Bolus<= 255 ) &&
-                (Flow_Rate_KVO1<= 255 ) &&
-                (Flow_Rate_High<= 255 ) &&
-                (Flow_Rate_Low<= 255 ) &&
-                (Flow_Rate<= 255 ) &&
-                (Audio_Enable_Duration<= 255 ) &&
-                (Audio_Level<= 255 ) &&
-                (Config_Warning_Duration<= 255 ) &&
-                (Empty_Reservoir<= 255 ) &&
-                (Low_Reservoir<= 255 ) &&
-                (Max_Config_Duration<= 255 ) &&
-                (Max_Duration_Over_Infusion<= 255 ) &&
-                (Max_Duration_Under_Infusion<= 255 ) &&
-                (Max_Paused_Duration<= 255 ) &&
-                (Max_Idle_Duration<= 255 ) &&
-                (Tolerance_Max<= 255 ) &&
-                (Tolerance_Min<= 255 ) &&
-                (Log_Interval<= 255 ) &&
-                (System_Test_Interval<= 255 ) &&
-                (Max_Display_Duration<= 255 ) &&
-                (Max_Confirm_Stop_Duration<= 255 ) &&
-                (Reservoir_Volume1<= 255 ) &&
-                (Volume_Infused<= 255 ) &&
-                (Log_Message_ID3<= 255 ) &&
-                (Patient_ID<= 255 ) &&
-                (Drug_Name2<= 255 ) &&
-                (Drug_Concentration<= 255 ) &&
-                (Infusion_Total_Duration<= 255 ) &&
-                (VTBI_Total<= 255 ) &&
-                (Flow_Rate_Basal<= 255 ) &&
-                (Flow_Rate_Intermittent_Bolus<= 255 ) &&
-                (Duration_Intermittent_Bolus<= 255 ) &&
-                (Interval_Intermittent_Bolus<= 255 ) &&
-                (Flow_Rate_Patient_Bolus<= 255 ) &&
-                (Duration_Patient_Bolus<= 255 ) &&
-                (Lockout_Period_Patient_Bolus<= 255 ) &&
-                (Max_Number_of_Patient_Bolus<= 255 ) &&
-                (Flow_Rate_KVO2<= 255 ) &&
-                (Entered_Reservoir_Volume<= 255 ) &&
-                (Reservoir_Volume2<= 255 ) &&
-                (Configured<= 255 ) &&
-                (Error_Message_ID<= 255 ) &&
-                (Log_Message_ID4<= 255 ) &&
-                (Config_Timer<= 255 ) &&
-                (Config_Mode<= 255 ) &&
-                (Is_Audio_Disabled<= 255 ) &&
-                (Notification_Message<= 255 ) &&
-                (Audio_Notification_Command<= 255 ) &&
-                (Highest_Level_Alarm<= 255 ) &&
-                (Log_Message_ID5 <=255)
+        if ((0 <= Commanded_Flow_Rate) &&
+                (0 <= Current_System_Mode) &&
+                (0 <= Log_Message_ID_1) &&
+                (0 <= Actual_Infusion_Duration) &&
+                (0 <= Log_Message_ID_2) &&
+                (0 <= Log) &&
+                (0 <= Disable_Audio) &&
+                (0 <= Configuration_Type) &&
+                (0 <= Drug_Name1) &&
+                (0 <= Drug_Concentration_High) &&
+                (0 <= Drug_Concentration_Low) &&
+                (0 <= VTBI_High) &&
+                (0 <= VTBI_Low) &&
+                (0 <= Interval_Patient_Bolus) &&
+                (0 <= Number_Max_Patient_Bolus) &&
+                (0 <= Flow_Rate_KVO1) &&
+                (0 <= Flow_Rate_High) &&
+                (0 <= Flow_Rate_Low) &&
+                (0 <= Flow_Rate) &&
+                (0 <= Audio_Enable_Duration) &&
+                (0 <= Audio_Level) &&
+                (0 <= Config_Warning_Duration) &&
+                (0 <= Empty_Reservoir) &&
+                (0 <= Low_Reservoir) &&
+                (0 <= Max_Config_Duration) &&
+                (0 <= Max_Duration_Over_Infusion) &&
+                (0 <= Max_Duration_Under_Infusion) &&
+                (0 <= Max_Paused_Duration) &&
+                (0 <= Max_Idle_Duration) &&
+                (0 <= Tolerance_Max) &&
+                (0 <= Tolerance_Min) &&
+                (0 <= Log_Interval) &&
+                (0 <= System_Test_Interval) &&
+                (0 <= Max_Display_Duration) &&
+                (0 <= Max_Confirm_Stop_Duration) &&
+                (0 <= Reservoir_Volume1) &&
+                (0 <= Volume_Infused) &&
+                (0 <= Log_Message_ID3) &&
+                (0 <= Patient_ID) &&
+                (0 <= Drug_Name2) &&
+                (0 <= Drug_Concentration) &&
+                (0 <= Infusion_Total_Duration) &&
+                (0 <= VTBI_Total) &&
+                (0 <= Flow_Rate_Basal) &&
+                (0 <= Flow_Rate_Intermittent_Bolus) &&
+                (0 <= Duration_Intermittent_Bolus) &&
+                (0 <= Interval_Intermittent_Bolus) &&
+                (0 <= Flow_Rate_Patient_Bolus) &&
+                (0 <= Duration_Patient_Bolus) &&
+                (0 <= Lockout_Period_Patient_Bolus) &&
+                (0 <= Max_Number_of_Patient_Bolus) &&
+                (0 <= Flow_Rate_KVO2) &&
+                (0 <= Entered_Reservoir_Volume) &&
+                (0 <= Reservoir_Volume2) &&
+                (0 <= Configured) &&
+                (0 <= Error_Message_ID) &&
+                (0 <= Log_Message_ID4) &&
+                (0 <= Config_Timer) &&
+                (0 <= Config_Mode) &&
+                (0 <= Is_Audio_Disabled) &&
+                (0 <= Notification_Message) &&
+                (0 <= Audio_Notification_Command) &&
+                (0 <= Highest_Level_Alarm) &&
+                (0 <= Log_Message_ID5) &&
+                (Commanded_Flow_Rate <= 255) &&
+                (Current_System_Mode <= 255) &&
+                (Log_Message_ID_1 <= 255) &&
+                (Actual_Infusion_Duration <= 255) &&
+                (Log_Message_ID_2 <= 255) &&
+                (Log <= 255) &&
+                (Disable_Audio <= 255) &&
+                (Configuration_Type <= 255) &&
+                (Drug_Name1 <= 255) &&
+                (Drug_Concentration_High <= 255) &&
+                (Drug_Concentration_Low <= 255) &&
+                (VTBI_High <= 255) &&
+                (VTBI_Low <= 255) &&
+                (Interval_Patient_Bolus <= 255) &&
+                (Number_Max_Patient_Bolus <= 255) &&
+                (Flow_Rate_KVO1 <= 255) &&
+                (Flow_Rate_High <= 255) &&
+                (Flow_Rate_Low <= 255) &&
+                (Flow_Rate <= 255) &&
+                (Audio_Enable_Duration <= 255) &&
+                (Audio_Level <= 255) &&
+                (Config_Warning_Duration <= 255) &&
+                (Empty_Reservoir <= 255) &&
+                (Low_Reservoir <= 255) &&
+                (Max_Config_Duration <= 255) &&
+                (Max_Duration_Over_Infusion <= 255) &&
+                (Max_Duration_Under_Infusion <= 255) &&
+                (Max_Paused_Duration <= 255) &&
+                (Max_Idle_Duration <= 255) &&
+                (Tolerance_Max <= 255) &&
+                (Tolerance_Min <= 255) &&
+                (Log_Interval <= 255) &&
+                (System_Test_Interval <= 255) &&
+                (Max_Display_Duration <= 255) &&
+                (Max_Confirm_Stop_Duration <= 255) &&
+                (Reservoir_Volume1 <= 255) &&
+                (Volume_Infused <= 255) &&
+                (Log_Message_ID3 <= 255) &&
+                (Patient_ID <= 255) &&
+                (Drug_Name2 <= 255) &&
+                (Drug_Concentration <= 255) &&
+                (Infusion_Total_Duration <= 255) &&
+                (VTBI_Total <= 255) &&
+                (Flow_Rate_Basal <= 255) &&
+                (Flow_Rate_Intermittent_Bolus <= 255) &&
+                (Duration_Intermittent_Bolus <= 255) &&
+                (Interval_Intermittent_Bolus <= 255) &&
+                (Flow_Rate_Patient_Bolus <= 255) &&
+                (Duration_Patient_Bolus <= 255) &&
+                (Lockout_Period_Patient_Bolus <= 255) &&
+                (Max_Number_of_Patient_Bolus <= 255) &&
+                (Flow_Rate_KVO2 <= 255) &&
+                (Entered_Reservoir_Volume <= 255) &&
+                (Reservoir_Volume2 <= 255) &&
+                (Configured <= 255) &&
+                (Error_Message_ID <= 255) &&
+                (Log_Message_ID4 <= 255) &&
+                (Config_Timer <= 255) &&
+                (Config_Mode <= 255) &&
+                (Is_Audio_Disabled <= 255) &&
+                (Notification_Message <= 255) &&
+                (Audio_Notification_Command <= 255) &&
+                (Highest_Level_Alarm <= 255) &&
+                (Log_Message_ID5 <= 255)
 //                &&
 
 /*
@@ -2643,9 +2657,9 @@ public class ALARM_Functional {
                 (Log_Message_ID5_2 <=255)
 */
 
-        ) {
+                ) {
 
-            ALARM_Functional(rtu_IM_IN, rtu_tlm_mode_in, rtu_sys_mon_in, rtu_logging_in, rtu_op_cmd_in, rtu_db_in, rtu_sensor_in, rtu_const_in, rtu_sys_stat_in, rtu_config_in, rty_alarm_out, localB, localDW);
+            Alarm_Result.step(rtu_IM_IN, rtu_tlm_mode_in, rtu_sys_mon_in, rtu_logging_in, rtu_op_cmd_in, rtu_db_in, rtu_sensor_in, rtu_const_in, rtu_sys_stat_in, rtu_config_in, rty_alarm_out, localB, localDW);
 //            ALARM_Functional(rtu_IM_IN_2, rtu_tlm_mode_in_2, rtu_sys_mon_in_2, rtu_logging_in_2, rtu_op_cmd_in_2, rtu_db_in_2, rtu_sensor_in_2, rtu_const_in_2, rtu_sys_stat_in_2, rtu_config_in_2, rty_alarm_out_2, localB, localDW);
             //ALARM_Functional(rtu_IM_IN, rtu_tlm_mode_in, rtu_sys_mon_in, rtu_logging_in, rtu_op_cmd_in, rtu_db_in, rtu_sensor_in, rtu_const_in, rtu_sys_stat_in, rtu_config_in, rty_alarm_out, localB, localDW);
 

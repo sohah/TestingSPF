@@ -4,16 +4,16 @@ package wbs;
 public class WBS {
 
     //Internal state
-    private int WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE;
-    private int WBS_Node_WBS_BSCU_rlt_PRE1;
-    private int WBS_Node_WBS_rlt_PRE2;
+    static private int WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE;
+    static private int WBS_Node_WBS_BSCU_rlt_PRE1;
+    static private int WBS_Node_WBS_rlt_PRE2;
 
     //Outputs
-    public int Nor_Pressure;
-    public int Alt_Pressure;
-    public int Sys_Mode;
+    public static int Nor_Pressure;
+    public static int Alt_Pressure;
+    public static int Sys_Mode;
 
-    public WBS() {
+    public static void init() {
         WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE = 0;
         WBS_Node_WBS_BSCU_rlt_PRE1 = 0;
         WBS_Node_WBS_rlt_PRE2 = 100;
@@ -22,7 +22,7 @@ public class WBS {
         Sys_Mode = 0;
     }
 
-    public void update(int PedalPos, boolean AutoBrake, boolean Skid) {
+    public static void update(int PedalPos, boolean AutoBrake, boolean Skid) {
         int WBS_Node_WBS_AS_MeterValve_Switch;
         int WBS_Node_WBS_AccumulatorValve_Switch;
         int WBS_Node_WBS_BSCU_Command_AntiSkidCommand_Normal_Switch;
@@ -229,7 +229,7 @@ public class WBS {
 
     }
 
-    public void launch(int pedal1, boolean auto1, boolean skid1, int pedal2, boolean auto2, boolean skid2
+    public static void launch(int pedal1, boolean auto1, boolean skid1, int pedal2, boolean auto2, boolean skid2
             , int pedal3, boolean auto3, boolean skid3
             , int pedal4, boolean auto4, boolean skid4
             , int pedal5, boolean auto5, boolean skid5) {
@@ -239,6 +239,7 @@ public class WBS {
         update(pedal4, auto4, skid4);
         update(pedal5, auto5, skid5);*/
 
+        WBS.init();
         WBS_Output.update(pedal1, auto1, skid1);
         WBS_Output.update(pedal2, auto2, skid2);
         WBS_Output.update(pedal3, auto3, skid3);
@@ -249,7 +250,7 @@ public class WBS {
 
     public static void main(String[] args) {
 
-        ((new WBS())).launch(1, false, false,
+        WBS.launch(1, false, false,
                 1, false, false,
                 1, false, false,
                 1, false, false,
