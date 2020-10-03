@@ -12,6 +12,7 @@ use autodie;
 my $TC_FileName="/home/soha/git/jpf-symbc/testCase/testCases_wbs.txt";
 my $benchmark="wbs";
 my $mainClassName="wbs.WBS_Daikon";
+my $source_path="../src/examples/wbs/WBS.java";
 
 #### input configuration ends here#####
 
@@ -38,6 +39,9 @@ print DAIKONFH "mkdir ../traces_${benchmark}\n";
 
 
 #we first filter the test cases so that it calls the main with arguments seperated by spaces
+
+my $java_command = "java -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.tools.jtb.CreateSpinfo ${source_path}" ;
+print DAIKONFH $java_command;
 
 my $java_command = "java -cp ${classPath}:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_${benchmark}/${benchmark}.dtrace.gz ${mainClassName} ${TC_FileName}" ;
 

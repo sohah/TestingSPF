@@ -9,9 +9,9 @@ public class WBS {
     private int WBS_Node_WBS_rlt_PRE2;
 
     //Outputs
-    private int Nor_Pressure;
-    private int Alt_Pressure;
-    private int Sys_Mode;
+    public int Nor_Pressure;
+    public int Alt_Pressure;
+    public int Sys_Mode;
 
     public WBS() {
         WBS_Node_WBS_BSCU_SystemModeSelCmd_rlt_PRE = 0;
@@ -233,11 +233,18 @@ public class WBS {
             , int pedal3, boolean auto3, boolean skid3
             , int pedal4, boolean auto4, boolean skid4
             , int pedal5, boolean auto5, boolean skid5) {
-        update(pedal1, auto1, skid1);
+     /*   update(pedal1, auto1, skid1);
         update(pedal2, auto2, skid2);
         update(pedal3, auto3, skid3);
         update(pedal4, auto4, skid4);
-        update(pedal5, auto5, skid5);
+        update(pedal5, auto5, skid5);*/
+
+        WBS_Output.update(pedal1, auto1, skid1);
+        WBS_Output.update(pedal2, auto2, skid2);
+        WBS_Output.update(pedal3, auto3, skid3);
+        WBS_Output.update(pedal4, auto4, skid4);
+        WBS_Output.update(pedal5, auto5, skid5);
+
     }
 
     public static void main(String[] args) {
@@ -247,5 +254,12 @@ public class WBS {
                 1, false, false,
                 1, false, false,
                 1, false, false);
+
+        /*WBS_Output.launch(1, false, false,
+                1, false, false,
+                1, false, false,
+                1, false, false,
+                1, false, false);*/
+
     }
 }
