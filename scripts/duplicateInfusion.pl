@@ -3,15 +3,14 @@ use strict;
 use warnings;
 use autodie;
 ###### configurations for running the script
-my $i=5; #step number
-my $argStart=232;
+my $i=1; #step number
+my $argStart=0;
 #### configuration end #######
 
 my $j=$argStart;
 
-print "//${i} step
-
-  //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
+print"
+ //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
          boolean System_On_${i},
             boolean Request_Confirm_Stop_${i},
             int Log_Message_ID1_${i},
@@ -80,6 +79,79 @@ print "//${i} step
             boolean New_Infusion_${i},
             int Log_Message_ID4_${i},
             int Actual_Infusion_Duration_${i}";
+
+
+print "//${i} step
+
+  //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
+         boolean System_On_${i} = Debug.makeSymbolicBoolean(\"System_On_${i}\");
+            boolean Request_Confirm_Stop_${i} = Debug.makeSymbolicBoolean(\"Request_Confirm_Stop_${i}\") ;
+            int Log_Message_ID1_${i} = Debug.makeSymbolicInteger(\"Log_Message_ID1_${i}\");
+
+            //Operator_Commands rtu_OP_CMD_IN
+            boolean System_Start_${i} = Debug.makeSymbolicBoolean(\"System_Start_${i}\");
+            boolean System_Stop_${i} = Debug.makeSymbolicBoolean(\"System_Stop_${i}\") ;
+            boolean Infusion_Initiate_${i} = Debug.makeSymbolicBoolean(\"Infusion_Initiate_${i}\") ;
+            boolean Infusion_Inhibit_${i}=Debug.makeSymbolicBoolean(\"Infusion_Inhibit_${i}\") ;
+            boolean Infusion_Cancel_${i}=Debug.makeSymbolicBoolean(\"Infusion_Cancel_${i}\") ;
+            boolean Data_Config_${i}=Debug.makeSymbolicBoolean(\"Data_Config_${i}\") ;
+            boolean Next_${i}=Debug.makeSymbolicBoolean(\"Next_${i}\") ;
+            boolean Back_${i}=Debug.makeSymbolicBoolean(\"Back_${i}\");
+            boolean Cancel_${i}=Debug.makeSymbolicBoolean(\"Cancel_${i}\");
+            boolean Keyboard_${i}=Debug.makeSymbolicBoolean(\"Keyboard_${i}\") ;
+            int Disable_Audio_${i}=Debug.makeSymbolicInteger(\"Disable_Audio_${i}\");
+            boolean Notification_Cancel_${i};==Debug.makeSymbolicBoolean(\"Notification_Cancel_${i}\") ;
+            int Configuration_Type_${i}=Debug.makeSymbolicInteger(\"Configuration_Type_${i}\");
+            boolean Confirm_Stop_${i}=Debug.makeSymbolicBoolean(\"Confirm_Stop_${i}\") ;
+            boolean Patient_Bolus_Request_${i}=Debug.makeSymbolicBoolean(\"Patient_Bolus_Request_${i}\") ;
+            int Patient_ID_${i}==Debug.makeSymbolicInteger(\"Patient_ID_${i}\");
+            int Drug_Name_${i}=Debug.makeSymbolicInteger(\"Drug_Name_${i}\");
+            int Drug_Concentration_${i}=Debug.makeSymbolicInteger(\"Drug_Concentration_${i}\");
+            int Infusion_Total_Duration_${i}=Debug.makeSymbolicInteger(\"Infusion_Total_Duration_${i}\");
+            int VTBI_Total_${i}=Debug.makeSymbolicInteger(\"VTBI_Total_${i}\");
+            int Flow_Rate_Basal_${i}=Debug.makeSymbolicInteger(\"Flow_Rate_Basal_${i}\");
+            int Flow_Rate_Intermittent_Bolus_${i}=Debug.makeSymbolicInteger(\"Flow_Rate_Intermittent_Bolus_${i}\");
+            int Duration_Intermittent_Bolus_${i}=Debug.makeSymbolicInteger(\"Duration_Intermittent_Bolus_${i}\");
+            int Interval_Intermittent_Bolus_${i}=Debug.makeSymbolicInteger(\"Interval_Intermittent_Bolus_${i}\");
+            int Flow_Rate_Patient_Bolus_${i}=Debug.makeSymbolicInteger(\"Flow_Rate_Patient_Bolus_${i}\");
+            int Duration_Patient_Bolus_${i}=Debug.makeSymbolicInteger(\"Duration_Patient_Bolus_${i}\");
+            int Lockout_Period_Patient_Bolus_${i}=Debug.makeSymbolicInteger(\"Lockout_Period_Patient_Bolus_${i}\");
+            int Max_Number_of_Patient_Bolus_${i}=Debug.makeSymbolicInteger(\"Max_Number_of_Patient_Bolus_${i}\");
+            int Flow_Rate_KVO_${i}=Debug.makeSymbolicInteger(\"Flow_Rate_KVO_${i}\");
+            int Entered_Reservoir_Volume_${i}=Debug.makeSymbolicInteger(\"Entered_Reservoir_Volume_${i}\");
+            int Reservoir_Volume_${i}=Debug.makeSymbolicInteger(\"Reservoir_Volume_${i}\");
+            int Configured_${i}=Debug.makeSymbolicInteger(\"Configured_${i}\");
+            int Error_Message_ID_${i}=Debug.makeSymbolicInteger(\"Error_Message_ID_${i}\");
+            boolean Request_Config_Type_${i}=Debug.makeSymbolicBoolean(\"Request_Config_Type_${i}\") ;
+            boolean Request_Confirm_Infusion_Initiate_${i}=Debug.makeSymbolicBoolean(\"Request_Confirm_Infusion_Initiate_${i}\") ;
+            boolean Request_Patient_Drug_Info_${i}=Debug.makeSymbolicBoolean(\"Request_Patient_Drug_Info_${i}\");
+            boolean Request_Infusion_Info_${i}=Debug.makeSymbolicBoolean(\"Request_Infusion_Info_${i}\");
+            int Log_Message_ID_${i}=Debug.makeSymbolicInteger(\"Log_Message_ID_${i}\");
+            int Config_Timer_${i}=Debug.makeSymbolicInteger(\"Config_Timer_${i}\");
+            int Config_Mode_${i}=Debug.makeSymbolicInteger(\"Config_Mode_${i}\");
+
+
+            //Alarm_Outputs rtu_ALARM_IN
+            int Is_Audio_Disabled_${i}=Debug.makeSymbolicInteger(\"Is_Audio_Disabled_${i}\");
+            int Notification_Message_${i}=Debug.makeSymbolicInteger(\"Notification_Message_${i}\");
+            int Audio_Notification_Command_${i}=Debug.makeSymbolicInteger(\"Audio_Notification_Command_${i}\");
+            int Highest_Level_Alarm_${i}=Debug.makeSymbolicInteger(\"Highest_Level_Alarm_${i}\");
+            int Log_Message_ID3_${i}=Debug.makeSymbolicInteger(\"Log_Message_ID3_${i}\");
+
+
+            //System_Status_Outputs rtu_SYS_STAT_IN
+            boolean Reservoir_Empty_${i}=Debug.makeSymbolicBoolean(\"Reservoir_Empty_${i}\");
+            int Reservoir_Volume2_${i}=Debug.makeSymbolicInteger(\"Reservoir_Volume2_${i}\");
+            int Volume_Infused_${i}=Debug.makeSymbolicInteger(\"Volume_Infused_${i}\");
+            int Log_Message_ID2_${i}=Debug.makeSymbolicInteger(\"Log_Message_ID2_${i}\");
+            boolean In_Therapy_${i}=Debug.makeSymbolicBoolean(\"In_Therapy_${i}\") ;
+
+            //Infusion_Manager_Outputs rty_IM_OUT
+            int Commanded_Flow_Rate_${i}=Debug.makeSymbolicInteger(\"Commanded_Flow_Rate_${i}\");
+            int Current_System_Mode_${i}=Debug.makeSymbolicInteger(\"Current_System_Mode_${i}\");
+            boolean New_Infusion_${i}=Debug.makeSymbolicBoolean(\"New_Infusion_${i}\");
+            int Log_Message_ID4_${i}=Debug.makeSymbolicInteger(\"Log_Message_ID4_${i}\");
+            int Actual_Infusion_Duration_${i}=Debug.makeSymbolicInteger(\"Actual_Infusion_Duration_${i}\");";
 
 #print "now printing body----------------"
 
