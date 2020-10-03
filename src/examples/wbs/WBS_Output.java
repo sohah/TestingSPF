@@ -1,6 +1,6 @@
 package wbs;
 
-public class WBS_Out {
+public class WBS_Output {
 
     //Outputs
     static int Nor_Pressure;
