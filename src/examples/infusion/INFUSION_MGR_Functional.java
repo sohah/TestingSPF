@@ -1949,12 +1949,12 @@ public class INFUSION_MGR_Functional {
                     rtu_SYS_STAT_IN_3, rty_IM_OUT_3,
                     localB, localDW);
 
-         /*   Infusion_Result.step(rtu_TLM_MODE_IN_4,
+            Infusion_Result.step(rtu_TLM_MODE_IN_4,
                     rtu_OP_CMD_IN_4, rtu_PATIENT_IN_4,
                     rtu_CONFIG_IN_4, rtu_ALARM_IN_4,
                     rtu_SYS_STAT_IN_4, rty_IM_OUT_4,
                     localB, localDW);
-*/
+
             boolean checkCondition;
             boolean checkOutput;
 
