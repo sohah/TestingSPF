@@ -3,8 +3,8 @@ package wbs;
 public class WBS_Output {
 
     //Outputs
-    static int Nor_Pressure;
-    static int Alt_Pressure;
+    static int NormalPressure_r;
+    static int AltPressure_r;
     static int Sys_Mode;
 
     /*public static void launch(int pedal1, boolean auto1, boolean skid1, int pedal2, boolean auto2, boolean skid2
@@ -46,11 +46,11 @@ public class WBS_Output {
 
     }*/
 
-    public static void update(int pedal, boolean auto, boolean skid) {
+    public static void update(int pedal_r, boolean autoBreak_r, boolean skid_r) {
 
-        WBS.update(pedal, auto, skid);
-        Nor_Pressure = WBS.Nor_Pressure;
-        Alt_Pressure = WBS.Alt_Pressure;
+        WBS.update(pedal_r, autoBreak_r, skid_r);
+        NormalPressure_r = WBS.Nor_Pressure;
+        AltPressure_r = WBS.Alt_Pressure;
         Sys_Mode = WBS.Sys_Mode;
 
     }

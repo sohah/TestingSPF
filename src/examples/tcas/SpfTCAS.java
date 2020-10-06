@@ -253,6 +253,7 @@ public class SpfTCAS {
         // MWW assertions.  These come from ACSL safety property paper: http://people.rennes.inria.fr/Arnaud.Gotlieb/CT_ATM_gotlieb.pdf
 
 
+        assert SpfTCAS.result_alt_sep_test < SpfTCAS.alim_res;
         // Prop1:
 		/*assert((Up_Separation < alim_res &&
 				Down_Separation < alim_res) ?

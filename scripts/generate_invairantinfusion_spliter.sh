@@ -5,10 +5,10 @@ mkdir ../traces_infusion
 
 
 
-#java -cp /home/soha/git/jpf-symbc/src/examples/tcas:/home/soha/daikon-5.8.4/daikon.jar daikon.tools.jtb.CreateSpinfo ../src/examples/infusion/INFUSION_MGR_Functional.java
+#java -cp /home/soha/git/jpf-symbc/src/examples/tcas:/home/soha/daikon-5.8.4/daikon.jar daikon.tools.jtb.CreateSpinfo ../src/examples/infusionDaikon/INFUSION_MGR_Functional.java
 echo "finished spliting"
 
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_infusion/infusion.dtrace.gz infusion.Infusion_Daikon /home/soha/git/jpf-symbc/testCase/testCases_infusion_steps4.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_infusion/infusion.dtrace.gz infusionDaikon.Infusion_Daikon /home/soha/git/jpf-symbc/testCase/testCases_infusion_steps4.txt
 
 echo "finish chicory starting collecting invariants."
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../src/examples/infusion/INFUSION_MGR_Functional_custom.spinfo ../traces_infusion/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_infusion.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../src/examples/infusionDaikon/INFUSION_MGR_Functional_custom.spinfo ../traces_infusion/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_infusion.txt

@@ -1,0 +1,329 @@
+REPLACE
+ALARM_Functional_Step_Scaling_Factor(int inputVal)
+inputVal
+ALARM_Functional_setHighestAlarm(DW_ALARM_Functional_f_T localDW)
+localDW.Max_Alarm_Level
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional
+localB.System_On
+localDW.is_active_c2_ALARM_Functional == 0
+localDW.is_c2_ALARM_Functional == ALARM_Functional_IN_Alarms
+orig(localB.System_On)
+orig(localDW.is_active_c2_ALARM_Functional == 0)
+orig(localDW.is_c2_ALARM_Functional == ALARM_Functional_IN_Alarms)
+rtu_TLM_MODE_IN.System_On && rtu_SYS_STAT_IN.In_Therapy && rtu_SYS_STAT_IN.Reservoir_Empty
+(rtu_TLM_MODE_IN.System_On && rtu_SENSOR_IN.Air_In_Line)
+(rtu_TLM_MODE_IN.System_On && rtu_SYS_STAT_IN.In_Therapy && (rtu_SYS_STAT_IN.Volume_Infused > rtu_DB_IN.VTBI_High))
+(rtu_TLM_MODE_IN.System_On && rtu_SENSOR_IN.Occlusion)
+(rtu_TLM_MODE_IN.System_On && rtu_SENSOR_IN.Door_Open)
+(rtu_TLM_MODE_IN.System_On && (rty_ALARM_OUT.Highest_Level_Alarm >= 3) && (rtu_OP_CMD_IN.Disable_Audio == 0))
+(rtu_TLM_MODE_IN.System_On && (rtu_OP_CMD_IN.Disable_Audio > 0))
+(rtu_TLM_MODE_IN.System_On && rtu_SYS_STAT_IN.In_Therapy && (rtu_SYS_STAT_IN.Reservoir_Volume < rtu_CONST_IN.Low_Reservoir))
+(rtu_TLM_MODE_IN.System_On)
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_FunctionalSymWrapper
+(0 <= Commanded_Flow_Rate)&&(0 <= Current_System_Mode)&&(0 <= Log_Message_ID_1)&&(0 <= Actual_Infusion_Duration)&&(0 <= Log_Message_ID_2)&&(0 <= Log)&&(0 <= Disable_Audio)&&(0 <= Configuration_Type)&&(0 <= Drug_Name1)&&(0 <= Drug_Concentration_High)&&(0 <= Drug_Concentration_Low)&&(0 <= VTBI_High)&&(0 <= VTBI_Low)&&(0 <= Interval_Patient_Bolus)&&(0 <= Number_Max_Patient_Bolus)&&(0 <= Flow_Rate_KVO1)&&(0 <= Flow_Rate_High)&&(0 <= Flow_Rate_Low)&&(0 <= Flow_Rate)&&(0 <= Audio_Enable_Duration)&&(0 <= Audio_Level)&&(0 <= Config_Warning_Duration)&&(0 <= Empty_Reservoir)&&(0 <= Low_Reservoir)&&(0 <= Max_Config_Duration)&&(0 <= Max_Duration_Over_Infusion)&&(0 <= Max_Duration_Under_Infusion)&&(0 <= Max_Paused_Duration)&&(0 <= Max_Idle_Duration)&&(0 <= Tolerance_Max)&&(0 <= Tolerance_Min)&&(0 <= Log_Interval)&&(0 <= System_Test_Interval)&&(0 <= Max_Display_Duration)&&(0 <= Max_Confirm_Stop_Duration)&&(0 <= Reservoir_Volume1)&&(0 <= Volume_Infused)&&(0 <= Log_Message_ID3)&&(0 <= Patient_ID)&&(0 <= Drug_Name2)&&(0 <= Drug_Concentration)&&(0 <= Infusion_Total_Duration)&&(0 <= VTBI_Total)&&(0 <= Flow_Rate_Basal)&&(0 <= Flow_Rate_Intermittent_Bolus)&&(0 <= Duration_Intermittent_Bolus)&&(0 <= Interval_Intermittent_Bolus)&&(0 <= Flow_Rate_Patient_Bolus)&&(0 <= Duration_Patient_Bolus)&&(0 <= Lockout_Period_Patient_Bolus)&&(0 <= Max_Number_of_Patient_Bolus)&&(0 <= Flow_Rate_KVO2)&&(0 <= Entered_Reservoir_Volume)&&(0 <= Reservoir_Volume2)&&(0 <= Configured)&&(0 <= Error_Message_ID)&&(0 <= Log_Message_ID4)&&(0 <= Config_Timer)&&(0 <= Config_Mode)&&(0 <= Is_Audio_Disabled)&&(0 <= Notification_Message)&&(0 <= Audio_Notification_Command)&&(0 <= Highest_Level_Alarm)&&(0 <= Log_Message_ID5)&&(Commanded_Flow_Rate <= 255)&&(Current_System_Mode <= 255)&&(Log_Message_ID_1 <= 255)&&(Actual_Infusion_Duration <= 255)&&(Log_Message_ID_2 <= 255)&&(Log <= 255)&&(Disable_Audio <= 255)&&(Configuration_Type <= 255)&&(Drug_Name1 <= 255)&&(Drug_Concentration_High <= 255)&&(Drug_Concentration_Low <= 255)&&(VTBI_High <= 255)&&(VTBI_Low <= 255)&&(Interval_Patient_Bolus <= 255)&&(Number_Max_Patient_Bolus <= 255)&&(Flow_Rate_KVO1 <= 255)&&(Flow_Rate_High <= 255)&&(Flow_Rate_Low <= 255)&&(Flow_Rate <= 255)&&(Audio_Enable_Duration <= 255)&&(Audio_Level <= 255)&&(Config_Warning_Duration <= 255)&&(Empty_Reservoir <= 255)&&(Low_Reservoir <= 255)&&(Max_Config_Duration <= 255)&&(Max_Duration_Over_Infusion <= 255)&&(Max_Duration_Under_Infusion <= 255)&&(Max_Paused_Duration <= 255)&&(Max_Idle_Duration <= 255)&&(Tolerance_Max <= 255)&&(Tolerance_Min <= 255)&&(Log_Interval <= 255)&&(System_Test_Interval <= 255)&&(Max_Display_Duration <= 255)&&(Max_Confirm_Stop_Duration <= 255)&&(Reservoir_Volume1 <= 255)&&(Volume_Infused <= 255)&&(Log_Message_ID3 <= 255)&&(Patient_ID <= 255)&&(Drug_Name2 <= 255)&&(Drug_Concentration <= 255)&&(Infusion_Total_Duration <= 255)&&(VTBI_Total <= 255)&&(Flow_Rate_Basal <= 255)&&(Flow_Rate_Intermittent_Bolus <= 255)&&(Duration_Intermittent_Bolus <= 255)&&(Interval_Intermittent_Bolus <= 255)&&(Flow_Rate_Patient_Bolus <= 255)&&(Duration_Patient_Bolus <= 255)&&(Lockout_Period_Patient_Bolus <= 255)&&(Max_Number_of_Patient_Bolus <= 255)&&(Flow_Rate_KVO2 <= 255)&&(Entered_Reservoir_Volume <= 255)&&(Reservoir_Volume2 <= 255)&&(Configured <= 255)&&(Error_Message_ID <= 255)&&(Log_Message_ID4 <= 255)&&(Config_Timer <= 255)&&(Config_Mode <= 255)&&(Is_Audio_Disabled <= 255)&&(Notification_Message <= 255)&&(Audio_Notification_Command <= 255)&&(Highest_Level_Alarm <= 255)&&(Log_Message_ID5 <= 255)
+orig((0 <= Commanded_Flow_Rate)&&(0 <= Current_System_Mode)&&(0 <= Log_Message_ID_1)&&(0 <= Actual_Infusion_Duration)&&(0 <= Log_Message_ID_2)&&(0 <= Log)&&(0 <= Disable_Audio)&&(0 <= Configuration_Type)&&(0 <= Drug_Name1)&&(0 <= Drug_Concentration_High)&&(0 <= Drug_Concentration_Low)&&(0 <= VTBI_High)&&(0 <= VTBI_Low)&&(0 <= Interval_Patient_Bolus)&&(0 <= Number_Max_Patient_Bolus)&&(0 <= Flow_Rate_KVO1)&&(0 <= Flow_Rate_High)&&(0 <= Flow_Rate_Low)&&(0 <= Flow_Rate)&&(0 <= Audio_Enable_Duration)&&(0 <= Audio_Level)&&(0 <= Config_Warning_Duration)&&(0 <= Empty_Reservoir)&&(0 <= Low_Reservoir)&&(0 <= Max_Config_Duration)&&(0 <= Max_Duration_Over_Infusion)&&(0 <= Max_Duration_Under_Infusion)&&(0 <= Max_Paused_Duration)&&(0 <= Max_Idle_Duration)&&(0 <= Tolerance_Max)&&(0 <= Tolerance_Min)&&(0 <= Log_Interval)&&(0 <= System_Test_Interval)&&(0 <= Max_Display_Duration)&&(0 <= Max_Confirm_Stop_Duration)&&(0 <= Reservoir_Volume1)&&(0 <= Volume_Infused)&&(0 <= Log_Message_ID3)&&(0 <= Patient_ID)&&(0 <= Drug_Name2)&&(0 <= Drug_Concentration)&&(0 <= Infusion_Total_Duration)&&(0 <= VTBI_Total)&&(0 <= Flow_Rate_Basal)&&(0 <= Flow_Rate_Intermittent_Bolus)&&(0 <= Duration_Intermittent_Bolus)&&(0 <= Interval_Intermittent_Bolus)&&(0 <= Flow_Rate_Patient_Bolus)&&(0 <= Duration_Patient_Bolus)&&(0 <= Lockout_Period_Patient_Bolus)&&(0 <= Max_Number_of_Patient_Bolus)&&(0 <= Flow_Rate_KVO2)&&(0 <= Entered_Reservoir_Volume)&&(0 <= Reservoir_Volume2)&&(0 <= Configured)&&(0 <= Error_Message_ID)&&(0 <= Log_Message_ID4)&&(0 <= Config_Timer)&&(0 <= Config_Mode)&&(0 <= Is_Audio_Disabled)&&(0 <= Notification_Message)&&(0 <= Audio_Notification_Command)&&(0 <= Highest_Level_Alarm)&&(0 <= Log_Message_ID5)&&(Commanded_Flow_Rate <= 255)&&(Current_System_Mode <= 255)&&(Log_Message_ID_1 <= 255)&&(Actual_Infusion_Duration <= 255)&&(Log_Message_ID_2 <= 255)&&(Log <= 255)&&(Disable_Audio <= 255)&&(Configuration_Type <= 255)&&(Drug_Name1 <= 255)&&(Drug_Concentration_High <= 255)&&(Drug_Concentration_Low <= 255)&&(VTBI_High <= 255)&&(VTBI_Low <= 255)&&(Interval_Patient_Bolus <= 255)&&(Number_Max_Patient_Bolus <= 255)&&(Flow_Rate_KVO1 <= 255)&&(Flow_Rate_High <= 255)&&(Flow_Rate_Low <= 255)&&(Flow_Rate <= 255)&&(Audio_Enable_Duration <= 255)&&(Audio_Level <= 255)&&(Config_Warning_Duration <= 255)&&(Empty_Reservoir <= 255)&&(Low_Reservoir <= 255)&&(Max_Config_Duration <= 255)&&(Max_Duration_Over_Infusion <= 255)&&(Max_Duration_Under_Infusion <= 255)&&(Max_Paused_Duration <= 255)&&(Max_Idle_Duration <= 255)&&(Tolerance_Max <= 255)&&(Tolerance_Min <= 255)&&(Log_Interval <= 255)&&(System_Test_Interval <= 255)&&(Max_Display_Duration <= 255)&&(Max_Confirm_Stop_Duration <= 255)&&(Reservoir_Volume1 <= 255)&&(Volume_Infused <= 255)&&(Log_Message_ID3 <= 255)&&(Patient_ID <= 255)&&(Drug_Name2 <= 255)&&(Drug_Concentration <= 255)&&(Infusion_Total_Duration <= 255)&&(VTBI_Total <= 255)&&(Flow_Rate_Basal <= 255)&&(Flow_Rate_Intermittent_Bolus <= 255)&&(Duration_Intermittent_Bolus <= 255)&&(Interval_Intermittent_Bolus <= 255)&&(Flow_Rate_Patient_Bolus <= 255)&&(Duration_Patient_Bolus <= 255)&&(Lockout_Period_Patient_Bolus <= 255)&&(Max_Number_of_Patient_Bolus <= 255)&&(Flow_Rate_KVO2 <= 255)&&(Entered_Reservoir_Volume <= 255)&&(Reservoir_Volume2 <= 255)&&(Configured <= 255)&&(Error_Message_ID <= 255)&&(Log_Message_ID4 <= 255)&&(Config_Timer <= 255)&&(Config_Mode <= 255)&&(Is_Audio_Disabled <= 255)&&(Notification_Message <= 255)&&(Audio_Notification_Command <= 255)&&(Highest_Level_Alarm <= 255)&&(Log_Message_ID5 <= 255))
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_Alarms
+!localB.System_On
+((int)audioTimerl > scalingFactor)||(Disable_Audiol == 0)
+(localB.ALARM_OUT_Highest_Level_Alarm > 2)&&(localB.Disable_Audio == 0)
+localB.Disable_Audio == 0
+localB.Disable_Audio == 1
+localB.Disable_Audio == 2
+localDW.currentAlarm == 0
+localDW.currentAlarm > 0
+localDW.is_Audio == ALARM_Functional_IN_Disabled
+localDW.is_Audio == ALARM_Functional_IN_OFF
+localDW.is_Audio == ALARM_Functional_IN_ON
+localDW.is_Audio == ALARM_Functional_IN_Silenced
+localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_No
+localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_counting
+localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Check
+localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Monitor
+localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_No
+localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_counting
+localDW.is_Visual == ALARM_Functional_IN_AlarmDisplay
+orig(!localB.System_On)
+orig(((int)audioTimerl > scalingFactor)||(Disable_Audiol == 0))
+orig((localB.ALARM_OUT_Highest_Level_Alarm > 2)&&(localB.Disable_Audio == 0))
+orig(localB.Disable_Audio == 0)
+orig(localB.Disable_Audio == 1)
+orig(localB.Disable_Audio == 2)
+orig(localDW.currentAlarm == 0)
+orig(localDW.currentAlarm > 0)
+orig(localDW.is_Audio == ALARM_Functional_IN_Disabled)
+orig(localDW.is_Audio == ALARM_Functional_IN_OFF)
+orig(localDW.is_Audio == ALARM_Functional_IN_ON)
+orig(localDW.is_Audio == ALARM_Functional_IN_Silenced)
+orig(localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_No)
+orig(localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_counting)
+orig(localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Check)
+orig(localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Monitor)
+orig(localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_No)
+orig(localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_counting)
+orig(localDW.is_Visual == ALARM_Functional_IN_AlarmDisplay)
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_CheckAlarm
+(cancelAlarml == 2)&&(!(Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl))
+(cancelAlarml == 3)&&(!(Templ || Humidityl || Air_Pressurel))
+(localDW.cancelAlarm == 1)&&(!localB.Reservoir_Empty)
+(localDW.cancelAlarm == 6)&&(!localB.Air_In_Line)
+(localDW.cancelAlarm == 7)&&(!localB.Occlusion)
+(localDW.cancelAlarm == 8)&&(!localB.Door_Open)
+(localDW.cancelAlarm == 9)&&(!(localB.Reservoir_Volume < localB.Low_Reservoir))
+(localDW.currentAlarm > 0)&& localB.Notification_Cancel
+(overInfusion == 1)||((int)localDW.overInfusionTimer > scalingFactor2)
+Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl
+Templ || Humidityl || Air_Pressurel
+localB.Air_In_Line
+localB.Door_Open
+localB.In_Therapy && localB.Reservoir_Empty
+localB.In_Therapy &&(localB.Reservoir_Volume < localB.Low_Reservoir)
+localB.In_Therapy &&(localB.Volume_Infused > localB.VTBI_High)
+localB.Occlusion
+localDW.cancelAlarm == 4
+localDW.cancelAlarm == 5
+localDW.is_CancelAlarm == ALARM_Functional_IN_OFF_i
+localDW.is_IsAirInLine == ALARM_Functional_IN_No
+localDW.is_IsDoorOpen == ALARM_Functional_IN_No
+localDW.is_IsEmptyReservoir == ALARM_Functional_IN_No
+localDW.is_IsEnviromentalError == ALARM_Functional_IN_No
+localDW.is_IsHardwareError == ALARM_Functional_IN_No
+localDW.is_IsLowReservoir == ALARM_Functional_IN_No
+localDW.is_IsOcclusion == ALARM_Functional_IN_No
+localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Check
+localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Monitor
+localDW.is_IsOverInfusionVTBI == ALARM_Functional_IN_No
+orig((cancelAlarml == 2)&&(!(Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl)))
+orig((cancelAlarml == 3)&&(!(Templ || Humidityl || Air_Pressurel)))
+orig((localDW.cancelAlarm == 1)&&(!localB.Reservoir_Empty))
+orig((localDW.cancelAlarm == 6)&&(!localB.Air_In_Line))
+orig((localDW.cancelAlarm == 7)&&(!localB.Occlusion))
+orig((localDW.cancelAlarm == 8)&&(!localB.Door_Open))
+orig((localDW.cancelAlarm == 9)&&(!(localB.Reservoir_Volume < localB.Low_Reservoir)))
+orig((localDW.currentAlarm > 0)&& localB.Notification_Cancel)
+orig((overInfusion == 1)||((int)localDW.overInfusionTimer > scalingFactor2))
+orig(Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl)
+orig(Templ || Humidityl || Air_Pressurel)
+orig(localB.Air_In_Line)
+orig(localB.Door_Open)
+orig(localB.In_Therapy && localB.Reservoir_Empty)
+orig(localB.In_Therapy &&(localB.Reservoir_Volume < localB.Low_Reservoir))
+orig(localB.In_Therapy &&(localB.Volume_Infused > localB.VTBI_High))
+orig(localB.Occlusion)
+orig(localDW.cancelAlarm == 4)
+orig(localDW.cancelAlarm == 5)
+orig(localDW.is_CancelAlarm == ALARM_Functional_IN_OFF_i)
+orig(localDW.is_IsAirInLine == ALARM_Functional_IN_No)
+orig(localDW.is_IsDoorOpen == ALARM_Functional_IN_No)
+orig(localDW.is_IsEmptyReservoir == ALARM_Functional_IN_No)
+orig(localDW.is_IsEnviromentalError == ALARM_Functional_IN_No)
+orig(localDW.is_IsHardwareError == ALARM_Functional_IN_No)
+orig(localDW.is_IsLowReservoir == ALARM_Functional_IN_No)
+orig(localDW.is_IsOcclusion == ALARM_Functional_IN_No)
+orig(localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Check)
+orig(localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Monitor)
+orig(localDW.is_IsOverInfusionVTBI == ALARM_Functional_IN_No)
+orig(overInfusion == 0)
+orig(overInfusion == 1)
+orig(overInfusion == 2)
+overInfusion == 0
+overInfusion == 1
+overInfusion == 2
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_Level1
+((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))&&(scalingFactor == 1)
+(Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8)
+(cancelAlarml == 14)&&(!((int)Config_Timerl > scalingFactor2))
+(cancelAlarml == 15)&&(!(Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel))
+(int)localB.Config_Timer > scalingFactor
+(int)localDW.idletimer >= scalingFactor
+(int)localDW.pausedtimer >= scalingFactor2
+(localB.Current_System_Mode == 1)&&(scalingFactor == 1)
+(localDW.cancelAlarm == 11)&&(!localB.Flow_Rate_Not_Stable)
+(localDW.cancelAlarm == 16)&&(!localB.Pump_Overheated)
+(localDW.cancelAlarm == 17)&&(!localB.Logging_Failed)
+(localDW.cancelAlarm == 18)&&(!localB.System_Monitor_Failed)
+(underInfusion == 1)||((int)localDW.underInfusionTimer > scalingFactor1)
+Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel
+localB.Current_System_Mode == 1
+localB.In_Therapy && localB.Flow_Rate_Not_Stable
+localB.Infusion_Initiate &&(!localB.Reservoir_Empty)
+localB.Logging_Failed
+localB.Pump_Overheated
+localB.System_Monitor_Failed
+localDW.cancelAlarm == 10
+localDW.cancelAlarm == 12
+localDW.cancelAlarm == 13
+localDW.is_InfusionNotStartedWarning == ALARM_Functional_IN_No
+localDW.is_IsBatteryError == ALARM_Functional_IN_No
+localDW.is_IsConfigTimeWarning == ALARM_Functional_IN_No
+localDW.is_IsFlowRateNotStable == ALARM_Functional_IN_No
+localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_No
+localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_Yes
+localDW.is_IsLoggingFailed == ALARM_Functional_IN_No
+localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_No
+localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_Yes
+localDW.is_IsPumpHot == ALARM_Functional_IN_No
+localDW.is_IsSystemMonitorFailed == ALARM_Functional_IN_No
+localDW.is_IsUnderInfusion == ALARM_Functional_IN_Check
+localDW.is_IsUnderInfusion == ALARM_Functional_IN_Monitor
+orig(((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))&&(scalingFactor == 1))
+orig((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))
+orig((cancelAlarml == 14)&&(!((int)Config_Timerl > scalingFactor2)))
+orig((cancelAlarml == 15)&&(!(Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel)))
+orig((int)localB.Config_Timer > scalingFactor)
+orig((int)localDW.idletimer >= scalingFactor)
+orig((int)localDW.pausedtimer >= scalingFactor2)
+orig((localB.Current_System_Mode == 1)&&(scalingFactor == 1))
+orig((localDW.cancelAlarm == 11)&&(!localB.Flow_Rate_Not_Stable))
+orig((localDW.cancelAlarm == 16)&&(!localB.Pump_Overheated))
+orig((localDW.cancelAlarm == 17)&&(!localB.Logging_Failed))
+orig((localDW.cancelAlarm == 18)&&(!localB.System_Monitor_Failed))
+orig((underInfusion == 1)||((int)localDW.underInfusionTimer > scalingFactor1))
+orig(Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel)
+orig(localB.Current_System_Mode == 1)
+orig(localB.In_Therapy && localB.Flow_Rate_Not_Stable)
+orig(localB.Infusion_Initiate &&(!localB.Reservoir_Empty))
+orig(localB.Logging_Failed)
+orig(localB.Pump_Overheated)
+orig(localB.System_Monitor_Failed)
+orig(localDW.cancelAlarm == 10)
+orig(localDW.cancelAlarm == 12)
+orig(localDW.cancelAlarm == 13)
+orig(localDW.is_InfusionNotStartedWarning == ALARM_Functional_IN_No)
+orig(localDW.is_IsBatteryError == ALARM_Functional_IN_No)
+orig(localDW.is_IsConfigTimeWarning == ALARM_Functional_IN_No)
+orig(localDW.is_IsFlowRateNotStable == ALARM_Functional_IN_No)
+orig(localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_No)
+orig(localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsLoggingFailed == ALARM_Functional_IN_No)
+orig(localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_No)
+orig(localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsPumpHot == ALARM_Functional_IN_No)
+orig(localDW.is_IsSystemMonitorFailed == ALARM_Functional_IN_No)
+orig(localDW.is_IsUnderInfusion == ALARM_Functional_IN_Check)
+orig(localDW.is_IsUnderInfusion == ALARM_Functional_IN_Monitor)
+orig(underInfusion == 0)
+orig(underInfusion == 1)
+orig(underInfusion == 2)
+underInfusion == 0
+underInfusion == 1
+underInfusion == 2
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_checkOverInfusionFlowRate
+Flow_Ratel > Commanded_Flow_Ratel * div1 + Commanded_Flow_Ratel
+Flow_Ratel > Commanded_Flow_Ratel * div2 + Commanded_Flow_Ratel
+localB.Flow_Rate > localB.Flow_Rate_High
+localB.In_Therapy
+orig(Flow_Ratel > Commanded_Flow_Ratel * div1 + Commanded_Flow_Ratel)
+orig(Flow_Ratel > Commanded_Flow_Ratel * div2 + Commanded_Flow_Ratel)
+orig(localB.Flow_Rate > localB.Flow_Rate_High)
+orig(localB.In_Therapy)
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_checkUnderInfusion
+Flow_Ratel < Commanded_Flow_Ratel - Commanded_Flow_Ratel * div1
+Flow_Ratel < Commanded_Flow_Ratel - Commanded_Flow_Ratel * div2
+localB.Flow_Rate < localB.Flow_Rate_Low
+localB.In_Therapy
+orig(Flow_Ratel < Commanded_Flow_Ratel - Commanded_Flow_Ratel * div1)
+orig(Flow_Ratel < Commanded_Flow_Ratel - Commanded_Flow_Ratel * div2)
+orig(localB.Flow_Rate < localB.Flow_Rate_Low)
+orig(localB.In_Therapy)
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_enter_internal_Alarms
+(localB.ALARM_OUT_Highest_Level_Alarm > 2)&&(localB.Disable_Audio == 0)
+localB.Disable_Audio == 1
+localB.Disable_Audio == 2
+localDW.currentAlarm > 0
+orig((localB.ALARM_OUT_Highest_Level_Alarm > 2)&&(localB.Disable_Audio == 0))
+orig(localB.Disable_Audio == 1)
+orig(localB.Disable_Audio == 2)
+orig(localDW.currentAlarm > 0)
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_enter_internal_CheckAlarm
+((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))&&(scalingFactor == 1)
+(Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8)
+(int)localB.Config_Timer > scalingFactor2
+(localB.Current_System_Mode == 1)&&(scalingFactor1 == 1)
+Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl
+Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel
+In_Therapyl &&(Volume_Infusedl > VTBI_Highl)
+Templ || Humidityl || Air_Pressurel
+localB.Air_In_Line
+localB.Current_System_Mode == 1
+localB.Door_Open
+localB.In_Therapy && localB.Flow_Rate_Not_Stable
+localB.In_Therapy && localB.Reservoir_Empty
+localB.In_Therapy &&(localB.Reservoir_Volume < localB.Low_Reservoir)
+localB.Infusion_Initiate &&(!localB.Reservoir_Empty)
+localB.Logging_Failed
+localB.Occlusion
+localB.Pump_Overheated
+localB.System_Monitor_Failed
+orig(((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))&&(scalingFactor == 1))
+orig((Current_System_Model == 6)||(Current_System_Model == 7)||(Current_System_Model == 8))
+orig((int)localB.Config_Timer > scalingFactor2)
+orig((localB.Current_System_Mode == 1)&&(scalingFactor1 == 1))
+orig(Battery_Depletedl || RTC_In_Errorl || CPU_In_Errorl || Memory_Corruptedl || Pump_Too_Hotl || Watchdog_Interruptedl)
+orig(Battery_Lowl || Battery_Unable_To_Chargel || Supply_Voltagel)
+orig(In_Therapyl &&(Volume_Infusedl > VTBI_Highl))
+orig(Templ || Humidityl || Air_Pressurel)
+orig(localB.Air_In_Line)
+orig(localB.Current_System_Mode == 1)
+orig(localB.Door_Open)
+orig(localB.In_Therapy && localB.Flow_Rate_Not_Stable)
+orig(localB.In_Therapy && localB.Reservoir_Empty)
+orig(localB.In_Therapy &&(localB.Reservoir_Volume < localB.Low_Reservoir))
+orig(localB.Infusion_Initiate &&(!localB.Reservoir_Empty))
+orig(localB.Logging_Failed)
+orig(localB.Occlusion)
+orig(localB.Pump_Overheated)
+orig(localB.System_Monitor_Failed)
+orig(overInfusion == 1)
+orig(overInfusion == 2)
+overInfusion == 1
+overInfusion == 2
+
+PPT_NAME alarmDaikon.ALARM_Functional.ALARM_Functional_setCurrentAlarm
+localDW.is_InfusionNotStartedWarning == ALARM_Functional_IN_Yes
+localDW.is_IsAirInLine == ALARM_Functional_IN_Yes
+localDW.is_IsBatteryError == ALARM_Functional_IN_Yes
+localDW.is_IsConfigTimeWarning == ALARM_Functional_IN_Yes
+localDW.is_IsDoorOpen == ALARM_Functional_IN_Yes
+localDW.is_IsEmptyReservoir == ALARM_Functional_IN_Yes
+localDW.is_IsEnviromentalError == ALARM_Functional_IN_Yes
+localDW.is_IsFlowRateNotStable == ALARM_Functional_IN_Yes
+localDW.is_IsHardwareError == ALARM_Functional_IN_Yes
+localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_Yes
+localDW.is_IsLoggingFailed == ALARM_Functional_IN_Yes
+localDW.is_IsLowReservoir == ALARM_Functional_IN_Yes
+localDW.is_IsOcclusion == ALARM_Functional_IN_Yes
+localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Yes_o
+localDW.is_IsOverInfusionVTBI == ALARM_Functional_IN_Yes
+localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_Yes
+localDW.is_IsPumpHot == ALARM_Functional_IN_Yes
+localDW.is_IsSystemMonitorFailed == ALARM_Functional_IN_Yes
+localDW.is_IsUnderInfusion == ALARM_Functional_IN_Yes_o
+orig(localDW.is_InfusionNotStartedWarning == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsAirInLine == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsBatteryError == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsConfigTimeWarning == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsDoorOpen == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsEmptyReservoir == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsEnviromentalError == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsFlowRateNotStable == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsHardwareError == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsIdleTimeExceeded == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsLoggingFailed == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsLowReservoir == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsOcclusion == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsOverInfusionFlowRate == ALARM_Functional_IN_Yes_o)
+orig(localDW.is_IsOverInfusionVTBI == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsPausedTimeExceeded == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsPumpHot == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsSystemMonitorFailed == ALARM_Functional_IN_Yes)
+orig(localDW.is_IsUnderInfusion == ALARM_Functional_IN_Yes_o)
+
