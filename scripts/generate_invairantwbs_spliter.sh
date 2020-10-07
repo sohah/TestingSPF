@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-#rm ../traces_wbs/*
+now=$(date)
+echo "Current time : $now"
+
+rm ../traces_wbs/*
 mkdir ../traces_wbs
 
 #java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.DynComp wbs.WBS_Daikon /home/soha/git/jpf-symbc/testCase/testCases_wbs.txt
@@ -17,4 +20,4 @@ mkdir ../traces_wbs
 java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Chicory --dtrace-file=../traces_wbs/wbs.dtrace.gz wbs.WBS_Daikon /home/soha/git/jpf-symbc/testCase/testCases_wbs_steps5.txt
 
 echo "finish chicory starting collecting invariants."
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Daikon ../traces_wbs/*.dtrace.gz  ../src/examples/wbs/WBS_custom.spinfo --format java > ../daikonInv/daikon_invariants_wbs.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/daikon-5.8.4/daikon.jar daikon.Daikon ../traces_wbs/*.dtrace.gz  ../src/examples/wbs/WBS_Output.spinfo --format java > ../daikonInv/daikon_invariants_wbs.txt
