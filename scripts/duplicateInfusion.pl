@@ -3,12 +3,38 @@ use strict;
 use warnings;
 use autodie;
 ###### configurations for running the script
-my $i=1; #step number
+my $i=88; #step number
 my $argStart=0;
 #### configuration end #######
 
 my $j=$argStart;
 
+
+print"                   Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         Boolean.parseBoolean(param[${\($i++)}]) ,
+                         Integer.parseInt(param[${\($i++)}]) ,
+                         ";
+
+if(1==0){
 print"
  //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
          boolean System_On_${i},
@@ -389,3 +415,4 @@ print"
                         Boolean.parseBoolean(param[${\($j++)}]),
                         Integer.parseInt(param[${\($j++)}]),
                         Integer.parseInt(param[${\($j++)}])\n"
+}

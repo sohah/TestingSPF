@@ -1,8 +1,5 @@
-tcas.TCAS_Output:::CLASS
 tcas.TCAS_Output.result_alt_sep_test_s == 0 || tcas.TCAS_Output.result_alt_sep_test_s == 1 || tcas.TCAS_Output.result_alt_sep_test_s == 2
 tcas.TCAS_Output.result_alt_sep_test_s <= tcas.TCAS_Output.alim_res_s
-===========================================================================
-tcas.TCAS_Output.mainProcess(int, int, int, int, int, int, int, int, int, int, int, int):::ENTER
 Cur_Vertical_Sep_s == 0 || Cur_Vertical_Sep_s == 301 || Cur_Vertical_Sep_s == 600
 High_Confidence_flag_s == 0 || High_Confidence_flag_s == 1 || High_Confidence_flag_s == 2
 Two_of_Three_Reports_Valid_flag_s == 0 || Two_of_Three_Reports_Valid_flag_s == 1 || Two_of_Three_Reports_Valid_flag_s == 2
@@ -39,8 +36,6 @@ Two_of_Three_Reports_Valid_flag_s > Other_RAC_s
 Own_Tracked_Alt_Rate_s >= Other_RAC_s
 Other_RAC_s < Other_Capability_s
 Other_RAC_s <= Climb_Inhibit_s
-===========================================================================
-tcas.TCAS_Output.mainProcess(int, int, int, int, int, int, int, int, int, int, int, int):::EXIT
 (\old(Down_Separation_s) == -1 || \old(Down_Separation_s) == 0 || \old(Down_Separation_s) == 100) == (\old(Up_Separation_s) == -100 || \old(Up_Separation_s) == 0 || \old(Up_Separation_s) == 1)
 (\old(High_Confidence_flag_s) >= \old(Up_Separation_s)) == (\old(Up_Separation_s) == -100 || \old(Up_Separation_s) == 0 || \old(Up_Separation_s) == 1)
 (tcas.TCAS_Output.alim_res_s > \old(Down_Separation_s)) == (\old(Up_Separation_s) == -100 || \old(Up_Separation_s) == 0 || \old(Up_Separation_s) == 1)

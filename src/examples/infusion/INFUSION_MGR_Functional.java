@@ -22,6 +22,9 @@ public class INFUSION_MGR_Functional {
      final static int INFUSION_MGR_Functional_IN_Paused_NoKVO = 3;
      final static int INFUSION_MGR_Functional_IN_THERAPY = 2;
 
+     public static B_INFUSION_MGR_Functional_c_T localB;
+
+    public static DW_INFUSION_MGR_Functional_f_T localDW;
 
     static int INFUSION_MGR_Functional_Step_Scaling_Factor(int inputVal) {
         /* Graphical Function 'Step_Scaling_Factor': '<S1>:4016' */
@@ -806,12 +809,80 @@ public class INFUSION_MGR_Functional {
         localB.IM_OUT_Actual_Infusion_Duration = 0;
     }
 
+
+    public static Infusion_Manager_Outputs Infusion_FunctionalDaikonInterface(boolean System_On ,
+                                                                              boolean Infusion_Initiate ,
+                                                                              boolean Infusion_Inhibit ,
+                                                                              boolean Infusion_Cancel ,
+                                                                              boolean Patient_Bolus_Request ,
+                                                                              int Infusion_Total_Duration ,
+                                                                              int VTBI_Total ,
+                                                                              int Flow_Rate_Basal ,
+                                                                              int Flow_Rate_Intermittent_Bolus ,
+                                                                              int Duration_Intermittent_Bolus ,
+                                                                              int Interval_Intermittent_Bolus ,
+                                                                              int Flow_Rate_Patient_Bolus ,
+                                                                              int Duration_Patient_Bolus ,
+                                                                              int Lockout_Period_Patient_Bolus ,
+                                                                              int Max_Number_of_Patient_Bolus ,
+                                                                              int Flow_Rate_KVO ,
+                                                                              int Entered_Reservoir_Volume ,
+                                                                              int Configured ,
+                                                                              int Highest_Level_Alarm ,
+                                                                              boolean     Reservoir_Empty ,
+                                                                              int Volume_Infused ){
+        Top_Level_Mode_Outputs rtu_TLM_MODE_IN = new Top_Level_Mode_Outputs();
+        rtu_TLM_MODE_IN.System_On = System_On;
+
+
+        Operator_Commands rtu_OP_CMD_IN = new Operator_Commands();
+        rtu_OP_CMD_IN.Infusion_Initiate = Infusion_Initiate;
+        rtu_OP_CMD_IN.Infusion_Inhibit = Infusion_Inhibit;
+        rtu_OP_CMD_IN.Infusion_Cancel = Infusion_Cancel;
+
+        Patient_Inputs rtu_PATIENT_IN = new Patient_Inputs();
+        rtu_PATIENT_IN.Patient_Bolus_Request = Patient_Bolus_Request;
+
+
+
+        Config_Outputs rtu_CONFIG_IN = new Config_Outputs();
+        rtu_CONFIG_IN.Infusion_Total_Duration = Infusion_Total_Duration;
+        rtu_CONFIG_IN.VTBI_Total = VTBI_Total;
+        rtu_CONFIG_IN.Flow_Rate_Basal = Flow_Rate_Basal;
+        rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus = Flow_Rate_Intermittent_Bolus;
+        rtu_CONFIG_IN.Duration_Intermittent_Bolus = Duration_Intermittent_Bolus;
+        rtu_CONFIG_IN.Interval_Intermittent_Bolus = Interval_Intermittent_Bolus;
+        rtu_CONFIG_IN.Flow_Rate_Patient_Bolus = Flow_Rate_Patient_Bolus;
+        rtu_CONFIG_IN.Duration_Patient_Bolus = Duration_Patient_Bolus;
+        rtu_CONFIG_IN.Lockout_Period_Patient_Bolus = Lockout_Period_Patient_Bolus;
+        rtu_CONFIG_IN.Max_Number_of_Patient_Bolus = Max_Number_of_Patient_Bolus;
+        rtu_CONFIG_IN.Flow_Rate_KVO = Flow_Rate_KVO;
+        rtu_CONFIG_IN.Entered_Reservoir_Volume = Entered_Reservoir_Volume;
+        rtu_CONFIG_IN.Configured = Configured;
+
+        Alarm_Outputs rtu_ALARM_IN = new Alarm_Outputs();
+        rtu_ALARM_IN.Highest_Level_Alarm = Highest_Level_Alarm;
+
+        System_Status_Outputs rtu_SYS_STAT_IN = new System_Status_Outputs();
+        rtu_SYS_STAT_IN.Reservoir_Empty = Reservoir_Empty;
+        rtu_SYS_STAT_IN.Volume_Infused = Volume_Infused;
+        Infusion_Manager_Outputs rty_IM_OUT = new Infusion_Manager_Outputs();
+
+        INFUSION_MGR_Functional(rtu_TLM_MODE_IN,
+                rtu_OP_CMD_IN, rtu_PATIENT_IN,
+                rtu_CONFIG_IN, rtu_ALARM_IN,
+                rtu_SYS_STAT_IN, rty_IM_OUT);
+
+
+        return rty_IM_OUT;
+    }
+
+
     /* Output and update for referenced model: 'INFUSION_MGR_Functional' */
     static void INFUSION_MGR_Functional(Top_Level_Mode_Outputs rtu_TLM_MODE_IN,
                                         Operator_Commands rtu_OP_CMD_IN, Patient_Inputs rtu_PATIENT_IN,
                                         Config_Outputs rtu_CONFIG_IN, Alarm_Outputs rtu_ALARM_IN,
-                                        System_Status_Outputs rtu_SYS_STAT_IN, Infusion_Manager_Outputs rty_IM_OUT,
-                                        B_INFUSION_MGR_Functional_c_T localB, DW_INFUSION_MGR_Functional_f_T localDW) {
+                                        System_Status_Outputs rtu_SYS_STAT_IN, Infusion_Manager_Outputs rty_IM_OUT) {
         /* BusSelector: '<Root>/BusConversion_InsertedFor_ALARM_IN_at_outport_0' */
         localB.Highest_Level_Alarm = rtu_ALARM_IN.Highest_Level_Alarm;
 
@@ -1018,28 +1089,12 @@ public class INFUSION_MGR_Functional {
     static void INFUSION_MGR_FunctionalSymWrapper(
             //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
             boolean System_On,
-            boolean Request_Confirm_Stop,
-            int Log_Message_ID1,
 
             //Operator_Commands rtu_OP_CMD_IN
-            boolean System_Start,
-            boolean System_Stop,
             boolean Infusion_Initiate,
             boolean Infusion_Inhibit,
             boolean Infusion_Cancel,
-            boolean Data_Config,
-            boolean Next,
-            boolean Back,
-            boolean Cancel,
-            boolean Keyboard,
-            int Disable_Audio,
-            boolean Notification_Cancel,
-            int Configuration_Type,
-            boolean Confirm_Stop,
             boolean Patient_Bolus_Request,
-            int Patient_ID,
-            int Drug_Name,
-            int Drug_Concentration,
             int Infusion_Total_Duration,
             int VTBI_Total,
             int Flow_Rate_Basal,
@@ -1054,65 +1109,26 @@ public class INFUSION_MGR_Functional {
             int Entered_Reservoir_Volume,
             int Reservoir_Volume,
             int Configured,
-            int Error_Message_ID,
-            boolean Request_Config_Type,
-            boolean Request_Confirm_Infusion_Initiate,
-            boolean Request_Patient_Drug_Info,
-            boolean Request_Infusion_Info,
-            int Log_Message_ID,
-            int Config_Timer,
-            int Config_Mode,
 
 
             //Alarm_Outputs rtu_ALARM_IN
-            int Is_Audio_Disabled,
-            int Notification_Message,
-            int Audio_Notification_Command,
             int Highest_Level_Alarm,
-            int Log_Message_ID3,
 
 
             //System_Status_Outputs rtu_SYS_STAT_IN
             boolean Reservoir_Empty,
-            int Reservoir_Volume2,
             int Volume_Infused,
-            int Log_Message_ID2,
-            boolean In_Therapy,
 
-            //Infusion_Manager_Outputs rty_IM_OUT
-            int Commanded_Flow_Rate,
-            int Current_System_Mode,
-            boolean New_Infusion,
-            int Log_Message_ID4,
-            int Actual_Infusion_Duration,
-
-
-            //second step input
+            //second step
 
             //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
             boolean System_On_2,
-            boolean Request_Confirm_Stop_2,
-            int Log_Message_ID1_2,
 
             //Operator_Commands rtu_OP_CMD_IN
-            boolean System_Start_2,
-            boolean System_Stop_2,
             boolean Infusion_Initiate_2,
             boolean Infusion_Inhibit_2,
             boolean Infusion_Cancel_2,
-            boolean Data_Config_2,
-            boolean Next_2,
-            boolean Back_2,
-            boolean Cancel_2,
-            boolean Keyboard_2,
-            int Disable_Audio_2,
-            boolean Notification_Cancel_2,
-            int Configuration_Type_2,
-            boolean Confirm_Stop_2,
             boolean Patient_Bolus_Request_2,
-            int Patient_ID_2,
-            int Drug_Name_2,
-            int Drug_Concentration_2,
             int Infusion_Total_Duration_2,
             int VTBI_Total_2,
             int Flow_Rate_Basal_2,
@@ -1127,67 +1143,25 @@ public class INFUSION_MGR_Functional {
             int Entered_Reservoir_Volume_2,
             int Reservoir_Volume_2,
             int Configured_2,
-            int Error_Message_ID_2,
-            boolean Request_Config_Type_2,
-            boolean Request_Confirm_Infusion_Initiate_2,
-            boolean Request_Patient_Drug_Info_2,
-            boolean Request_Infusion_Info_2,
-            int Log_Message_ID_2,
-            int Config_Timer_2,
-            int Config_Mode_2,
 
 
             //Alarm_Outputs rtu_ALARM_IN
-            int Is_Audio_Disabled_2,
-            int Notification_Message_2,
-            int Audio_Notification_Command_2,
             int Highest_Level_Alarm_2,
-            int Log_Message_ID3_2,
 
 
             //System_Status_Outputs rtu_SYS_STAT_IN
             boolean Reservoir_Empty_2,
-            int Reservoir_Volume2_2,
             int Volume_Infused_2,
-            int Log_Message_ID2_2,
-            boolean In_Therapy_2,
-
-            //Infusion_Manager_Outputs rty_IM_OUT
-            int Commanded_Flow_Rate_2,
-            int Current_System_Mode_2,
-            boolean New_Infusion_2,
-            int Log_Message_ID4_2,
-            int Actual_Infusion_Duration_2,
-
 
             //third step
-
-            //second step input
-
             //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
             boolean System_On_3,
-            boolean Request_Confirm_Stop_3,
-            int Log_Message_ID1_3,
 
             //Operator_Commands rtu_OP_CMD_IN
-            boolean System_Start_3,
-            boolean System_Stop_3,
             boolean Infusion_Initiate_3,
             boolean Infusion_Inhibit_3,
             boolean Infusion_Cancel_3,
-            boolean Data_Config_3,
-            boolean Next_3,
-            boolean Back_3,
-            boolean Cancel_3,
-            boolean Keyboard_3,
-            int Disable_Audio_3,
-            boolean Notification_Cancel_3,
-            int Configuration_Type_3,
-            boolean Confirm_Stop_3,
             boolean Patient_Bolus_Request_3,
-            int Patient_ID_3,
-            int Drug_Name_3,
-            int Drug_Concentration_3,
             int Infusion_Total_Duration_3,
             int VTBI_Total_3,
             int Flow_Rate_Basal_3,
@@ -1202,65 +1176,26 @@ public class INFUSION_MGR_Functional {
             int Entered_Reservoir_Volume_3,
             int Reservoir_Volume_3,
             int Configured_3,
-            int Error_Message_ID_3,
-            boolean Request_Config_Type_3,
-            boolean Request_Confirm_Infusion_Initiate_3,
-            boolean Request_Patient_Drug_Info_3,
-            boolean Request_Infusion_Info_3,
-            int Log_Message_ID_3,
-            int Config_Timer_3,
-            int Config_Mode_3,
 
 
             //Alarm_Outputs rtu_ALARM_IN
-            int Is_Audio_Disabled_3,
-            int Notification_Message_3,
-            int Audio_Notification_Command_3,
             int Highest_Level_Alarm_3,
-            int Log_Message_ID3_3,
 
 
             //System_Status_Outputs rtu_SYS_STAT_IN
             boolean Reservoir_Empty_3,
-            int Reservoir_Volume2_3,
             int Volume_Infused_3,
-            int Log_Message_ID2_3,
-            boolean In_Therapy_3,
 
-            //Infusion_Manager_Outputs rty_IM_OUT
-            int Commanded_Flow_Rate_3,
-            int Current_System_Mode_3,
-            boolean New_Infusion_3,
-            int Log_Message_ID4_3,
-            int Actual_Infusion_Duration_3,
-
-
-            //4 step
+            //fourth step
 
             //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
             boolean System_On_4,
-            boolean Request_Confirm_Stop_4,
-            int Log_Message_ID1_4,
 
             //Operator_Commands rtu_OP_CMD_IN
-            boolean System_Start_4,
-            boolean System_Stop_4,
             boolean Infusion_Initiate_4,
             boolean Infusion_Inhibit_4,
             boolean Infusion_Cancel_4,
-            boolean Data_Config_4,
-            boolean Next_4,
-            boolean Back_4,
-            boolean Cancel_4,
-            boolean Keyboard_4,
-            int Disable_Audio_4,
-            boolean Notification_Cancel_4,
-            int Configuration_Type_4,
-            boolean Confirm_Stop_4,
             boolean Patient_Bolus_Request_4,
-            int Patient_ID_4,
-            int Drug_Name_4,
-            int Drug_Concentration_4,
             int Infusion_Total_Duration_4,
             int VTBI_Total_4,
             int Flow_Rate_Basal_4,
@@ -1275,366 +1210,61 @@ public class INFUSION_MGR_Functional {
             int Entered_Reservoir_Volume_4,
             int Reservoir_Volume_4,
             int Configured_4,
-            int Error_Message_ID_4,
-            boolean Request_Config_Type_4,
-            boolean Request_Confirm_Infusion_Initiate_4,
-            boolean Request_Patient_Drug_Info_4,
-            boolean Request_Infusion_Info_4,
-            int Log_Message_ID_4,
-            int Config_Timer_4,
-            int Config_Mode_4,
 
 
             //Alarm_Outputs rtu_ALARM_IN
-            int Is_Audio_Disabled_4,
-            int Notification_Message_4,
-            int Audio_Notification_Command_4,
             int Highest_Level_Alarm_4,
-            int Log_Message_ID3_4,
 
 
             //System_Status_Outputs rtu_SYS_STAT_IN
             boolean Reservoir_Empty_4,
-            int Reservoir_Volume2_4,
             int Volume_Infused_4,
-            int Log_Message_ID2_4,
-            boolean In_Therapy_4,
 
-            //Infusion_Manager_Outputs rty_IM_OUT
-            int Commanded_Flow_Rate_4,
-            int Current_System_Mode_4,
-            boolean New_Infusion_4,
-            int Log_Message_ID4_4,
-            int Actual_Infusion_Duration_4
 
+            //fifth step
+
+            //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
+            boolean System_On_5,
+
+            //Operator_Commands rtu_OP_CMD_IN
+            boolean Infusion_Initiate_5,
+            boolean Infusion_Inhibit_5,
+            boolean Infusion_Cancel_5,
+            boolean Patient_Bolus_Request_5,
+            int Infusion_Total_Duration_5,
+            int VTBI_Total_5,
+            int Flow_Rate_Basal_5,
+            int Flow_Rate_Intermittent_Bolus_5,
+            int Duration_Intermittent_Bolus_5,
+            int Interval_Intermittent_Bolus_5,
+            int Flow_Rate_Patient_Bolus_5,
+            int Duration_Patient_Bolus_5,
+            int Lockout_Period_Patient_Bolus_5,
+            int Max_Number_of_Patient_Bolus_5,
+            int Flow_Rate_KVO_5,
+            int Entered_Reservoir_Volume_5,
+            int Reservoir_Volume_5,
+            int Configured_5,
+
+
+            //Alarm_Outputs rtu_ALARM_IN
+            int Highest_Level_Alarm_5,
+
+
+            //System_Status_Outputs rtu_SYS_STAT_IN
+            boolean Reservoir_Empty_5,
+            int Volume_Infused_5
 
      ) {
 
-        B_INFUSION_MGR_Functional_c_T localB = new B_INFUSION_MGR_Functional_c_T();
+        localB = new B_INFUSION_MGR_Functional_c_T();
 
-        DW_INFUSION_MGR_Functional_f_T localDW = new DW_INFUSION_MGR_Functional_f_T();
-
-        Top_Level_Mode_Outputs rtu_TLM_MODE_IN = new Top_Level_Mode_Outputs();
-        rtu_TLM_MODE_IN.System_On = System_On;
-        rtu_TLM_MODE_IN.Request_Confirm_Stop = Request_Confirm_Stop;
-        rtu_TLM_MODE_IN.Log_Message_ID = Log_Message_ID1;
-
-
-        Top_Level_Mode_Outputs rtu_TLM_MODE_IN_2 = new Top_Level_Mode_Outputs();
-        rtu_TLM_MODE_IN_2.System_On = System_On_2;
-        rtu_TLM_MODE_IN_2.Request_Confirm_Stop = Request_Confirm_Stop_2;
-        rtu_TLM_MODE_IN_2.Log_Message_ID = Log_Message_ID1_2;
-
-
-        Top_Level_Mode_Outputs rtu_TLM_MODE_IN_3 = new Top_Level_Mode_Outputs();
-        rtu_TLM_MODE_IN_3.System_On = System_On_3;
-        rtu_TLM_MODE_IN_3.Request_Confirm_Stop = Request_Confirm_Stop_3;
-        rtu_TLM_MODE_IN_3.Log_Message_ID = Log_Message_ID1_3;
-
-
-        Operator_Commands rtu_OP_CMD_IN = new Operator_Commands();
-        rtu_OP_CMD_IN.System_Start = System_Start;
-        rtu_OP_CMD_IN.System_Stop = System_Stop;
-        rtu_OP_CMD_IN.Infusion_Initiate = Infusion_Initiate;
-        rtu_OP_CMD_IN.Infusion_Inhibit = Infusion_Inhibit;
-        rtu_OP_CMD_IN.Infusion_Cancel = Infusion_Cancel;
-        rtu_OP_CMD_IN.Data_Config = Data_Config;
-        rtu_OP_CMD_IN.Next = Next;
-        rtu_OP_CMD_IN.Back = Back;
-        rtu_OP_CMD_IN.Cancel = Cancel;
-        rtu_OP_CMD_IN.Keyboard = Keyboard;
-        rtu_OP_CMD_IN.Disable_Audio = Disable_Audio;
-        rtu_OP_CMD_IN.Notification_Cancel = Notification_Cancel;
-        rtu_OP_CMD_IN.Configuration_Type = Configuration_Type;
-        rtu_OP_CMD_IN.Confirm_Stop = Confirm_Stop;
-
-
-        Operator_Commands rtu_OP_CMD_IN_2 = new Operator_Commands();
-        rtu_OP_CMD_IN_2.System_Start = System_Start_2;
-        rtu_OP_CMD_IN_2.System_Stop = System_Stop_2;
-        rtu_OP_CMD_IN_2.Infusion_Initiate = Infusion_Initiate_2;
-        rtu_OP_CMD_IN_2.Infusion_Inhibit = Infusion_Inhibit_2;
-        rtu_OP_CMD_IN_2.Infusion_Cancel = Infusion_Cancel_2;
-        rtu_OP_CMD_IN_2.Data_Config = Data_Config_2;
-        rtu_OP_CMD_IN_2.Next = Next_2;
-        rtu_OP_CMD_IN_2.Back = Back_2;
-        rtu_OP_CMD_IN_2.Cancel = Cancel_2;
-        rtu_OP_CMD_IN_2.Keyboard = Keyboard_2;
-        rtu_OP_CMD_IN_2.Disable_Audio = Disable_Audio_2;
-        rtu_OP_CMD_IN_2.Notification_Cancel = Notification_Cancel_2;
-        rtu_OP_CMD_IN_2.Configuration_Type = Configuration_Type_2;
-        rtu_OP_CMD_IN_2.Confirm_Stop = Confirm_Stop_2;
-
-
-        Operator_Commands rtu_OP_CMD_IN_3 = new Operator_Commands();
-        rtu_OP_CMD_IN_3.System_Start = System_Start_3;
-        rtu_OP_CMD_IN_3.System_Stop = System_Stop_3;
-        rtu_OP_CMD_IN_3.Infusion_Initiate = Infusion_Initiate_3;
-        rtu_OP_CMD_IN_3.Infusion_Inhibit = Infusion_Inhibit_3;
-        rtu_OP_CMD_IN_3.Infusion_Cancel = Infusion_Cancel_3;
-        rtu_OP_CMD_IN_3.Data_Config = Data_Config_3;
-        rtu_OP_CMD_IN_3.Next = Next_3;
-        rtu_OP_CMD_IN_3.Back = Back_3;
-        rtu_OP_CMD_IN_3.Cancel = Cancel_3;
-        rtu_OP_CMD_IN_3.Keyboard = Keyboard_3;
-        rtu_OP_CMD_IN_3.Disable_Audio = Disable_Audio_3;
-        rtu_OP_CMD_IN_3.Notification_Cancel = Notification_Cancel_3;
-        rtu_OP_CMD_IN_3.Configuration_Type = Configuration_Type_3;
-        rtu_OP_CMD_IN_3.Confirm_Stop = Confirm_Stop_3;
-
-        Patient_Inputs rtu_PATIENT_IN = new Patient_Inputs();
-        rtu_PATIENT_IN.Patient_Bolus_Request = Patient_Bolus_Request;
-
-
-        Patient_Inputs rtu_PATIENT_IN_2 = new Patient_Inputs();
-        rtu_PATIENT_IN_2.Patient_Bolus_Request = Patient_Bolus_Request_2;
-
-
-        Patient_Inputs rtu_PATIENT_IN_3 = new Patient_Inputs();
-        rtu_PATIENT_IN_3.Patient_Bolus_Request = Patient_Bolus_Request_3;
-
-
-        Config_Outputs rtu_CONFIG_IN = new Config_Outputs();
-        rtu_CONFIG_IN.Patient_ID = Patient_ID;
-        rtu_CONFIG_IN.Drug_Name = Drug_Name;
-        rtu_CONFIG_IN.Drug_Concentration = Drug_Concentration;
-        rtu_CONFIG_IN.Infusion_Total_Duration = Infusion_Total_Duration;
-        rtu_CONFIG_IN.VTBI_Total = VTBI_Total;
-        rtu_CONFIG_IN.Flow_Rate_Basal = Flow_Rate_Basal;
-        rtu_CONFIG_IN.Flow_Rate_Intermittent_Bolus = Flow_Rate_Intermittent_Bolus;
-        rtu_CONFIG_IN.Duration_Intermittent_Bolus = Duration_Intermittent_Bolus;
-        rtu_CONFIG_IN.Interval_Intermittent_Bolus = Interval_Intermittent_Bolus;
-        rtu_CONFIG_IN.Flow_Rate_Patient_Bolus = Flow_Rate_Patient_Bolus;
-        rtu_CONFIG_IN.Duration_Patient_Bolus = Duration_Patient_Bolus;
-        rtu_CONFIG_IN.Lockout_Period_Patient_Bolus = Lockout_Period_Patient_Bolus;
-        rtu_CONFIG_IN.Max_Number_of_Patient_Bolus = Max_Number_of_Patient_Bolus;
-        rtu_CONFIG_IN.Flow_Rate_KVO = Flow_Rate_KVO;
-        rtu_CONFIG_IN.Entered_Reservoir_Volume = Entered_Reservoir_Volume;
-        rtu_CONFIG_IN.Reservoir_Volume = Reservoir_Volume;
-        rtu_CONFIG_IN.Configured = Configured;
-        rtu_CONFIG_IN.Error_Message_ID = Error_Message_ID;
-        rtu_CONFIG_IN.Request_Config_Type = Request_Config_Type;
-        rtu_CONFIG_IN.Request_Confirm_Infusion_Initiate = Request_Confirm_Infusion_Initiate;
-        rtu_CONFIG_IN.Request_Patient_Drug_Info = Request_Patient_Drug_Info;
-        rtu_CONFIG_IN.Request_Infusion_Info = Request_Infusion_Info;
-        rtu_CONFIG_IN.Log_Message_ID = Log_Message_ID;
-        rtu_CONFIG_IN.Config_Timer = Config_Timer;
-        rtu_CONFIG_IN.Config_Mode = Config_Mode;
-
-
-        Config_Outputs rtu_CONFIG_IN_2 = new Config_Outputs();
-        rtu_CONFIG_IN_2.Patient_ID = Patient_ID_2;
-        rtu_CONFIG_IN_2.Drug_Name = Drug_Name_2;
-        rtu_CONFIG_IN_2.Drug_Concentration = Drug_Concentration_2;
-        rtu_CONFIG_IN_2.Infusion_Total_Duration = Infusion_Total_Duration_2;
-        rtu_CONFIG_IN_2.VTBI_Total = VTBI_Total_2;
-        rtu_CONFIG_IN_2.Flow_Rate_Basal = Flow_Rate_Basal_2;
-        rtu_CONFIG_IN_2.Flow_Rate_Intermittent_Bolus = Flow_Rate_Intermittent_Bolus_2;
-        rtu_CONFIG_IN_2.Duration_Intermittent_Bolus = Duration_Intermittent_Bolus_2;
-        rtu_CONFIG_IN_2.Interval_Intermittent_Bolus = Interval_Intermittent_Bolus_2;
-        rtu_CONFIG_IN_2.Flow_Rate_Patient_Bolus = Flow_Rate_Patient_Bolus_2;
-        rtu_CONFIG_IN_2.Duration_Patient_Bolus = Duration_Patient_Bolus_2;
-        rtu_CONFIG_IN_2.Lockout_Period_Patient_Bolus = Lockout_Period_Patient_Bolus_2;
-        rtu_CONFIG_IN_2.Max_Number_of_Patient_Bolus = Max_Number_of_Patient_Bolus_2;
-        rtu_CONFIG_IN_2.Flow_Rate_KVO = Flow_Rate_KVO_2;
-        rtu_CONFIG_IN_2.Entered_Reservoir_Volume = Entered_Reservoir_Volume_2;
-        rtu_CONFIG_IN_2.Reservoir_Volume = Reservoir_Volume_2;
-        rtu_CONFIG_IN_2.Configured = Configured_2;
-        rtu_CONFIG_IN_2.Error_Message_ID = Error_Message_ID_2;
-        rtu_CONFIG_IN_2.Request_Config_Type = Request_Config_Type_2;
-        rtu_CONFIG_IN_2.Request_Confirm_Infusion_Initiate = Request_Confirm_Infusion_Initiate_2;
-        rtu_CONFIG_IN_2.Request_Patient_Drug_Info = Request_Patient_Drug_Info_2;
-        rtu_CONFIG_IN_2.Request_Infusion_Info = Request_Infusion_Info_2;
-        rtu_CONFIG_IN_2.Log_Message_ID = Log_Message_ID_2;
-        rtu_CONFIG_IN_2.Config_Timer = Config_Timer_2;
-        rtu_CONFIG_IN_2.Config_Mode = Config_Mode_2;
-
-
-        Config_Outputs rtu_CONFIG_IN_3 = new Config_Outputs();
-        rtu_CONFIG_IN_3.Patient_ID = Patient_ID_3;
-        rtu_CONFIG_IN_3.Drug_Name = Drug_Name_3;
-        rtu_CONFIG_IN_3.Drug_Concentration = Drug_Concentration_3;
-        rtu_CONFIG_IN_3.Infusion_Total_Duration = Infusion_Total_Duration_3;
-        rtu_CONFIG_IN_3.VTBI_Total = VTBI_Total_3;
-        rtu_CONFIG_IN_3.Flow_Rate_Basal = Flow_Rate_Basal_3;
-        rtu_CONFIG_IN_3.Flow_Rate_Intermittent_Bolus = Flow_Rate_Intermittent_Bolus_3;
-        rtu_CONFIG_IN_3.Duration_Intermittent_Bolus = Duration_Intermittent_Bolus_3;
-        rtu_CONFIG_IN_3.Interval_Intermittent_Bolus = Interval_Intermittent_Bolus_3;
-        rtu_CONFIG_IN_3.Flow_Rate_Patient_Bolus = Flow_Rate_Patient_Bolus_3;
-        rtu_CONFIG_IN_3.Duration_Patient_Bolus = Duration_Patient_Bolus_3;
-        rtu_CONFIG_IN_3.Lockout_Period_Patient_Bolus = Lockout_Period_Patient_Bolus_3;
-        rtu_CONFIG_IN_3.Max_Number_of_Patient_Bolus = Max_Number_of_Patient_Bolus_3;
-        rtu_CONFIG_IN_3.Flow_Rate_KVO = Flow_Rate_KVO_3;
-        rtu_CONFIG_IN_3.Entered_Reservoir_Volume = Entered_Reservoir_Volume_3;
-        rtu_CONFIG_IN_3.Reservoir_Volume = Reservoir_Volume_3;
-        rtu_CONFIG_IN_3.Configured = Configured_3;
-        rtu_CONFIG_IN_3.Error_Message_ID = Error_Message_ID_3;
-        rtu_CONFIG_IN_3.Request_Config_Type = Request_Config_Type_3;
-        rtu_CONFIG_IN_3.Request_Confirm_Infusion_Initiate = Request_Confirm_Infusion_Initiate_3;
-        rtu_CONFIG_IN_3.Request_Patient_Drug_Info = Request_Patient_Drug_Info_3;
-        rtu_CONFIG_IN_3.Request_Infusion_Info = Request_Infusion_Info_3;
-        rtu_CONFIG_IN_3.Log_Message_ID = Log_Message_ID_3;
-        rtu_CONFIG_IN_3.Config_Timer = Config_Timer_3;
-        rtu_CONFIG_IN_3.Config_Mode = Config_Mode_3;
-
-        Alarm_Outputs rtu_ALARM_IN = new Alarm_Outputs();
-        rtu_ALARM_IN.Is_Audio_Disabled = Is_Audio_Disabled;
-        rtu_ALARM_IN.Notification_Message = Notification_Message;
-        rtu_ALARM_IN.Audio_Notification_Command = Audio_Notification_Command;
-        rtu_ALARM_IN.Highest_Level_Alarm = Highest_Level_Alarm;
-        rtu_ALARM_IN.Log_Message_ID = Log_Message_ID3;
-
-
-        Alarm_Outputs rtu_ALARM_IN_2 = new Alarm_Outputs();
-        rtu_ALARM_IN_2.Is_Audio_Disabled = Is_Audio_Disabled_2;
-        rtu_ALARM_IN_2.Notification_Message = Notification_Message_2;
-        rtu_ALARM_IN_2.Audio_Notification_Command = Audio_Notification_Command_2;
-        rtu_ALARM_IN_2.Highest_Level_Alarm = Highest_Level_Alarm_2;
-        rtu_ALARM_IN_2.Log_Message_ID = Log_Message_ID3_2;
-
-
-        Alarm_Outputs rtu_ALARM_IN_3 = new Alarm_Outputs();
-        rtu_ALARM_IN_3.Is_Audio_Disabled = Is_Audio_Disabled_3;
-        rtu_ALARM_IN_3.Notification_Message = Notification_Message_3;
-        rtu_ALARM_IN_3.Audio_Notification_Command = Audio_Notification_Command_3;
-        rtu_ALARM_IN_3.Highest_Level_Alarm = Highest_Level_Alarm_3;
-        rtu_ALARM_IN_3.Log_Message_ID = Log_Message_ID3_3;
-
-        System_Status_Outputs rtu_SYS_STAT_IN = new System_Status_Outputs();
-        rtu_SYS_STAT_IN.Reservoir_Empty = Reservoir_Empty;
-        rtu_SYS_STAT_IN.Reservoir_Volume = Reservoir_Volume2;
-        rtu_SYS_STAT_IN.Volume_Infused = Volume_Infused;
-        rtu_SYS_STAT_IN.Log_Message_ID = Log_Message_ID2;
-        rtu_SYS_STAT_IN.In_Therapy = In_Therapy;
-
-
-        System_Status_Outputs rtu_SYS_STAT_IN_2 = new System_Status_Outputs();
-        rtu_SYS_STAT_IN_2.Reservoir_Empty = Reservoir_Empty_2;
-        rtu_SYS_STAT_IN_2.Reservoir_Volume = Reservoir_Volume2_2;
-        rtu_SYS_STAT_IN_2.Volume_Infused = Volume_Infused_2;
-        rtu_SYS_STAT_IN_2.Log_Message_ID = Log_Message_ID2_2;
-        rtu_SYS_STAT_IN_2.In_Therapy = In_Therapy_2;
-
-
-        System_Status_Outputs rtu_SYS_STAT_IN_3 = new System_Status_Outputs();
-        rtu_SYS_STAT_IN_3.Reservoir_Empty = Reservoir_Empty_3;
-        rtu_SYS_STAT_IN_3.Reservoir_Volume = Reservoir_Volume2_3;
-        rtu_SYS_STAT_IN_3.Volume_Infused = Volume_Infused_3;
-        rtu_SYS_STAT_IN_3.Log_Message_ID = Log_Message_ID2_3;
-        rtu_SYS_STAT_IN_3.In_Therapy = In_Therapy_3;
-
-
-        Infusion_Manager_Outputs rty_IM_OUT = new Infusion_Manager_Outputs();
-        rty_IM_OUT.Commanded_Flow_Rate = Commanded_Flow_Rate;
-        rty_IM_OUT.Current_System_Mode = Current_System_Mode;
-        rty_IM_OUT.New_Infusion = New_Infusion;
-        rty_IM_OUT.Log_Message_ID = Log_Message_ID4;
-        rty_IM_OUT.Actual_Infusion_Duration = Actual_Infusion_Duration;
-
-        Infusion_Manager_Outputs rty_IM_OUT_2 = new Infusion_Manager_Outputs();
-        rty_IM_OUT_2.Commanded_Flow_Rate = Commanded_Flow_Rate_2;
-        rty_IM_OUT_2.Current_System_Mode = Current_System_Mode_2;
-        rty_IM_OUT_2.New_Infusion = New_Infusion_2;
-        rty_IM_OUT_2.Log_Message_ID = Log_Message_ID4_2;
-        rty_IM_OUT_2.Actual_Infusion_Duration = Actual_Infusion_Duration_2;
-
-
-        Infusion_Manager_Outputs rty_IM_OUT_3 = new Infusion_Manager_Outputs();
-        rty_IM_OUT_3.Commanded_Flow_Rate = Commanded_Flow_Rate_3;
-        rty_IM_OUT_3.Current_System_Mode = Current_System_Mode_3;
-        rty_IM_OUT_3.New_Infusion = New_Infusion_3;
-        rty_IM_OUT_3.Log_Message_ID = Log_Message_ID4_3;
-        rty_IM_OUT_3.Actual_Infusion_Duration = Actual_Infusion_Duration_3;
-
-         Top_Level_Mode_Outputs rtu_TLM_MODE_IN_4 = new Top_Level_Mode_Outputs();
-         rtu_TLM_MODE_IN_4.System_On = System_On_4;
-         rtu_TLM_MODE_IN_4.Request_Confirm_Stop = Request_Confirm_Stop_4;
-         rtu_TLM_MODE_IN_4.Log_Message_ID = Log_Message_ID1_4;
-
-
-         Operator_Commands rtu_OP_CMD_IN_4 = new Operator_Commands();
-         rtu_OP_CMD_IN_4.System_Start = System_Start_4;
-         rtu_OP_CMD_IN_4.System_Stop = System_Stop_4;
-         rtu_OP_CMD_IN_4.Infusion_Initiate = Infusion_Initiate_4;
-         rtu_OP_CMD_IN_4.Infusion_Inhibit = Infusion_Inhibit_4;
-         rtu_OP_CMD_IN_4.Infusion_Cancel = Infusion_Cancel_4;
-         rtu_OP_CMD_IN_4.Data_Config = Data_Config_4;
-         rtu_OP_CMD_IN_4.Next = Next_4;
-         rtu_OP_CMD_IN_4.Back = Back_4;
-         rtu_OP_CMD_IN_4.Cancel = Cancel_4;
-         rtu_OP_CMD_IN_4.Keyboard = Keyboard_4;
-         rtu_OP_CMD_IN_4.Disable_Audio = Disable_Audio_4;
-         rtu_OP_CMD_IN_4.Notification_Cancel = Notification_Cancel_4;
-         rtu_OP_CMD_IN_4.Configuration_Type = Configuration_Type_4;
-         rtu_OP_CMD_IN_4.Confirm_Stop = Confirm_Stop_4;
-
-
-         Patient_Inputs rtu_PATIENT_IN_4 = new Patient_Inputs();
-         rtu_PATIENT_IN_4.Patient_Bolus_Request = Patient_Bolus_Request_4;
-
-         Config_Outputs rtu_CONFIG_IN_4 = new Config_Outputs();
-         rtu_CONFIG_IN_4.Patient_ID = Patient_ID_4;
-         rtu_CONFIG_IN_4.Drug_Name = Drug_Name_4;
-         rtu_CONFIG_IN_4.Drug_Concentration = Drug_Concentration_4;
-         rtu_CONFIG_IN_4.Infusion_Total_Duration = Infusion_Total_Duration_4;
-         rtu_CONFIG_IN_4.VTBI_Total = VTBI_Total_4;
-         rtu_CONFIG_IN_4.Flow_Rate_Basal = Flow_Rate_Basal_4;
-         rtu_CONFIG_IN_4.Flow_Rate_Intermittent_Bolus = Flow_Rate_Intermittent_Bolus_4;
-         rtu_CONFIG_IN_4.Duration_Intermittent_Bolus = Duration_Intermittent_Bolus_4;
-         rtu_CONFIG_IN_4.Interval_Intermittent_Bolus = Interval_Intermittent_Bolus_4;
-         rtu_CONFIG_IN_4.Flow_Rate_Patient_Bolus = Flow_Rate_Patient_Bolus_4;
-         rtu_CONFIG_IN_4.Duration_Patient_Bolus = Duration_Patient_Bolus_4;
-         rtu_CONFIG_IN_4.Lockout_Period_Patient_Bolus = Lockout_Period_Patient_Bolus_4;
-         rtu_CONFIG_IN_4.Max_Number_of_Patient_Bolus = Max_Number_of_Patient_Bolus_4;
-         rtu_CONFIG_IN_4.Flow_Rate_KVO = Flow_Rate_KVO_4;
-         rtu_CONFIG_IN_4.Entered_Reservoir_Volume = Entered_Reservoir_Volume_4;
-         rtu_CONFIG_IN_4.Reservoir_Volume = Reservoir_Volume_4;
-         rtu_CONFIG_IN_4.Configured = Configured_4;
-         rtu_CONFIG_IN_4.Error_Message_ID = Error_Message_ID_4;
-         rtu_CONFIG_IN_4.Request_Config_Type = Request_Config_Type_4;
-         rtu_CONFIG_IN_4.Request_Confirm_Infusion_Initiate = Request_Confirm_Infusion_Initiate_4;
-         rtu_CONFIG_IN_4.Request_Patient_Drug_Info = Request_Patient_Drug_Info_4;
-         rtu_CONFIG_IN_4.Request_Infusion_Info = Request_Infusion_Info_4;
-         rtu_CONFIG_IN_4.Log_Message_ID = Log_Message_ID_4;
-         rtu_CONFIG_IN_4.Config_Timer = Config_Timer_4;
-         rtu_CONFIG_IN_4.Config_Mode = Config_Mode_4;
-
-
-         Alarm_Outputs rtu_ALARM_IN_4 = new Alarm_Outputs();
-         rtu_ALARM_IN_4.Is_Audio_Disabled = Is_Audio_Disabled_4;
-         rtu_ALARM_IN_4.Notification_Message = Notification_Message_4;
-         rtu_ALARM_IN_4.Audio_Notification_Command = Audio_Notification_Command_4;
-         rtu_ALARM_IN_4.Highest_Level_Alarm = Highest_Level_Alarm_4;
-         rtu_ALARM_IN_4.Log_Message_ID = Log_Message_ID3_4;
-
-
-         System_Status_Outputs rtu_SYS_STAT_IN_4 = new System_Status_Outputs();
-         rtu_SYS_STAT_IN_4.Reservoir_Empty = Reservoir_Empty_4;
-         rtu_SYS_STAT_IN_4.Reservoir_Volume = Reservoir_Volume2_4;
-         rtu_SYS_STAT_IN_4.Volume_Infused = Volume_Infused_4;
-         rtu_SYS_STAT_IN_4.Log_Message_ID = Log_Message_ID2_4;
-         rtu_SYS_STAT_IN_4.In_Therapy = In_Therapy_4;
-
-
-
-         Infusion_Manager_Outputs rty_IM_OUT_4 = new Infusion_Manager_Outputs();
-         rty_IM_OUT_4.Commanded_Flow_Rate = Commanded_Flow_Rate_4;
-         rty_IM_OUT_4.Current_System_Mode = Current_System_Mode_4;
-         rty_IM_OUT_4.New_Infusion = New_Infusion_4;
-         rty_IM_OUT_4.Log_Message_ID = Log_Message_ID4_4;
-         rty_IM_OUT_4.Actual_Infusion_Duration = Actual_Infusion_Duration_4;
-
+        localDW = new DW_INFUSION_MGR_Functional_f_T();
 
 
          INFUSION_MGR_Functional_Init(localB, localDW);
         
-        if ((0 <= Log_Message_ID1) &&
-                (0 <= Disable_Audio) &&
-                (0 <= Configuration_Type) &&
-                (0 <= Patient_ID) &&
-                (0 <= Drug_Name) &&
-                (0 <= Drug_Concentration) &&
-                (0 <= Infusion_Total_Duration) &&
+        if (    (0 <= Infusion_Total_Duration) &&
                 (0 <= VTBI_Total) &&
                 (0 <= Flow_Rate_Basal) &&
                 (0 <= Flow_Rate_Intermittent_Bolus) &&
@@ -1648,28 +1278,6 @@ public class INFUSION_MGR_Functional {
                 (0 <= Entered_Reservoir_Volume) &&
                 (0 <= Reservoir_Volume) &&
                 (0 <= Configured) &&
-                (0 <= Error_Message_ID) &&
-                (0 <= Log_Message_ID) &&
-                (0 <= Config_Timer) &&
-                (0 <= Config_Mode) &&
-                (0 <= Is_Audio_Disabled) &&
-                (0 <= Notification_Message) &&
-                (0 <= Audio_Notification_Command) &&
-                (0 <= Highest_Level_Alarm) &&
-                (0 <= Log_Message_ID3) &&
-                (0 <= Reservoir_Volume2) &&
-                (0 <= Volume_Infused) &&
-                (0 <= Log_Message_ID2) &&
-                (0 <= Commanded_Flow_Rate) &&
-                (0 <= Current_System_Mode) &&
-                (0 <= Log_Message_ID4) &&
-                (0 <= Actual_Infusion_Duration) &&
-                (Log_Message_ID1 <= 255) &&
-                (Disable_Audio <= 255) &&
-                (Configuration_Type <= 255) &&
-                (Patient_ID <= 255) &&
-                (Drug_Name <= 255) &&
-                (Drug_Concentration <= 255) &&
                 (Infusion_Total_Duration <= 255) &&
                 (VTBI_Total <= 255) &&
                 (Flow_Rate_Basal <= 255) &&
@@ -1684,32 +1292,10 @@ public class INFUSION_MGR_Functional {
                 (Entered_Reservoir_Volume <= 255) &&
                 (Reservoir_Volume <= 255) &&
                 (Configured <= 255) &&
-                (Error_Message_ID <= 255) &&
-                (Log_Message_ID <= 255) &&
-                (Config_Timer <= 255) &&
-                (Config_Mode <= 255) &&
-                (Is_Audio_Disabled <= 255) &&
-                (Notification_Message <= 255) &&
-                (Audio_Notification_Command <= 255) &&
-                (Highest_Level_Alarm <= 255) &&
-                (Log_Message_ID3 <= 255) &&
-                (Reservoir_Volume2 <= 255) &&
-                (Volume_Infused <= 255) &&
-                (Log_Message_ID2 <= 255) &&
-                (Commanded_Flow_Rate <= 255) &&
-                (Current_System_Mode <= 255) &&
-                (Log_Message_ID4 <= 255) &&
-                (Actual_Infusion_Duration <= 255) &&
 
 
                 //second step
 
-                (0 <= Log_Message_ID1_2) &&
-                (0 <= Disable_Audio_2) &&
-                (0 <= Configuration_Type_2) &&
-                (0 <= Patient_ID_2) &&
-                (0 <= Drug_Name_2) &&
-                (0 <= Drug_Concentration_2) &&
                 (0 <= Infusion_Total_Duration_2) &&
                 (0 <= VTBI_Total_2) &&
                 (0 <= Flow_Rate_Basal_2) &&
@@ -1724,28 +1310,7 @@ public class INFUSION_MGR_Functional {
                 (0 <= Entered_Reservoir_Volume_2) &&
                 (0 <= Reservoir_Volume_2) &&
                 (0 <= Configured_2) &&
-                (0 <= Error_Message_ID_2) &&
-                (0 <= Log_Message_ID_2) &&
-                (0 <= Config_Timer_2) &&
-                (0 <= Config_Mode_2) &&
-                (0 <= Is_Audio_Disabled_2) &&
-                (0 <= Notification_Message_2) &&
-                (0 <= Audio_Notification_Command_2) &&
                 (0 <= Highest_Level_Alarm_2) &&
-                (0 <= Log_Message_ID3_2) &&
-                (0 <= Reservoir_Volume2_2) &&
-                (0 <= Volume_Infused_2) &&
-                (0 <= Log_Message_ID2_2) &&
-                (0 <= Commanded_Flow_Rate_2) &&
-                (0 <= Current_System_Mode_2) &&
-                (0 <= Log_Message_ID4_2) &&
-                (0 <= Actual_Infusion_Duration_2) &&
-                (Log_Message_ID1_2 <= 255) &&
-                (Disable_Audio_2 <= 255) &&
-                (Configuration_Type_2 <= 255) &&
-                (Patient_ID_2 <= 255) &&
-                (Drug_Name_2 <= 255) &&
-                (Drug_Concentration_2 <= 255) &&
                 (Infusion_Total_Duration_2 <= 255) &&
                 (VTBI_Total_2 <= 255) &&
                 (Flow_Rate_Basal_2 <= 255) &&
@@ -1760,32 +1325,12 @@ public class INFUSION_MGR_Functional {
                 (Entered_Reservoir_Volume_2 <= 255) &&
                 (Reservoir_Volume_2 <= 255) &&
                 (Configured_2 <= 255) &&
-                (Error_Message_ID_2 <= 255) &&
-                (Log_Message_ID_2 <= 255) &&
-                (Config_Timer_2 <= 255) &&
-                (Config_Mode_2 <= 255) &&
-                (Is_Audio_Disabled_2 <= 255) &&
-                (Notification_Message_2 <= 255) &&
-                (Audio_Notification_Command_2 <= 255) &&
                 (Highest_Level_Alarm_2 <= 255) &&
-                (Log_Message_ID3_2 <= 255) &&
-                (Reservoir_Volume2_2 <= 255) &&
                 (Volume_Infused_2 <= 255) &&
-                (Log_Message_ID2_2 <= 255) &&
-                (Commanded_Flow_Rate_2 <= 255) &&
-                (Current_System_Mode_2 <= 255) &&
-                (Log_Message_ID4_2 <= 255) &&
-                (Actual_Infusion_Duration_2 <= 255) &&
 
 
                 //third step
 
-                (0 <= Log_Message_ID1_3) &&
-                (0 <= Disable_Audio_3) &&
-                (0 <= Configuration_Type_3) &&
-                (0 <= Patient_ID_3) &&
-                (0 <= Drug_Name_3) &&
-                (0 <= Drug_Concentration_3) &&
                 (0 <= Infusion_Total_Duration_3) &&
                 (0 <= VTBI_Total_3) &&
                 (0 <= Flow_Rate_Basal_3) &&
@@ -1800,28 +1345,8 @@ public class INFUSION_MGR_Functional {
                 (0 <= Entered_Reservoir_Volume_3) &&
                 (0 <= Reservoir_Volume_3) &&
                 (0 <= Configured_3) &&
-                (0 <= Error_Message_ID_3) &&
-                (0 <= Log_Message_ID_3) &&
-                (0 <= Config_Timer_3) &&
-                (0 <= Config_Mode_3) &&
-                (0 <= Is_Audio_Disabled_3) &&
-                (0 <= Notification_Message_3) &&
-                (0 <= Audio_Notification_Command_3) &&
                 (0 <= Highest_Level_Alarm_3) &&
-                (0 <= Log_Message_ID3_3) &&
-                (0 <= Reservoir_Volume2_3) &&
                 (0 <= Volume_Infused_3) &&
-                (0 <= Log_Message_ID2_3) &&
-                (0 <= Commanded_Flow_Rate_3) &&
-                (0 <= Current_System_Mode_3) &&
-                (0 <= Log_Message_ID4_3) &&
-                (0 <= Actual_Infusion_Duration_3) &&
-                (Log_Message_ID1_3 <= 255) &&
-                (Disable_Audio_3 <= 255) &&
-                (Configuration_Type_3 <= 255) &&
-                (Patient_ID_3 <= 255) &&
-                (Drug_Name_3 <= 255) &&
-                (Drug_Concentration_3 <= 255) &&
                 (Infusion_Total_Duration_3 <= 255) &&
                 (VTBI_Total_3 <= 255) &&
                 (Flow_Rate_Basal_3 <= 255) &&
@@ -1836,32 +1361,12 @@ public class INFUSION_MGR_Functional {
                 (Entered_Reservoir_Volume_3 <= 255) &&
                 (Reservoir_Volume_3 <= 255) &&
                 (Configured_3 <= 255) &&
-                (Error_Message_ID_3 <= 255) &&
-                (Log_Message_ID_3 <= 255) &&
-                (Config_Timer_3 <= 255) &&
-                (Config_Mode_3 <= 255) &&
-                (Is_Audio_Disabled_3 <= 255) &&
-                (Notification_Message_3 <= 255) &&
-                (Audio_Notification_Command_3 <= 255) &&
                 (Highest_Level_Alarm_3 <= 255) &&
-                (Log_Message_ID3_3 <= 255) &&
-                (Reservoir_Volume2_3 <= 255) &&
                 (Volume_Infused_3 <= 255) &&
-                (Log_Message_ID2_3 <= 255) &&
-                (Commanded_Flow_Rate_3 <= 255) &&
-                (Current_System_Mode_3 <= 255) &&
-                (Log_Message_ID4_3 <= 255) &&
-                (Actual_Infusion_Duration_3 <= 255) &&
 
 
                 //4 step
 
-                (0 <= Log_Message_ID1_4) &&
-                (0 <= Disable_Audio_4) &&
-                (0 <= Configuration_Type_4) &&
-                (0 <= Patient_ID_4) &&
-                (0 <= Drug_Name_4) &&
-                (0 <= Drug_Concentration_4) &&
                 (0 <= Infusion_Total_Duration_4) &&
                 (0 <= VTBI_Total_4) &&
                 (0 <= Flow_Rate_Basal_4) &&
@@ -1876,28 +1381,8 @@ public class INFUSION_MGR_Functional {
                 (0 <= Entered_Reservoir_Volume_4) &&
                 (0 <= Reservoir_Volume_4) &&
                 (0 <= Configured_4) &&
-                (0 <= Error_Message_ID_4) &&
-                (0 <= Log_Message_ID_4) &&
-                (0 <= Config_Timer_4) &&
-                (0 <= Config_Mode_4) &&
-                (0 <= Is_Audio_Disabled_4) &&
-                (0 <= Notification_Message_4) &&
-                (0 <= Audio_Notification_Command_4) &&
                 (0 <= Highest_Level_Alarm_4) &&
-                (0 <= Log_Message_ID3_4) &&
-                (0 <= Reservoir_Volume2_4) &&
                 (0 <= Volume_Infused_4) &&
-                (0 <= Log_Message_ID2_4) &&
-                (0 <= Commanded_Flow_Rate_4) &&
-                (0 <= Current_System_Mode_4) &&
-                (0 <= Log_Message_ID4_4) &&
-                (0 <= Actual_Infusion_Duration_4) &&
-                (Log_Message_ID1_4 <= 255) &&
-                (Disable_Audio_4 <= 255) &&
-                (Configuration_Type_4 <= 255) &&
-                (Patient_ID_4 <= 255) &&
-                (Drug_Name_4 <= 255) &&
-                (Drug_Concentration_4 <= 255) &&
                 (Infusion_Total_Duration_4 <= 255) &&
                 (VTBI_Total_4 <= 255) &&
                 (Flow_Rate_Basal_4 <= 255) &&
@@ -1912,48 +1397,19 @@ public class INFUSION_MGR_Functional {
                 (Entered_Reservoir_Volume_4 <= 255) &&
                 (Reservoir_Volume_4 <= 255) &&
                 (Configured_4 <= 255) &&
-                (Error_Message_ID_4 <= 255) &&
-                (Log_Message_ID_4 <= 255) &&
-                (Config_Timer_4 <= 255) &&
-                (Config_Mode_4 <= 255) &&
-                (Is_Audio_Disabled_4 <= 255) &&
-                (Notification_Message_4 <= 255) &&
-                (Audio_Notification_Command_4 <= 255) &&
                 (Highest_Level_Alarm_4 <= 255) &&
-                (Log_Message_ID3_4 <= 255) &&
-                (Reservoir_Volume2_4 <= 255) &&
-                (Volume_Infused_4 <= 255) &&
-                (Log_Message_ID2_4 <= 255) &&
-                (Commanded_Flow_Rate_4 <= 255) &&
-                (Current_System_Mode_4 <= 255) &&
-                (Log_Message_ID4_4 <= 255) &&
-                (Actual_Infusion_Duration_4 <= 255)
+                (Volume_Infused_4 <= 255)
 
                 ) {
-            Infusion_Result.step(rtu_TLM_MODE_IN,
-                    rtu_OP_CMD_IN, rtu_PATIENT_IN,
-                    rtu_CONFIG_IN, rtu_ALARM_IN,
-                    rtu_SYS_STAT_IN, rty_IM_OUT,
-                    localB, localDW);
+            Infusion_Result.step(System_On, Infusion_Initiate, Infusion_Inhibit, Infusion_Cancel, Patient_Bolus_Request, Infusion_Total_Duration, VTBI_Total, Flow_Rate_Basal, Flow_Rate_Intermittent_Bolus, Duration_Intermittent_Bolus, Interval_Intermittent_Bolus, Flow_Rate_Patient_Bolus, Duration_Patient_Bolus, Lockout_Period_Patient_Bolus, Max_Number_of_Patient_Bolus, Flow_Rate_KVO, Entered_Reservoir_Volume, Configured, Highest_Level_Alarm, Reservoir_Empty, Volume_Infused);
 
-            Infusion_Result.step(rtu_TLM_MODE_IN_2,
-                    rtu_OP_CMD_IN_2, rtu_PATIENT_IN_2,
-                    rtu_CONFIG_IN_2, rtu_ALARM_IN_2,
-                    rtu_SYS_STAT_IN_2, rty_IM_OUT_2,
-                    localB, localDW);
+            Infusion_Result.step(System_On_2, Infusion_Initiate_2, Infusion_Inhibit_2, Infusion_Cancel_2, Patient_Bolus_Request_2, Infusion_Total_Duration_2, VTBI_Total_2, Flow_Rate_Basal_2, Flow_Rate_Intermittent_Bolus_2, Duration_Intermittent_Bolus_2, Interval_Intermittent_Bolus_2, Flow_Rate_Patient_Bolus_2, Duration_Patient_Bolus_2, Lockout_Period_Patient_Bolus_2, Max_Number_of_Patient_Bolus_2, Flow_Rate_KVO_2, Entered_Reservoir_Volume_2, Configured_2, Highest_Level_Alarm_2, Reservoir_Empty_2, Volume_Infused_2);
 
+            Infusion_Result.step(System_On_3, Infusion_Initiate_3, Infusion_Inhibit_3, Infusion_Cancel_3, Patient_Bolus_Request_3, Infusion_Total_Duration_3, VTBI_Total_3, Flow_Rate_Basal_3, Flow_Rate_Intermittent_Bolus_3, Duration_Intermittent_Bolus_3, Interval_Intermittent_Bolus_3, Flow_Rate_Patient_Bolus_3, Duration_Patient_Bolus_3, Lockout_Period_Patient_Bolus_3, Max_Number_of_Patient_Bolus_3, Flow_Rate_KVO_3, Entered_Reservoir_Volume_3, Configured_3, Highest_Level_Alarm_3, Reservoir_Empty_3, Volume_Infused_3);
 
-            Infusion_Result.step(rtu_TLM_MODE_IN_3,
-                    rtu_OP_CMD_IN_3, rtu_PATIENT_IN_3,
-                    rtu_CONFIG_IN_3, rtu_ALARM_IN_3,
-                    rtu_SYS_STAT_IN_3, rty_IM_OUT_3,
-                    localB, localDW);
+            Infusion_Result.step(System_On_4, Infusion_Initiate_4, Infusion_Inhibit_4, Infusion_Cancel_4, Patient_Bolus_Request_4, Infusion_Total_Duration_4, VTBI_Total_4, Flow_Rate_Basal_4, Flow_Rate_Intermittent_Bolus_4, Duration_Intermittent_Bolus_4, Interval_Intermittent_Bolus_4, Flow_Rate_Patient_Bolus_4, Duration_Patient_Bolus_4, Lockout_Period_Patient_Bolus_4, Max_Number_of_Patient_Bolus_4, Flow_Rate_KVO_4, Entered_Reservoir_Volume_4, Configured_4, Highest_Level_Alarm_4, Reservoir_Empty_4, Volume_Infused_4);
 
-            Infusion_Result.step(rtu_TLM_MODE_IN_4,
-                    rtu_OP_CMD_IN_4, rtu_PATIENT_IN_4,
-                    rtu_CONFIG_IN_4, rtu_ALARM_IN_4,
-                    rtu_SYS_STAT_IN_4, rty_IM_OUT_4,
-                    localB, localDW);
+            Infusion_Result.step(System_On_5, Infusion_Initiate_5, Infusion_Inhibit_5, Infusion_Cancel_5, Patient_Bolus_Request_5, Infusion_Total_Duration_5, VTBI_Total_5, Flow_Rate_Basal_5, Flow_Rate_Intermittent_Bolus_5, Duration_Intermittent_Bolus_5, Interval_Intermittent_Bolus_5, Flow_Rate_Patient_Bolus_5, Duration_Patient_Bolus_5, Lockout_Period_Patient_Bolus_5, Max_Number_of_Patient_Bolus_5, Flow_Rate_KVO_5, Entered_Reservoir_Volume_5, Configured_5, Highest_Level_Alarm_5, Reservoir_Empty_5, Volume_Infused_5);
 
             boolean checkCondition;
             boolean checkOutput;
@@ -2066,22 +1522,16 @@ public class INFUSION_MGR_Functional {
     }
 
     public static void main(String[] args) {
-       INFUSION_MGR_Functional.INFUSION_MGR_FunctionalSymWrapper(false, false, 1, false, false, false, false, false, false, false, false,
-                false, false, 1, false, 1, false, false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, false, false, false, false
-                , 1, 1, 1, 1, 1, 1, 1, 1, false, 1, 1, 1, false, 1, 1, false, 1, 1
-        ,false, false, 1, false, false, false, false, false, false, false, false,
-                false, false, 1, false, 1, false, false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, false, false, false, false
-                , 1, 1, 1, 1, 1, 1, 1, 1, false, 1, 1, 1, false, 1, 1, false, 1, 1,
+       INFUSION_MGR_Functional.INFUSION_MGR_FunctionalSymWrapper(
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
 
-                false, false, 1, false, false, false, false, false, false, false, false,
-                false, false, 1, false, 1, false, false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, false, false, false, false
-                , 1, 1, 1, 1, 1, 1, 1, 1, false, 1, 1, 1, false, 1, 1, false, 1, 1
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
 
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
 
-                ,                false, false, 1, false, false, false, false, false, false, false, false,
-                false, false, 1, false, 1, false, false, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, false, false, false, false
-                , 1, 1, 1, 1, 1, 1, 1, 1, false, 1, 1, 1, false, 1, 1, false, 1, 1
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
 
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1
         );
     }
 }

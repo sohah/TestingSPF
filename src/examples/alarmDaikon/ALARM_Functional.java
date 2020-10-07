@@ -1718,6 +1718,7 @@ public class ALARM_Functional {
         rtu_sys_stat_in.Reservoir_Empty = Reservoir_Empty;
         rtu_sys_stat_in.Volume_Infused = Volume_Infused;
         rtu_sys_stat_in.In_Therapy = In_Therapy;
+        rtu_sys_stat_in.Reservoir_Volume = Reservoir_Volume;
 
 
         Config_Outputs rtu_config_in = new Config_Outputs();
