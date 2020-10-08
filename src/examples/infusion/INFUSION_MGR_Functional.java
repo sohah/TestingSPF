@@ -1253,7 +1253,40 @@ public class INFUSION_MGR_Functional {
 
             //System_Status_Outputs rtu_SYS_STAT_IN
             boolean Reservoir_Empty_5,
-            int Volume_Infused_5
+            int Volume_Infused_5,
+
+            //sixth step
+            //Inputs of Infusion_Manager_Outputs rtu_TLM_MODE_IN
+            boolean System_On_6,
+
+            //Operator_Commands rtu_OP_CMD_IN
+            boolean Infusion_Initiate_6,
+            boolean Infusion_Inhibit_6,
+            boolean Infusion_Cancel_6,
+            boolean Patient_Bolus_Request_6,
+            int Infusion_Total_Duration_6,
+            int VTBI_Total_6,
+            int Flow_Rate_Basal_6,
+            int Flow_Rate_Intermittent_Bolus_6,
+            int Duration_Intermittent_Bolus_6,
+            int Interval_Intermittent_Bolus_6,
+            int Flow_Rate_Patient_Bolus_6,
+            int Duration_Patient_Bolus_6,
+            int Lockout_Period_Patient_Bolus_6,
+            int Max_Number_of_Patient_Bolus_6,
+            int Flow_Rate_KVO_6,
+            int Entered_Reservoir_Volume_6,
+            int Reservoir_Volume_6,
+            int Configured_6,
+
+
+            //Alarm_Outputs rtu_ALARM_IN
+            int Highest_Level_Alarm_6,
+
+
+            //System_Status_Outputs rtu_SYS_STAT_IN
+            boolean Reservoir_Empty_6,
+            int Volume_Infused_6
 
      ) {
 
@@ -1398,8 +1431,77 @@ public class INFUSION_MGR_Functional {
                 (Reservoir_Volume_4 <= 255) &&
                 (Configured_4 <= 255) &&
                 (Highest_Level_Alarm_4 <= 255) &&
-                (Volume_Infused_4 <= 255)
+                (Volume_Infused_4 <= 255) &&
 
+                //step5
+                (0 <= Infusion_Total_Duration_5) &&
+                (0 <= VTBI_Total_5) &&
+                (0 <= Flow_Rate_Basal_5) &&
+                (0 <= Flow_Rate_Intermittent_Bolus_5) &&
+                (0 <= Duration_Intermittent_Bolus_5) &&
+                (0 <= Interval_Intermittent_Bolus_5) &&
+                (0 <= Flow_Rate_Patient_Bolus_5) &&
+                (0 <= Duration_Patient_Bolus_5) &&
+                (0 <= Lockout_Period_Patient_Bolus_5) &&
+                (0 <= Max_Number_of_Patient_Bolus_5) &&
+                (0 <= Flow_Rate_KVO_5) &&
+                (0 <= Entered_Reservoir_Volume_5) &&
+                (0 <= Reservoir_Volume_5) &&
+                (0 <= Configured_5) &&
+                (0 <= Highest_Level_Alarm_5) &&
+                (0 <= Volume_Infused_5) &&
+                (Infusion_Total_Duration_5 <= 255) &&
+                (VTBI_Total_5 <= 255) &&
+                (Flow_Rate_Basal_5 <= 255) &&
+                (Flow_Rate_Intermittent_Bolus_5 <= 255) &&
+                (Duration_Intermittent_Bolus_5 <= 255) &&
+                (Interval_Intermittent_Bolus_5 <= 255) &&
+                (Flow_Rate_Patient_Bolus_5 <= 255) &&
+                (Duration_Patient_Bolus_5 <= 255) &&
+                (Lockout_Period_Patient_Bolus_5 <= 255) &&
+                (Max_Number_of_Patient_Bolus_5 <= 255) &&
+                (Flow_Rate_KVO_5 <= 255) &&
+                (Entered_Reservoir_Volume_5 <= 255) &&
+                (Reservoir_Volume_5 <= 255) &&
+                (Configured_5 <= 255) &&
+                (Highest_Level_Alarm_5 <= 255) &&
+                (Volume_Infused_5 <= 255)&&
+
+
+                //step 6
+
+        (0 <= Infusion_Total_Duration_6) &&
+                (0 <= VTBI_Total_6) &&
+                (0 <= Flow_Rate_Basal_6) &&
+                (0 <= Flow_Rate_Intermittent_Bolus_6) &&
+                (0 <= Duration_Intermittent_Bolus_6) &&
+                (0 <= Interval_Intermittent_Bolus_6) &&
+                (0 <= Flow_Rate_Patient_Bolus_6) &&
+                (0 <= Duration_Patient_Bolus_6) &&
+                (0 <= Lockout_Period_Patient_Bolus_6) &&
+                (0 <= Max_Number_of_Patient_Bolus_6) &&
+                (0 <= Flow_Rate_KVO_6) &&
+                (0 <= Entered_Reservoir_Volume_6) &&
+                (0 <= Reservoir_Volume_6) &&
+                (0 <= Configured_6) &&
+                (0 <= Highest_Level_Alarm_6) &&
+                (0 <= Volume_Infused_6) &&
+                (Infusion_Total_Duration_6 <= 255) &&
+                (VTBI_Total_6 <= 255) &&
+                (Flow_Rate_Basal_6 <= 255) &&
+                (Flow_Rate_Intermittent_Bolus_6 <= 255) &&
+                (Duration_Intermittent_Bolus_6 <= 255) &&
+                (Interval_Intermittent_Bolus_6 <= 255) &&
+                (Flow_Rate_Patient_Bolus_6 <= 255) &&
+                (Duration_Patient_Bolus_6 <= 255) &&
+                (Lockout_Period_Patient_Bolus_6 <= 255) &&
+                (Max_Number_of_Patient_Bolus_6 <= 255) &&
+                (Flow_Rate_KVO_6 <= 255) &&
+                (Entered_Reservoir_Volume_6 <= 255) &&
+                (Reservoir_Volume_6 <= 255) &&
+                (Configured_6 <= 255) &&
+                (Highest_Level_Alarm_6 <= 255) &&
+                (Volume_Infused_6 <= 255)
                 ) {
             Infusion_Result.step(System_On, Infusion_Initiate, Infusion_Inhibit, Infusion_Cancel, Patient_Bolus_Request, Infusion_Total_Duration, VTBI_Total, Flow_Rate_Basal, Flow_Rate_Intermittent_Bolus, Duration_Intermittent_Bolus, Interval_Intermittent_Bolus, Flow_Rate_Patient_Bolus, Duration_Patient_Bolus, Lockout_Period_Patient_Bolus, Max_Number_of_Patient_Bolus, Flow_Rate_KVO, Entered_Reservoir_Volume, Configured, Highest_Level_Alarm, Reservoir_Empty, Volume_Infused);
 
@@ -1410,6 +1512,9 @@ public class INFUSION_MGR_Functional {
             Infusion_Result.step(System_On_4, Infusion_Initiate_4, Infusion_Inhibit_4, Infusion_Cancel_4, Patient_Bolus_Request_4, Infusion_Total_Duration_4, VTBI_Total_4, Flow_Rate_Basal_4, Flow_Rate_Intermittent_Bolus_4, Duration_Intermittent_Bolus_4, Interval_Intermittent_Bolus_4, Flow_Rate_Patient_Bolus_4, Duration_Patient_Bolus_4, Lockout_Period_Patient_Bolus_4, Max_Number_of_Patient_Bolus_4, Flow_Rate_KVO_4, Entered_Reservoir_Volume_4, Configured_4, Highest_Level_Alarm_4, Reservoir_Empty_4, Volume_Infused_4);
 
             Infusion_Result.step(System_On_5, Infusion_Initiate_5, Infusion_Inhibit_5, Infusion_Cancel_5, Patient_Bolus_Request_5, Infusion_Total_Duration_5, VTBI_Total_5, Flow_Rate_Basal_5, Flow_Rate_Intermittent_Bolus_5, Duration_Intermittent_Bolus_5, Interval_Intermittent_Bolus_5, Flow_Rate_Patient_Bolus_5, Duration_Patient_Bolus_5, Lockout_Period_Patient_Bolus_5, Max_Number_of_Patient_Bolus_5, Flow_Rate_KVO_5, Entered_Reservoir_Volume_5, Configured_5, Highest_Level_Alarm_5, Reservoir_Empty_5, Volume_Infused_5);
+
+            Infusion_Result.step(System_On_6, Infusion_Initiate_6, Infusion_Inhibit_6, Infusion_Cancel_6, Patient_Bolus_Request_6, Infusion_Total_Duration_6, VTBI_Total_6, Flow_Rate_Basal_6, Flow_Rate_Intermittent_Bolus_6, Duration_Intermittent_Bolus_6, Interval_Intermittent_Bolus_6, Flow_Rate_Patient_Bolus_6, Duration_Patient_Bolus_6, Lockout_Period_Patient_Bolus_6, Max_Number_of_Patient_Bolus_6, Flow_Rate_KVO_6, Entered_Reservoir_Volume_6, Configured_6, Highest_Level_Alarm_6, Reservoir_Empty_6, Volume_Infused_6);
+
 
             boolean checkCondition;
             boolean checkOutput;
@@ -1530,6 +1635,8 @@ public class INFUSION_MGR_Functional {
                false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
 
                false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1 ,
+
+               false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1,
 
                false ,           false ,           false ,           false ,           false ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,           1 ,                   1 ,                      false ,           1
         );

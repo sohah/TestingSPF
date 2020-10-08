@@ -145,8 +145,33 @@ public class Infusion_Daikon {
                         Integer.parseInt(param[106]) ,
                         Integer.parseInt(param[107]) ,
                         Boolean.parseBoolean(param[108]) ,
-                        Integer.parseInt(param[109])
-                );
+                        Integer.parseInt(param[109]),
+
+                        //step 6
+                        Boolean.parseBoolean(param[110]) ,
+                        Boolean.parseBoolean(param[111]) ,
+                        Boolean.parseBoolean(param[112]) ,
+                        Boolean.parseBoolean(param[113]) ,
+                        Boolean.parseBoolean(param[114]) ,
+                        Integer.parseInt(param[115]) ,
+                        Integer.parseInt(param[116]) ,
+                        Integer.parseInt(param[117]) ,
+                        Integer.parseInt(param[118]) ,
+                        Integer.parseInt(param[119]) ,
+                        Integer.parseInt(param[120]) ,
+                        Integer.parseInt(param[121]) ,
+                        Integer.parseInt(param[122]) ,
+                        Integer.parseInt(param[123]) ,
+                        Integer.parseInt(param[124]) ,
+                        Integer.parseInt(param[125]) ,
+                        Integer.parseInt(param[126]) ,
+                        Integer.parseInt(param[127]) ,
+                        Integer.parseInt(param[128]) ,
+                        Integer.parseInt(param[129]) ,
+                        Boolean.parseBoolean(param[130]) ,
+                        Integer.parseInt(param[131])
+
+                        );
             }
         } catch (IOException e) {
             System.out.println("problem while reading the test case file. Failing.");

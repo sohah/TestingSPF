@@ -32,7 +32,8 @@ public class WBS_Daikon {
                         Integer.parseInt(param[3]), Boolean.parseBoolean(param[4]), Boolean.parseBoolean(param[5]),
                         Integer.parseInt(param[6]), Boolean.parseBoolean(param[7]), Boolean.parseBoolean(param[8]),
                         Integer.parseInt(param[9]), Boolean.parseBoolean(param[10]), Boolean.parseBoolean(param[11]),
-                        Integer.parseInt(param[12]), Boolean.parseBoolean(param[13]), Boolean.parseBoolean(param[14]));
+                        Integer.parseInt(param[12]), Boolean.parseBoolean(param[13]), Boolean.parseBoolean(param[14]),
+                        Integer.parseInt(param[15]), Boolean.parseBoolean(param[16]), Boolean.parseBoolean(param[17]));
             }
         } catch (IOException e) {
             System.out.println("problem while reading the test case file. Failing.");
