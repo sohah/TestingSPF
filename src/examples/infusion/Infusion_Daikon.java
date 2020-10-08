@@ -24,7 +24,7 @@ public class Infusion_Daikon {
                 String[] param = line.split(",");
 
 
-                assert param.length == 232 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
+                assert param.length == 132 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
 
                 INFUSION_MGR_Functional.INFUSION_MGR_FunctionalSymWrapper(
                         //step 1

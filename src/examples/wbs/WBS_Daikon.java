@@ -26,7 +26,7 @@ public class WBS_Daikon {
                 String[] param = line.split(",");
 
 
-                assert param.length == 15 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
+                assert param.length == 18 : "invalid number of parameters to run the program. Assumptions violated. Failing.";
 
                 WBS.launch(Integer.parseInt(param[0]), Boolean.parseBoolean(param[1]), Boolean.parseBoolean(param[2]),
                         Integer.parseInt(param[3]), Boolean.parseBoolean(param[4]), Boolean.parseBoolean(param[5]),
