@@ -15,4 +15,4 @@ mkdir ../traces_alarm
 #java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_alarm/alarm.dtrace.gz alarmDaikon.Alarm_Daikon /home/soha/git/jpf-symbc/testCase/testCases_alarm_steps1_depth152.txt
 
 echo "finish chicory starting collecting invariants."
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=7 ../src/examples/alarmDaikon/Alarm_Result.spinfo ../traces_alarm/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_alarm.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=5 ../src/examples/alarmDaikon/Alarm_Result.spinfo ../traces_alarm/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_alarm152.txt

@@ -16,4 +16,4 @@ echo "finished spliting"
 java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_infusion/infusion.dtrace.gz infusionDaikon.Infusion_Daikon /home/soha/git/jpf-symbc/testCase/testCases_infusion_steps4.txt
 
 echo "finish chicory starting collecting invariants."
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon ../src/examples/infusionDaikon/Infusion_Result.spinfo ../traces_infusion/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_infusion_steps4.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=7 ../src/examples/infusionDaikon/Infusion_Result.spinfo ../traces_infusion/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_infusion_steps4.txt

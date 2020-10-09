@@ -13,4 +13,4 @@ shopt -s expand_aliases
 
 DISCOVERYDIR=/home/soha/git/jpf-symbc
 
-runDiscovery $DISCOVERYDIR/src/examples/infusion/infusion.jpf >& $DISCOVERYDIR/logs/infusion_steps6.log
+runDiscovery $DISCOVERYDIR/src/examples/infusionDaikon/infusion.jpf >& $DISCOVERYDIR/logs/infusion_steps5.log
