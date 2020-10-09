@@ -12,7 +12,7 @@ mkdir ../traces_alarm
 #java -cp /home/soha/git/jpf-symbc/src/examples/tcas:/home/soha/daikon-5.8.4/daikon.jar daikon.tools.jtb.CreateSpinfo ../src/examples/alarmDaikon/ALARM_Functional.java
 
 #echo "finished spliting"
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_alarm/alarm.dtrace.gz alarmDaikon.Alarm_Daikon /home/soha/git/jpf-symbc/testCase/testCases_alarm_steps1_depth152.txt
+#java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_alarm/alarm.dtrace.gz alarmDaikon.Alarm_Daikon /home/soha/git/jpf-symbc/testCase/testCases_alarm_steps1_depth152.txt
 
 echo "finish chicory starting collecting invariants."
 java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=7 ../src/examples/alarmDaikon/Alarm_Result.spinfo ../traces_alarm/*.dtrace.gz --format java > ../daikonInv/daikon_invariants_alarm.txt
