@@ -199,6 +199,8 @@ public class SymbolicSequenceListener extends PropertyListenerAdapter implements
                 methodSequence.add(0, errAnn);
             methodSequence.add(exceptionMarker + error);
             methodSequences.add(methodSequence);
+            System.out.println("testcase is");
+            System.out.println(methodSequence);
         }
     }
 
