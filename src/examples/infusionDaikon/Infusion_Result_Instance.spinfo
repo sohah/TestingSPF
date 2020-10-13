@@ -13,6 +13,11 @@ PPT_NAME infusionDaikon.Infusion_Result_Instance.step
 (System_On && (infusion_result.Current_System_Mode == 4 ))
 (System_On && (infusion_result.Current_System_Mode == 1))
 (System_On && (infusion_result.Current_System_Mode == 6 || infusion_result.Current_System_Mode == 7 || infusion_result.Current_System_Mode == 8 ))
+(Highest_Level_Alarm == 0)
+(Highest_Level_Alarm == 1)
+(Highest_Level_Alarm == 2)
+(Highest_Level_Alarm == 3)
+(Highest_Level_Alarm == 4)
 
 PPT_NAME infusionDaikon.Infusion_Result_Instance:::OBJECT
 (Current_System_Mode == 0)
