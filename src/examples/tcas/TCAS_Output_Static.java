@@ -1,6 +1,6 @@
 package tcas;
 
-public class TCAS_Output {
+public class TCAS_Output_Static {
     static int result_alt_sep_test_s = 0;
     static int alim_res_s = 0;
 

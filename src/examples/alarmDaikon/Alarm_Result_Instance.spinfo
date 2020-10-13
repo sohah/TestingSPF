@@ -1,10 +1,13 @@
-PPT_NAME alarmDaikon.Alarm_Result.step
+PPT_NAME alarmDaikon.Alarm_Result_Instance.step
 (System_On) && (In_Therapy) && (Reservoir_Empty)
 (System_On) && (In_Therapy) && (Air_In_Line)
 (System_On) && (In_Therapy) && (Reservoir_Empty) && (Volume_Infused > VTBI_High)
-(System_On) && Occlusion)
-(System_On) && Door_Open)
+(System_On) && (Occlusion)
+(System_On) && (Door_Open)
 (System_On) && (alarm_result.Highest_Level_Alarm>=3) && (Disable_Audio == 0)
 (System_On) && (Disable_Audio > 0)
 (System_On) && (In_Therapy) && (Reservoir_Volume < Low_Reservoir)
 (System_On)
+
+PPT_NAME alarmDaikon.Alarm_Result_Instance:::OBJECT
+(Highest_Level_Alarm>=3)

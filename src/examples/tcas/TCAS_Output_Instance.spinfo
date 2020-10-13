@@ -1,0 +1,10 @@
+PPT_NAME tcas.TCAS_Output_Instance.mainProcess
+((Up_Separation_s < TCAS_Output_Instance.alim_res_s) && (Down_Separation_s < TCAS_Output_Instance.alim_res_s))
+((Up_Separation_s < TCAS_Output_Instance.alim_res_s) && (Down_Separation_s >= TCAS_Output_Instance.alim_res_s))
+((Up_Separation_s >= TCAS_Output_Instance.alim_res_s) && (Down_Separation_s < TCAS_Output_Instance.alim_res_s))
+(Up_Separation_s < TCAS_Output_Instance.alim_res_s)
+(Up_Separation_s >= TCAS_Output_Instance.alim_res_s)
+(Down_Separation_s < TCAS_Output_Instance.alim_res_s)
+(Down_Separation_s >= TCAS_Output_Instance.alim_res_s)
+
+PPT_NAME tcas.TCAS_Output_Instance:::OBJECT

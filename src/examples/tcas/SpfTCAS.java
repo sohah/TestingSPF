@@ -281,14 +281,14 @@ public class SpfTCAS {
     }
 
     public static void launch(int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12,
-                              int p13, int p14, int p15, int p16, int p17, int p18, int p19, int p20, int p21, int p22, int p23, int p24,
-                              int p25, int p26, int p27, int p28, int p29, int p30, int p31, int p32, int p33, int p34, int p35, int p36) {
+                              int p13, int p14, int p15, int p16, int p17, int p18, int p19, int p20, int p21, int p22, int p23, int p24) {
+//                              int p25, int p26, int p27, int p28, int p29, int p30, int p31, int p32, int p33, int p34, int p35, int p36) {
 //            ,
 //                              int p25, int p26, int p27, int p28, int p29, int p30, int p31, int p32, int p33, int p34, int p35, int p36) {
 
-        TCAS_Output.mainProcess(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
-        TCAS_Output.mainProcess(p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24);
-        TCAS_Output.mainProcess(p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36);
+        TCAS_Output_Instance.mainProcess(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        TCAS_Output_Instance.mainProcess(p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24);
+//        TCAS_Output_Instance.mainProcess(p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36);
 //        TCAS_Output.mainProcess(p25, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35);
 
 
@@ -296,7 +296,8 @@ public class SpfTCAS {
 
     public static void main(String[] args) {
 
-        SpfTCAS.launch(601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1, 601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1, 601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1);
+        SpfTCAS.launch(601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1, 601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1);
+//        , 601, 1, 1, -1, 0, 0, 0, 301, 400, 0, 0, 1);
 
     }
 

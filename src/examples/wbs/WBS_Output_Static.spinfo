@@ -1,4 +1,4 @@
-PPT_NAME wbs.WBS_Output.update
+PPT_NAME wbs.WBS_Output_Static.update
 ((pedal_r > 0) && (pedal_r <= 4) && !skid_r)
 (pedal_r > 0)
 (pedal_r <= 4)

@@ -1,4 +1,4 @@
-package infusionDaikon;
+package infusionTargetedDaikon;
 
 // contains JR refinement over "INFUSION_MGR_FunctionalRecovered.java", without making the state symbolic yet.
 
@@ -1297,7 +1297,7 @@ public class INFUSION_MGR_Functional {
 
 
          INFUSION_MGR_Functional_Init(localB, localDW);
-        
+
         if (    (0 <= Infusion_Total_Duration) &&
                 (0 <= VTBI_Total) &&
                 (0 <= Flow_Rate_Basal) &&

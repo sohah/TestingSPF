@@ -1,0 +1,89 @@
+  /**
+         * Perfect test cases for the property p9
+         *     p9 = (System_On and (Highest_Level_Alarm = 4)) => ((Current_System_Mode = 1) or (Current_System_Mode = 6) or (Current_System_Mode = 7));
+         */
+
+assert(!(System_On && Highest_Level_Alarm==4) ||(infusion_result.Current_System_Mode != 1)); same condition cannot be 1
+INFUSION_MGR_FunctionalSymWrapper(true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0)
+
+assert(!(System_On && Highest_Level_Alarm==4) ||(infusion_result.Current_System_Mode != 6)); // under these conditions mode can't be 6
+INFUSION_MGR_FunctionalSymWrapper(true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,true,true,true,false,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,true,true,false,false,true,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,false,0)
+
+
+
+
+
+INFUSION_MGR_FunctionalSymWrapper(
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,   Current_System_Mode ==1     TC1.1
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC1.2
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC1.3
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC1.4
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0)   Current_System_Mode ==1     TC1.5
+
+
+
+INFUSION_MGR_FunctionalSymWrapper(
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,   Current_System_Mode ==1     TC2.1
+false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,  Current_System_Mode ==0      TC2.2
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,   Current_System_Mode ==1     TC2.3
+true,true,true,false,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0,  Current_System_Mode ==1      TC2.4
+true,true,false,false,true,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,false,0)Current_System_Mode ==6        TC2.5
+
+
+
+INFUSION_MGR_FunctionalSymWrapper(
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC3.1
+false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,  Current_System_Mode ==0      TC3.2
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC3.3
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC3.4
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0)   Current_System_Mode ==1     TC3.5
+
+
+INFUSION_MGR_FunctionalSymWrapper(
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC4.1
+false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,  Current_System_Mode ==0     TC4.2
+true,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,   Current_System_Mode ==1     TC4.3
+false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true,0,  Current_System_Mode ==0     TC4.5
+false,true,true,true,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,true,0)  Current_System_Mode ==0     TC4.6
+
+
+System_on  alarm  mode=1   mode=6   modeCondition    TC
+T            T      T        F           T           TC1.1
+T            T      F        T           T           TC2.5
+F            T      T        F           T           TC     cannot happen
+F            T      F        F           F           TC4.6
+
+T            F      T        F           T           TC1.2
+T            F      F        T           T           TC     cannot happen
+
+F            F      T        F           T           TC     cannot happen
+F            F      F        T           T           TC     cannot happen
+
+F            F      F        F           F           TC2.2      F
+
+
+
+
+Current_System_Mode ==1
+Current_System_Mode ==1
+Current_System_Mode ==1
+Current_System_Mode ==1
+Current_System_Mode ==1
+
+Current_System_Mode ==1
+Current_System_Mode ==0
+Current_System_Mode ==1
+Current_System_Mode ==1
+Current_System_Mode ==6
+
+Current_System_Mode ==1
+Current_System_Mode ==0
+Current_System_Mode ==1
+Current_System_Mode ==1
+Current_System_Mode ==1
+
+Current_System_Mode ==1
+Current_System_Mode ==0
+Current_System_Mode ==1
+Current_System_Mode ==0
+Current_System_Mode ==0

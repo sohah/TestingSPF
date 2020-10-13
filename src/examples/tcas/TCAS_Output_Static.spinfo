@@ -1,4 +1,4 @@
-PPT_NAME tcas.TCAS_Output.mainProcess
+PPT_NAME tcas.TCAS_Output_Static.mainProcess
 ((Up_Separation_s < alim_res_s) && (Down_Separation_s < alim_res_s))
 ((Up_Separation_s < alim_res_s) && (Down_Separation_s >= alim_res_s))
 ((Up_Separation_s >= alim_res_s) && (Down_Separation_s < alim_res_s))

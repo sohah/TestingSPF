@@ -232,8 +232,8 @@ public class WBS {
     public static void launch(int pedal1, boolean auto1, boolean skid1, int pedal2, boolean auto2, boolean skid2
             , int pedal3, boolean auto3, boolean skid3
             , int pedal4, boolean auto4, boolean skid4
-            , int pedal5, boolean auto5, boolean skid5
-            , int pedal6, boolean auto6, boolean skid6) {
+            , int pedal5, boolean auto5, boolean skid5){
+//            , int pedal6, boolean auto6, boolean skid6) {
      /*   update(pedal1, auto1, skid1);
         update(pedal2, auto2, skid2);
         update(pedal3, auto3, skid3);
@@ -241,12 +241,12 @@ public class WBS {
         update(pedal5, auto5, skid5);*/
 
         WBS.init();
-        WBS_Output.update(pedal1, auto1, skid1);
-        WBS_Output.update(pedal2, auto2, skid2);
-        WBS_Output.update(pedal3, auto3, skid3);
-        WBS_Output.update(pedal4, auto4, skid4);
-        WBS_Output.update(pedal5, auto5, skid5);
-        WBS_Output.update(pedal6, auto6, skid6);
+        WBS_Output_Instance.update(pedal1, auto1, skid1);
+        WBS_Output_Instance.update(pedal2, auto2, skid2);
+        WBS_Output_Instance.update(pedal3, auto3, skid3);
+        WBS_Output_Instance.update(pedal4, auto4, skid4);
+        WBS_Output_Instance.update(pedal5, auto5, skid5);
+//        WBS_Output_Instance.update(pedal6, auto6, skid6);
 
     }
 
@@ -256,7 +256,7 @@ public class WBS {
                 1, false, false,
                 1, false, false,
                 1, false, false,
-                1, false, false,
+//                1, false, false,
                 1, false, false);
 
         /*WBS_Output.launch(1, false, false,
