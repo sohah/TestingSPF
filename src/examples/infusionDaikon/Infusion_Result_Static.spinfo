@@ -13,12 +13,3 @@ PPT_NAME infusionDaikon.Infusion_Result_Static.step
 (System_On && (Current_System_Mode == 4 ))
 (System_On && (Current_System_Mode == 1))
 (System_On && (Current_System_Mode == 6 || Current_System_Mode == 7 || Current_System_Mode == 8 ))
-
-PPT_NAME infusionDaikon.Infusion_Result_Static:::OBJECT
-(Current_System_Mode == 0)
-(Current_System_Mode == 1)
-(Current_System_Mode == 2)
-(Current_System_Mode == 4)
-(Current_System_Mode == 6)
-(Current_System_Mode == 7)
-(Current_System_Mode == 8)

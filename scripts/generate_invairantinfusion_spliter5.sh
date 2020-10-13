@@ -18,7 +18,7 @@ echo "running instance return ..."
 #java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Chicory --dtrace-file=../traces_infusion/infusionSteps5_noreturn_static.dtrace.gz infusionDaikon.Infusion_Daikon /home/soha/git/jpf-symbc/testCase/testCases_infusion_steps5.txt
 
 echo "finish chicory starting collecting invariants."
-java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=7 ../src/examples/infusionDaikon/Infusion_Result_Instance.spinfo ../traces_infusion/infusionSteps5_return_instance.dtrace.gz --format java > ../daikonInv/infusion_instance_steps5.txt
+java -cp /home/soha/git/jpf-symbc/build/examples:/home/soha/git/jpf-symbc/lib/daikon/daikon.jar daikon.Daikon --config_option daikon.inv.unary.scalar.OneOfScalar.size=7 ../src/examples/infusionDaikon/Infusion_Result_Static.spinfo ../traces_infusion/infusionSteps5_noreturn_static.dtrace.gz --format java > ../daikonInv/infusion_static_steps5.txt
 
 echo "done"
 ## separete command for running the on demand test for the crafted perfect test suite used for infusion property p9
