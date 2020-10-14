@@ -1,4 +1,30 @@
-PPT_NAME infusionTargetedDaikon.Infusion_Result_Instance:::OBJECT
-New_Infusion ==  true
-orig(New_Infusion ==  true)
+PPT_NAME infusionTargetedDaikon.Infusion_Result_Instance.step
+((infusion_result.Current_System_Mode == 0) || (infusion_result.Current_System_Mode == 1) || (infusion_result.Current_System_Mode == 2) || (infusion_result.Current_System_Mode == 3) || (infusion_result.Current_System_Mode == 4) || (infusion_result.Current_System_Mode == 6) || (infusion_result.Current_System_Mode == 7) || (infusion_result.Current_System_Mode ==8))
+!(System_On)
+(System_On)
+(System_On && (Highest_Level_Alarm == 4))
+(System_On && (Highest_Level_Alarm == 3))
+(System_On && (Configured < 1))
+(System_On && (Highest_Level_Alarm == 2))
+(infusion_result.Current_System_Mode == 0)
+(System_On && (Highest_Level_Alarm == 2))
+(System_On && (Highest_Level_Alarm == 4))
+(System_On && (infusion_result.Current_System_Mode == 3 ))
+(System_On && (infusion_result.Current_System_Mode == 4 ))
+(System_On && (infusion_result.Current_System_Mode == 1))
+(System_On && (infusion_result.Current_System_Mode == 6 || infusion_result.Current_System_Mode == 7 || infusion_result.Current_System_Mode == 8 ))
+(Highest_Level_Alarm == 0)
+(Highest_Level_Alarm == 1)
+(Highest_Level_Alarm == 2)
+(Highest_Level_Alarm == 3)
+(Highest_Level_Alarm == 4)
 
+PPT_NAME infusionTargetedDaikon.Infusion_Result_Instance:::OBJECT
+(Current_System_Mode == 0)
+(Current_System_Mode == 1)
+(Current_System_Mode == 2)
+(Current_System_Mode == 3)
+(Current_System_Mode == 4)
+(Current_System_Mode == 6)
+(Current_System_Mode == 7)
+(Current_System_Mode == 8)

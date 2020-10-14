@@ -42,7 +42,12 @@ public class Infusion_Result_Instance {
         infusion_result.New_Infusion = rty_IM_OUT.New_Infusion;
         infusion_result.Log_Message_ID = rty_IM_OUT.Log_Message_ID;
         infusion_result.Actual_Infusion_Duration = rty_IM_OUT.Actual_Infusion_Duration;
-      
+
+//        System.out.println("Current_System_Mode = " + infusion_result.Current_System_Mode);
+
+//        assert(infusion_result.Current_System_Mode != 8);
+
+
         return infusion_result;
     }
 }
